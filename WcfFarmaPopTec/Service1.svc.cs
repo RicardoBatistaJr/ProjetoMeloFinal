@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using Biblioteca.classesBasicas;
+using Biblioteca.dados;
 using Biblioteca.negocio;
 
 namespace WcfFarmaPopTec

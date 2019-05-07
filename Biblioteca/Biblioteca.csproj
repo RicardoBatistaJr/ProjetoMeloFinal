@@ -54,14 +54,8 @@
     <Compile Include="dados\IFuncionarioDados.cs" />
     <Compile Include="negocio\ClienteNegocio.cs" />
     <Compile Include="negocio\FuncionarioNegocio.cs" />
-    <Compile Include="produto\DadosProduto.cs" />
-    <Compile Include="produto\InterfaceProduto.cs" />
-    <Compile Include="produto\NegocioProduto.cs" />
-    <Compile Include="produto\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="telas\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

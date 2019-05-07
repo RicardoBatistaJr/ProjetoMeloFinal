@@ -15,5 +15,7 @@ namespace Biblioteca.classesBasicas
 
         public int NumCompra { get => numCompra; set => numCompra = value; }
         public DateTime DataCompra { get => dataCompra; set => dataCompra = value; }
+        public Funcionario Funcionario { get => funcionario; set => funcionario = value; }
+        public Fornecedor Fornecedor { get => fornecedor; set => fornecedor = value; }
     }
 }
