@@ -81,7 +81,7 @@ namespace WcfFarmaPopTec
 
         public bool ValidarCpfFuncionario(string cpf)
         {
-            throw new NotImplementedException();
+            return new DadosFuncionario().ValidarCpfFuncionario(cpf);
         }
 
         public bool VerificarDuplicidadeCliente(Cliente cliente)
