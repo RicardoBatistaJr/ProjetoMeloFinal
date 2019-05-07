@@ -76,7 +76,7 @@ namespace WcfFarmaPopTec
 
         public bool ValidaCpfCliente(string cpf)
         {
-            throw new NotImplementedException();
+            return new DadosCliente().ValidaCpfCliente(cpf);
         }
 
         public bool ValidarCpfFuncionario(string cpf)
