@@ -8,14 +8,14 @@ using Biblioteca.dados;
 
 namespace Biblioteca.negocio
 {
-    class FuncionarioNegocio : IFuncionarioDados
+    public class FuncionarioNegocio : IFuncionarioDados
     {
-        void IFuncionarioDados.AlterarFuncionario(Funcionario funcionario)
+        public void AlterarFuncionario(Funcionario funcionario)
         {
             new DadosFuncionario().AlterarFuncionario(funcionario);
         }
 
-        void IFuncionarioDados.CadastrarFuncionario(Funcionario funcionario)
+        public void CadastrarFuncionario(Funcionario funcionario)
         {
             if (funcionario == null)
             {
@@ -51,7 +51,7 @@ namespace Biblioteca.negocio
             new DadosFuncionario().CadastrarFuncionario(funcionario);
         }    
 
-        List<Funcionario> IFuncionarioDados.ConsultarFuncionario(Funcionario filtro)
+        public List<Funcionario> ConsultarFuncionario(Funcionario filtro)
         {
             if (filtro.CodFuncionario == null & string.IsNullOrEmpty(filtro.CpfFuncionario) & string.IsNullOrEmpty(filtro.NomeFuncionario) == true)
             {
@@ -63,7 +63,7 @@ namespace Biblioteca.negocio
             }
         }
 
-        void IFuncionarioDados.DeletarFuncionario(Funcionario funcionario)
+        public void DeletarFuncionario(Funcionario funcionario)
         {
             if (new DadosFuncionario().ExisteFuncionario(funcionario))
             {
@@ -75,17 +75,17 @@ namespace Biblioteca.negocio
             }
         }
 
-        bool IFuncionarioDados.ExisteFuncionario(Funcionario funcionario)
+        public bool ExisteFuncionario(Funcionario funcionario)
         {
             return new DadosFuncionario().ExisteFuncionario(funcionario);
 
         }
-        List<Funcionario> IFuncionarioDados.ListarFuncionarios()
+        public List<Funcionario> ListarFuncionarios()
         {
             return new DadosFuncionario().ListarFuncionarios();
         }
 
-        bool IFuncionarioDados.ValidarCpfFuncionario(string cpf)
+        public bool ValidarCpfFuncionario(string cpf)
         {
             return new DadosFuncionario().ValidarCpfFuncionario(cpf);
         }

@@ -17,77 +17,77 @@ namespace WcfFarmaPopTec
     {
         public void AlterarCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            new ClienteNegocio().AlterarCliente(cliente);
         }
 
         public void AlterarFuncionario(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            new FuncionarioNegocio().AlterarFuncionario(funcionario) ;
         }
 
         public void CadastrarCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            new ClienteNegocio().CadastrarCliente(cliente);
         }
 
         public void CadastrarFuncionario(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            new FuncionarioNegocio().CadastrarFuncionario(funcionario);
         }
 
         public List<Cliente> ConsultarCliente(Cliente filtro)
         {
-            throw new NotImplementedException();
+            return new ClienteNegocio().ConsultarCliente(filtro);
         }
 
         public List<Funcionario> ConsultarFuncionario(Funcionario filtro)
         {
-            throw new NotImplementedException();
+            return new FuncionarioNegocio().ConsultarFuncionario(filtro);
+            
         }
-
         public void DeletarCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            new ClienteNegocio().DeletarCliente(cliente);
         }
 
         public void DeletarFuncionario(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            new FuncionarioNegocio().DeletarFuncionario(funcionario);
         }
 
         public bool ExisteFuncionario(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            return new FuncionarioNegocio().ExisteFuncionario(funcionario);
         }
 
         public List<Cliente> ListarClientes()
         {
-            throw new NotImplementedException();
+            return new ClienteNegocio().ListarClientes();
         }
 
         public List<Funcionario> ListarFuncionarios()
         {
-            throw new NotImplementedException();
+            return new FuncionarioNegocio().ListarFuncionarios();
         }
 
         public List<Venda> ListarVendaCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            return new ClienteNegocio().ListarVendaCliente(cliente);
         }
 
         public bool ValidaCpfCliente(string cpf)
         {
-            return new DadosCliente().ValidaCpfCliente(cpf);
+           return new ClienteNegocio().ValidaCpfCliente(cpf);
         }
 
         public bool ValidarCpfFuncionario(string cpf)
         {
-            return new DadosFuncionario().ValidarCpfFuncionario(cpf);
+            return new FuncionarioNegocio().ValidarCpfFuncionario(cpf);
         }
 
         public bool VerificarDuplicidadeCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            return new ClienteNegocio().VerificarDuplicidadeCliente(cliente);
         }
     }
 }

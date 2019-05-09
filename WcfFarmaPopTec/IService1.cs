@@ -13,7 +13,7 @@ namespace WcfFarmaPopTec
     [ServiceContract]
     public interface IService1
     {
-
+        // Cliente
         [OperationContract]
         void CadastrarCliente(Cliente cliente);
         [OperationContract]
@@ -30,6 +30,8 @@ namespace WcfFarmaPopTec
         bool VerificarDuplicidadeCliente(Cliente cliente);
         [OperationContract]
         bool ValidaCpfCliente(string cpf);
+
+        // Funcionario
         [OperationContract]
         void CadastrarFuncionario(Funcionario funcionario);
         [OperationContract]

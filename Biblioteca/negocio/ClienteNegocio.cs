@@ -12,22 +12,22 @@ namespace Biblioteca.negocio
     public class ClienteNegocio : IClienteDados
     {
         // Retorna se o 
-        bool IClienteDados.ValidaCpfCliente(string cpf)
+        public bool ValidaCpfCliente(string cpf)
         {   
             return new DadosCliente().ValidaCpfCliente(cpf);
         }
 
-        bool IClienteDados.VerificarDuplicidadeCliente(Cliente cliente)
+        public bool VerificarDuplicidadeCliente(Cliente cliente)
         {
             return new DadosCliente().VerificarDuplicidadeCliente(cliente);
         }
 
-        void IClienteDados.AlterarCliente(Cliente cliente)
+        public void AlterarCliente(Cliente cliente)
         {
             new DadosCliente().AlterarCliente(cliente);
         }
 
-        void IClienteDados.CadastrarCliente(Cliente cliente)
+        public void CadastrarCliente(Cliente cliente)
         {
             if (cliente == null)
             {
@@ -63,7 +63,7 @@ namespace Biblioteca.negocio
             new DadosCliente().CadastrarCliente(cliente);
         }
 
-        List<Cliente> IClienteDados.ConsultarCliente(Cliente filtro)
+        public List<Cliente> ConsultarCliente(Cliente filtro)
         {
             if (string.IsNullOrEmpty(filtro.CpfCliente) || string.IsNullOrEmpty(filtro.NomeCliente) == true)
             {
@@ -75,11 +75,12 @@ namespace Biblioteca.negocio
             }
         }
 
-        void IClienteDados.DeletarCliente(Cliente cliente)
+        public void DeletarCliente(Cliente cliente)
         {
-            if (new DadosCliente().VerificarDuplicidadeCliente(cliente))
+            DadosCliente dadoscliente = new DadosCliente();
+            if (dadoscliente.VerificarDuplicidadeCliente(cliente))
             {
-                new DadosCliente().DeletarCliente(cliente);
+                dadoscliente.DeletarCliente(cliente);
             }
             else
             {
@@ -87,12 +88,12 @@ namespace Biblioteca.negocio
             }
             
         }
-        List<Cliente> IClienteDados.ListarClientes()
+        public List<Cliente> ListarClientes()
         {
             return new DadosCliente().ListarClientes();
         }
 
-        List<Venda> IClienteDados.ListarVendaCliente(Cliente cliente)
+        public List<Venda> ListarVendaCliente(Cliente cliente)
         {
             return new DadosCliente().ListarVendaCliente(cliente);
         }
