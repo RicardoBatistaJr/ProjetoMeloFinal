@@ -43,7 +43,7 @@ namespace Biblioteca.negocio
                 {
                     throw new Exception("CPF invalido!");
                 }
-                if(!new DadosCliente().VerificarDuplicidadeCliente(cliente))
+                if(new DadosCliente().VerificarDuplicidadeCliente(cliente))
                 {
                     throw new Exception("CPF já cadastrado!");
                 }

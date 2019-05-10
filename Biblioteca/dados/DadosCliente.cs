@@ -18,8 +18,8 @@ namespace Biblioteca.dados
            try
             {
                 this.AbrirConexao();
-                string sql = "insert into Cliente (cpfCliente,nomeClienete,emailClienete,telCliente) ";
-                sql += "values(@cpfClienete,@nomeCliente,@emailCliente,@telCliente)";
+                string sql = "insert into Cliente (cpfCliente,nomeCliente,emailCliente,telCliente) ";
+                sql += "values(@cpfCliente,@nomeCliente,@emailCliente,@telCliente)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -34,6 +34,8 @@ namespace Biblioteca.dados
 
                 cmd.Parameters.Add("@telCliente", SqlDbType.Int);
                 cmd.Parameters["@telCliente"].Value = cliente.TelCliente;
+
+                string oi = sql;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -122,7 +124,7 @@ namespace Biblioteca.dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT cpfCliente,nomeClienete,emailClienete,telCliente ";
+                string sql = "SELECT cpfCliente,nomeCliente,emailCliente,telCliente ";
                 sql += " FROM cliente ";
                 sql += " WHERE cpfCliente = cpfCliente ";
                 //se for passado um cpf válido, este cpf entrará como critério de filtro

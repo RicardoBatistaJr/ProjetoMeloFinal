@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TelaFarmaPopTec
 {
-    public partial class Form1 : Form
+    public partial class CadastroFuncionario : Form
     {
-        public Form1()
+        public CadastroFuncionario()
         {
             InitializeComponent();
         }
