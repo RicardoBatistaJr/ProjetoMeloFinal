@@ -65,7 +65,7 @@ namespace Biblioteca.negocio
 
         public List<Cliente> ConsultarCliente(Cliente filtro)
         {
-            if (string.IsNullOrEmpty(filtro.CpfCliente) || string.IsNullOrEmpty(filtro.NomeCliente) == true)
+            if (string.IsNullOrEmpty(filtro.CpfCliente) & string.IsNullOrEmpty(filtro.NomeCliente) == true)
             {
                 throw new Exception("Digite um CPF ou Nome para consulta.");
             }

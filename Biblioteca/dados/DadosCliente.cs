@@ -135,7 +135,7 @@ namespace Biblioteca.dados
                 //se foi passada um nome válido, este nome entrará como critério de filtro
                 if (filtro.NomeCliente != null && filtro.NomeCliente.Trim().Equals("") == false)
                 {
-                    sql += " and nome like @nomeCliente";
+                    sql += " and nomeCliente like @nomeCliente";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -143,7 +143,7 @@ namespace Biblioteca.dados
                 if (filtro.CpfCliente != null)
                 {
                     cmd.Parameters.Add("@cpfCliente", SqlDbType.VarChar);
-                    cmd.Parameters["@cpfCliente"].Value = "%" + filtro.CpfCliente + "%";
+                    cmd.Parameters["@cpfCliente"].Value = filtro.CpfCliente;
                 }
                 //se foi passada um nome válido, este nome entrará como critério de filtro
                 if (filtro.NomeCliente != null && filtro.NomeCliente.Trim().Equals("") == false)

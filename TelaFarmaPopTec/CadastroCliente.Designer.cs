@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.buttonSalvar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonExcluir = new System.Windows.Forms.Button();
+            this.buttonlimpar = new System.Windows.Forms.Button();
+            this.buttonPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,32 +52,35 @@
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // button2
+            // buttonExcluir
             // 
-            this.button2.Location = new System.Drawing.Point(133, 33);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Location = new System.Drawing.Point(133, 33);
+            this.buttonExcluir.Name = "buttonExcluir";
+            this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluir.TabIndex = 1;
+            this.buttonExcluir.Text = "Excluir";
+            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
-            // button3
+            // buttonlimpar
             // 
-            this.button3.Location = new System.Drawing.Point(227, 32);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonlimpar.Location = new System.Drawing.Point(227, 32);
+            this.buttonlimpar.Name = "buttonlimpar";
+            this.buttonlimpar.Size = new System.Drawing.Size(75, 23);
+            this.buttonlimpar.TabIndex = 2;
+            this.buttonlimpar.Text = "Limpar";
+            this.buttonlimpar.UseVisualStyleBackColor = true;
+            this.buttonlimpar.Click += new System.EventHandler(this.buttonlimpar_Click);
             // 
-            // button4
+            // buttonPesquisar
             // 
-            this.button4.Location = new System.Drawing.Point(330, 31);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Location = new System.Drawing.Point(321, 32);
+            this.buttonPesquisar.Name = "buttonPesquisar";
+            this.buttonPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.buttonPesquisar.TabIndex = 3;
+            this.buttonPesquisar.Text = "Pesquisar";
+            this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
             // label1
             // 
@@ -157,9 +160,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonPesquisar);
+            this.Controls.Add(this.buttonlimpar);
+            this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonSalvar);
             this.Name = "CadastroCliente";
             this.Text = "CadastroCliente";
@@ -171,9 +174,9 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSalvar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonExcluir;
+        private System.Windows.Forms.Button buttonlimpar;
+        private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
