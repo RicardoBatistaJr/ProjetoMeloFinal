@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.classesBasicas
 {
-   public class Compra
+    public class Compra
     {
         private int numCompra;
         private DateTime dataCompra;
