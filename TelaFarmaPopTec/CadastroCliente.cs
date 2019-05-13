@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WcfFarmaPopTec;
 using Biblioteca.classesBasicas;
+using System.Data.SqlClient;
 
 namespace TelaFarmaPopTec
 {
@@ -100,6 +101,32 @@ namespace TelaFarmaPopTec
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            listViewCliente.View = View.Details;
+            listViewCliente.GridLines = true;
+            listViewCliente.Columns.Add("CPF:", 200, HorizontalAlignment.Left);
+            listViewCliente.Columns.Add("Nome:", 70, HorizontalAlignment.Left);
+            listViewCliente.Columns.Add("E-mail:", 100, HorizontalAlignment.Left);
+            listViewCliente.Columns.Add("Telefone:", 70, HorizontalAlignment.Left);
+
+
+        }
+
+        private void buttonClientes_Click(object sender, EventArgs e)
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            clientes = sv.ListarClientes();
+            foreach (var item in clientes)
+            {
+                textBoxCpf.Text = item.CpfCliente;
+                textBoxNome.Text = item.NomeCliente;
+                textBoxEmail.Text = item.EmailCliente;
+                textBoxTel.Text = Convert.ToString(item.TelCliente);
             }
         }
     }
