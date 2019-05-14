@@ -21,8 +21,14 @@ namespace TelaFarmaPopTec
         public CadastroCliente()
         {
             InitializeComponent();
+            listViewCliente.Items.Clear();
+            listViewCliente.View = View.Details;
+            listViewCliente.GridLines = true;
+            listViewCliente.Columns.Add("CPF:", 100, HorizontalAlignment.Left);
+            listViewCliente.Columns.Add("Nome:", 200, HorizontalAlignment.Left);
+            listViewCliente.Columns.Add("E-mail:", 200, HorizontalAlignment.Left);
+            listViewCliente.Columns.Add("Telefone:", 100, HorizontalAlignment.Left);
         }
-
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             try
@@ -51,14 +57,13 @@ namespace TelaFarmaPopTec
                 textBoxNome.Text = "";
                 textBoxEmail.Text = "";
                 textBoxTel.Text = "";
-                MessageBox.Show("cliente excluido com sucesso!");  
+                MessageBox.Show("cliente excluido com sucesso!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void buttonlimpar_Click(object sender, EventArgs e)
         {
             try
@@ -73,13 +78,12 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             try
-            {             
+            {
                 List<Cliente> lista = new List<Cliente>();
-                if(textBoxCpf.Text != null || textBoxNome.Text != null)
+                if (textBoxCpf.Text != null || textBoxNome.Text != null)
                 {
                     cliente.CpfCliente = textBoxCpf.Text;
                     cliente.NomeCliente = textBoxNome.Text;
@@ -90,7 +94,7 @@ namespace TelaFarmaPopTec
                         textBoxCpf.Text = item.CpfCliente;
                         textBoxNome.Text = item.NomeCliente;
                         textBoxEmail.Text = item.EmailCliente;
-                        textBoxTel.Text = Convert.ToString( item.TelCliente);
+                        textBoxTel.Text = Convert.ToString(item.TelCliente);
                     }
                 }
                 else
@@ -103,31 +107,34 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            listViewCliente.View = View.Details;
-            listViewCliente.GridLines = true;
-            listViewCliente.Columns.Add("CPF:", 200, HorizontalAlignment.Left);
-            listViewCliente.Columns.Add("Nome:", 70, HorizontalAlignment.Left);
-            listViewCliente.Columns.Add("E-mail:", 100, HorizontalAlignment.Left);
-            listViewCliente.Columns.Add("Telefone:", 70, HorizontalAlignment.Left);
-
-
-        }
-
         private void buttonClientes_Click(object sender, EventArgs e)
         {
             List<Cliente> clientes = new List<Cliente>();
             clientes = sv.ListarClientes();
             foreach (var item in clientes)
             {
-                textBoxCpf.Text = item.CpfCliente;
+               // listViewCliente.Items[0].Add(cliente.CpfCliente);
                 textBoxNome.Text = item.NomeCliente;
                 textBoxEmail.Text = item.EmailCliente;
                 textBoxTel.Text = Convert.ToString(item.TelCliente);
             }
+            //for (int i = 0; i < listViewCliente.Rows.Count; i++)
+            //{
+            //DataRow drow = dtable.Rows[i];
+
+            //Somente as linhas que não foram deletadas
+            //if (drow.RowState != DataRowState.Deleted)
+            //{
+            // Define os itens da lista
+            // ListViewItem lvi = new ListViewItem(drow["ProductName"].ToString());
+            // lvi.SubItems.Add(drow["ProductID"].ToString());
+            // lvi.SubItems.Add(drow["UnitPrice"].ToString());
+
+            // Inclui os itens no ListView
+            // listViewCliente.Items.Add(lvi);
+
+            //}
+            //}
         }
     }
 }

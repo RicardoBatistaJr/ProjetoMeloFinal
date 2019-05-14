@@ -41,7 +41,7 @@
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxTel = new System.Windows.Forms.TextBox();
             this.listViewCliente = new System.Windows.Forms.ListView();
-            this.buttonClientes = new System.Windows.Forms.Button();
+            this.btnListarClientes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSalvar
@@ -153,27 +153,27 @@
             // 
             this.listViewCliente.Location = new System.Drawing.Point(42, 269);
             this.listViewCliente.Name = "listViewCliente";
-            this.listViewCliente.Size = new System.Drawing.Size(512, 97);
+            this.listViewCliente.Size = new System.Drawing.Size(732, 97);
             this.listViewCliente.TabIndex = 12;
             this.listViewCliente.UseCompatibleStateImageBehavior = false;
-            this.listViewCliente.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listViewCliente.View = System.Windows.Forms.View.List;
             // 
-            // buttonClientes
+            // btnListarClientes
             // 
-            this.buttonClientes.Location = new System.Drawing.Point(45, 236);
-            this.buttonClientes.Name = "buttonClientes";
-            this.buttonClientes.Size = new System.Drawing.Size(152, 23);
-            this.buttonClientes.TabIndex = 13;
-            this.buttonClientes.Text = "Listar todos os Clientes";
-            this.buttonClientes.UseVisualStyleBackColor = true;
-            this.buttonClientes.Click += new System.EventHandler(this.buttonClientes_Click);
+            this.btnListarClientes.Location = new System.Drawing.Point(45, 236);
+            this.btnListarClientes.Name = "btnListarClientes";
+            this.btnListarClientes.Size = new System.Drawing.Size(152, 23);
+            this.btnListarClientes.TabIndex = 13;
+            this.btnListarClientes.Text = "Listar todos os Clientes";
+            this.btnListarClientes.UseVisualStyleBackColor = true;
+            this.btnListarClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // CadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonClientes);
+            this.Controls.Add(this.btnListarClientes);
             this.Controls.Add(this.listViewCliente);
             this.Controls.Add(this.textBoxTel);
             this.Controls.Add(this.textBoxEmail);
@@ -209,6 +209,6 @@
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxTel;
         private System.Windows.Forms.ListView listViewCliente;
-        private System.Windows.Forms.Button buttonClientes;
+        private System.Windows.Forms.Button btnListarClientes;
     }
 }
