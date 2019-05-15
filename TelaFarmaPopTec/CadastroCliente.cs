@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WcfFarmaPopTec;
-using Biblioteca.classesBasicas;
-using System.Data.SqlClient;
+using TelaFarmaPopTec.localhost;
 
 namespace TelaFarmaPopTec
 {
@@ -18,16 +16,10 @@ namespace TelaFarmaPopTec
     {
         Service1 sv = new Service1();
         Cliente cliente = new Cliente();
+        List<Cliente> clientes = new List<Cliente>();
         public CadastroCliente()
         {
             InitializeComponent();
-            listViewCliente.Items.Clear();
-            listViewCliente.View = View.Details;
-            listViewCliente.GridLines = true;
-            listViewCliente.Columns.Add("CPF:", 100, HorizontalAlignment.Left);
-            listViewCliente.Columns.Add("Nome:", 200, HorizontalAlignment.Left);
-            listViewCliente.Columns.Add("E-mail:", 200, HorizontalAlignment.Left);
-            listViewCliente.Columns.Add("Telefone:", 100, HorizontalAlignment.Left);
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
@@ -72,6 +64,7 @@ namespace TelaFarmaPopTec
                 textBoxNome.Text = "";
                 textBoxEmail.Text = "";
                 textBoxTel.Text = "";
+                listViewCliente.Items.Clear();
             }
             catch (Exception ex)
             {
@@ -82,20 +75,29 @@ namespace TelaFarmaPopTec
         {
             try
             {
-                List<Cliente> lista = new List<Cliente>();
+                
                 if (textBoxCpf.Text != null || textBoxNome.Text != null)
                 {
                     cliente.CpfCliente = textBoxCpf.Text;
                     cliente.NomeCliente = textBoxNome.Text;
-                    //sv.ConsultarCliente(cliente);
-                    lista = sv.ConsultarCliente(cliente);
-                    foreach (var item in lista)
+
+                    this.clientes.Clear();
+                    this.clientes = sv.ConsultarCliente(cliente).ToList();
+
+                    listViewCliente.Items.Clear();
+
+                    foreach (var item in clientes)
                     {
-                        textBoxCpf.Text = item.CpfCliente;
-                        textBoxNome.Text = item.NomeCliente;
-                        textBoxEmail.Text = item.EmailCliente;
-                        textBoxTel.Text = Convert.ToString(item.TelCliente);
+                        ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
+                        lvi.SubItems.Add(item.NomeCliente);
+                        lvi.SubItems.Add(item.EmailCliente);
+                        lvi.SubItems.Add(item.TelCliente.ToString());
                     }
+                    textBoxCpf.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxEmail.Text = "";
+                    textBoxTel.Text = "";
+
                 }
                 else
                 {
@@ -109,32 +111,66 @@ namespace TelaFarmaPopTec
         }
         private void buttonClientes_Click(object sender, EventArgs e)
         {
-            List<Cliente> clientes = new List<Cliente>();
-            clientes = sv.ListarClientes();
-            foreach (var item in clientes)
+            try
             {
-               // listViewCliente.Items[0].Add(cliente.CpfCliente);
-                textBoxNome.Text = item.NomeCliente;
-                textBoxEmail.Text = item.EmailCliente;
-                textBoxTel.Text = Convert.ToString(item.TelCliente);
+                this.clientes.Clear();
+                this.clientes = sv.ListarClientes().ToList();
+
+                listViewCliente.Items.Clear();
+
+                foreach (var item in this.clientes)
+                {
+                    ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
+                    lvi.SubItems.Add(item.NomeCliente);
+                    lvi.SubItems.Add(item.EmailCliente);
+                    lvi.SubItems.Add(item.TelCliente.ToString());
+
+                }
             }
-            //for (int i = 0; i < listViewCliente.Rows.Count; i++)
-            //{
-            //DataRow drow = dtable.Rows[i];
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-            //Somente as linhas que não foram deletadas
-            //if (drow.RowState != DataRowState.Deleted)
-            //{
-            // Define os itens da lista
-            // ListViewItem lvi = new ListViewItem(drow["ProductName"].ToString());
-            // lvi.SubItems.Add(drow["ProductID"].ToString());
-            // lvi.SubItems.Add(drow["UnitPrice"].ToString());
+        private void listViewCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
 
-            // Inclui os itens no ListView
-            // listViewCliente.Items.Add(lvi);
+                if (listViewCliente.FocusedItem != null)
+                {
+                    int index = listViewCliente.FocusedItem.Index;
+                    Cliente cli = this.clientes.ElementAt(index);
+                    textBoxCpf.Text = cli.CpfCliente;
+                    textBoxNome.Text = cli.NomeCliente;
+                    textBoxEmail.Text = cli.EmailCliente;
+                    textBoxTel.Text = cli.TelCliente.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-            //}
-            //}
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cliente.CpfCliente = textBoxCpf.Text;
+                cliente.NomeCliente = textBoxNome.Text;
+                cliente.EmailCliente = textBoxEmail.Text;
+                cliente.TelCliente.ToString() = textBoxTel.Text;
+                sv.AlterarCliente(cliente);
+                MessageBox.Show("cliente alterado com sucesso!");
+                listViewCliente.Items.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
     }
 }

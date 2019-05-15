@@ -57,11 +57,8 @@ namespace Biblioteca.dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = " update cliente set ";
-                sql += " nomeCliente = @nomeCliente ";
-                sql += " emailCliente = @emailCliente ";
-                sql += " telCliente = @telCliente ";
-                sql += " where cpfCliente = @CpfCliente";
+                string sql = " update cliente set cpfCliente = @cpfCliente, nomeCliente = @nomeCliente,telCliente = @telCliente where cpfCliente = @cpfCliente";
+
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
