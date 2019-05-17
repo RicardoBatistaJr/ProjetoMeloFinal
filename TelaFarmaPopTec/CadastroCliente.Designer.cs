@@ -247,18 +247,22 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "CPF";
+            this.columnHeader5.Width = 166;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Nº da Venda";
+            this.columnHeader7.Width = 77;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Data da Venda";
+            this.columnHeader8.Width = 181;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Nome do Produto";
+            this.columnHeader9.Width = 299;
             // 
             // columnHeader10
             // 
@@ -274,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 524);
+            this.ClientSize = new System.Drawing.Size(1003, 524);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonListarCompras);
             this.Controls.Add(this.buttonAlterar);
