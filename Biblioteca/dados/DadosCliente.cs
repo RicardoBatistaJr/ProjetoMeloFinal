@@ -32,7 +32,7 @@ namespace Biblioteca.dados
                 cmd.Parameters.Add("@emailCliente", SqlDbType.VarChar);
                 cmd.Parameters["@emailCliente"].Value = cliente.EmailCliente;
 
-                cmd.Parameters.Add("@telCliente", SqlDbType.Int);
+                cmd.Parameters.Add("@telCliente", SqlDbType.VarChar);
                 cmd.Parameters["@telCliente"].Value = cliente.TelCliente;
 
                 string oi = sql;
@@ -57,7 +57,7 @@ namespace Biblioteca.dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = " update cliente set cpfCliente = @cpfCliente, nomeCliente = @nomeCliente,telCliente = @telCliente where cpfCliente = @cpfCliente";
+                string sql = " update cliente set cpfCliente = @cpfCliente, nomeCliente = @nomeCliente,emailCliente = @emailCliente, telCliente = @telCliente where cpfCliente = @cpfCliente";
 
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
@@ -71,7 +71,7 @@ namespace Biblioteca.dados
                 cmd.Parameters.Add("@emailCliente", SqlDbType.VarChar);
                 cmd.Parameters["@emailCliente"].Value = cliente.EmailCliente;
 
-                cmd.Parameters.Add("@telCliente", SqlDbType.Int);
+                cmd.Parameters.Add("@telCliente", SqlDbType.VarChar);
                 cmd.Parameters["@telCliente"].Value = cliente.TelCliente;
 
                 //executando a instrucao 
@@ -159,7 +159,7 @@ namespace Biblioteca.dados
                     cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
                     cliente.NomeCliente = DbReader.GetString(DbReader.GetOrdinal("nomeCliente"));
                     cliente.EmailCliente = DbReader.GetString(DbReader.GetOrdinal("emailCliente"));
-                    cliente.TelCliente = DbReader.GetInt32(DbReader.GetOrdinal("telCliente"));
+                    cliente.TelCliente = DbReader.GetString(DbReader.GetOrdinal("telCliente"));
                     retorno.Add(cliente);
                 }
                 //fechando o leitor de resultados
@@ -196,7 +196,7 @@ namespace Biblioteca.dados
                     cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
                     cliente.NomeCliente = DbReader.GetString(DbReader.GetOrdinal("nomeCliente"));
                     cliente.EmailCliente = DbReader.GetString(DbReader.GetOrdinal("emailCliente"));
-                    cliente.TelCliente = DbReader.GetInt32(DbReader.GetOrdinal("telCliente"));
+                    cliente.TelCliente = DbReader.GetString(DbReader.GetOrdinal("telCliente"));
                     clientes.Add(cliente);                  
                 }
                 //fechando o leitor de resultados
@@ -213,15 +213,18 @@ namespace Biblioteca.dados
             }
         }
         //Método listar vendas de um determinado cliente
-        public List<Venda> ListarVendaCliente (Cliente cliente)
+        public List<VendaProduto> ListarVendaCliente (Cliente cliente)
         {
-            List<Venda> vendas = new List<Venda>();
+            List<VendaProduto> vendas = new List<VendaProduto>();
             try
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT * from vendas ";
-                sql += "WHERE cpfCliente = @cpfCliente";
+                string sql = "select cliente.cpfCliente, venda_produto.numVenda, venda.dataVenda, produto.nomeProduto, venda_produto.qtd, venda_produto.preco";
+                sql += "from cliente";
+                sql += "inner join venda on cliente.cpfCliente = venda.cpfCliente";
+                sql += "inner join venda_produto on venda.numVenda = venda_produto.numVenda";
+                sql += "inner join produto on venda_produto.codProduto = produto.codProduto";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.AddWithValue("@cpfCliente", cliente.CpfCliente);
                 //executando a instrucao e colocando o resultado em um leitor
@@ -229,13 +232,15 @@ namespace Biblioteca.dados
                 //lendo o resultado da consulta
                 while (DbReader.Read())
                 {
-                    Venda venda = new Venda();
+                    VendaProduto vendaP = new VendaProduto();
                     //acessando os valores das colunas do resultado
-                    venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
-                    venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
-                    venda.Cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
-                    venda.Funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
-                    vendas.Add(venda);
+                    vendaP.Venda.Cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
+                    vendaP.Venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
+                    vendaP.Venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
+                    vendaP.Produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
+                    vendaP.Qtd = DbReader.GetInt32(DbReader.GetOrdinal("qtd"));
+                    vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                    vendas.Add(vendaP);
                 }
                 //fechando o leitor de resultados
                 DbReader.Close();
@@ -244,12 +249,10 @@ namespace Biblioteca.dados
                 //fechando a conexao
                 this.FecharConexao();
                 return vendas;
-
-
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao listar as vendas: " + ex.Message);
             }
         }
         //Método verificar se cliente ja existe no banco

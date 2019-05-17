@@ -28,7 +28,7 @@ namespace TelaFarmaPopTec
                 cliente.CpfCliente = textBoxCpf.Text;
                 cliente.NomeCliente = textBoxNome.Text;
                 cliente.EmailCliente = textBoxEmail.Text;
-                cliente.TelCliente = Int32.Parse(textBoxTel.Text);
+                cliente.TelCliente = textBoxTel.Text;
                 sv.CadastrarCliente(cliente);
                 MessageBox.Show("Cliente cadastrado!");
             }
@@ -91,7 +91,7 @@ namespace TelaFarmaPopTec
                         ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
                         lvi.SubItems.Add(item.NomeCliente);
                         lvi.SubItems.Add(item.EmailCliente);
-                        lvi.SubItems.Add(item.TelCliente.ToString());
+                        lvi.SubItems.Add(item.TelCliente);
                     }
                     textBoxCpf.Text = "";
                     textBoxNome.Text = "";
@@ -123,7 +123,7 @@ namespace TelaFarmaPopTec
                     ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
                     lvi.SubItems.Add(item.NomeCliente);
                     lvi.SubItems.Add(item.EmailCliente);
-                    lvi.SubItems.Add(item.TelCliente.ToString());
+                    lvi.SubItems.Add(item.TelCliente);
 
                 }
             }
@@ -145,7 +145,7 @@ namespace TelaFarmaPopTec
                     textBoxCpf.Text = cli.CpfCliente;
                     textBoxNome.Text = cli.NomeCliente;
                     textBoxEmail.Text = cli.EmailCliente;
-                    textBoxTel.Text = cli.TelCliente.ToString();
+                    textBoxTel.Text = cli.TelCliente;
                 }
             }
             catch (Exception ex)
@@ -161,7 +161,7 @@ namespace TelaFarmaPopTec
                 cliente.CpfCliente = textBoxCpf.Text;
                 cliente.NomeCliente = textBoxNome.Text;
                 cliente.EmailCliente = textBoxEmail.Text;
-                cliente.TelCliente.ToString() = textBoxTel.Text;
+                cliente.TelCliente = textBoxTel.Text;
                 sv.AlterarCliente(cliente);
                 MessageBox.Show("cliente alterado com sucesso!");
                 listViewCliente.Items.Clear();

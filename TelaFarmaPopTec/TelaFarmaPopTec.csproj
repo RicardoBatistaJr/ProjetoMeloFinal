@@ -116,12 +116,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WcfFarmaPopTec\WcfFarmaPopTec.csproj">
-      <Project>{38465C70-D778-4027-BCE0-EF656C065F9B}</Project>
-      <Name>WcfFarmaPopTec</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\localhost\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WcfFarmaPopTec\WcfFarmaPopTec.csproj">
+      <Project>{38465c70-d778-4027-bce0-ef656c065f9b}</Project>
+      <Name>WcfFarmaPopTec</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

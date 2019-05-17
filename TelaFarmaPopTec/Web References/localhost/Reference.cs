@@ -614,9 +614,7 @@ namespace TelaFarmaPopTec.localhost {
         
         private string nomeClienteField;
         
-        private int telClienteField;
-        
-        private bool telClienteFieldSpecified;
+        private string telClienteField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -652,23 +650,13 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
-        public int TelCliente {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string TelCliente {
             get {
                 return this.telClienteField;
             }
             set {
                 this.telClienteField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool TelClienteSpecified {
-            get {
-                return this.telClienteFieldSpecified;
-            }
-            set {
-                this.telClienteFieldSpecified = value;
             }
         }
     }

@@ -5,7 +5,7 @@
       <xs:element minOccurs="0" name="CpfCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmailCliente" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NomeCliente" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TelCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="TelCliente" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
