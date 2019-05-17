@@ -47,6 +47,28 @@ namespace WcfFarmaPopTec
         [OperationContract]
         bool ValidarCpfFuncionario(string cpf);
 
+        // Compra
+        [OperationContract]
+        void CadastrarCompra(Compra compra);
+        [OperationContract]
+        void AlterarCompra(Compra compra);
+        [OperationContract]
+        void CancelarCompra(Compra compra);
+        [OperationContract]
+        List<Compra> ConsultarCompra(Compra filtro);
+        [OperationContract]
+        List<Compra> ListarCompras(Compra filtro);
+
+        // Fornecedor
+        [OperationContract]
+        void CadastrarFornecedor(Fornecedor fornecedor);
+        [OperationContract]
+        void AlterarFornecedor(Fornecedor fornecedor);
+        [OperationContract]
+        List<Fornecedor> ListarFornecedor(Fornecedor filtro);
+        [OperationContract]
+        void VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
+
         // TODO: Adicione suas operações de serviço aqui
     }
 

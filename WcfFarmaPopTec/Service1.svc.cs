@@ -8,6 +8,7 @@ using System.Text;
 using Biblioteca.classesBasicas;
 using Biblioteca.dados;
 using Biblioteca.negocio;
+using FarmaPopTec_1._0.Negocio;
 
 namespace WcfFarmaPopTec
 {
@@ -20,6 +21,16 @@ namespace WcfFarmaPopTec
             new ClienteNegocio().AlterarCliente(cliente);
         }
 
+        public void AlterarCompra(Compra compra)
+        {
+             new CompraNegocio().AlterarCompra(compra);
+        }
+
+        public void AlterarFornecedor(Fornecedor fornecedor)
+        {
+            new FornecedorNegocio().AlterarFornecedor(fornecedor);         
+        }
+
         public void AlterarFuncionario(Funcionario funcionario)
         {
             new FuncionarioNegocio().AlterarFuncionario(funcionario) ;
@@ -30,14 +41,34 @@ namespace WcfFarmaPopTec
             new ClienteNegocio().CadastrarCliente(cliente);
         }
 
+        public void CadastrarCompra(Compra compra)
+        {
+            new CompraNegocio().CadastrarCompra(compra);
+        }
+
+        public void CadastrarFornecedor(Fornecedor fornecedor)
+        {
+            new FornecedorNegocio().CadastrarFornecedor(fornecedor);
+        }
+
         public void CadastrarFuncionario(Funcionario funcionario)
         {
             new FuncionarioNegocio().CadastrarFuncionario(funcionario);
         }
 
+        public void CancelarCompra(Compra compra)
+        {
+            new CompraNegocio().CancelarCompra(compra);
+        }
+
         public List<Cliente> ConsultarCliente(Cliente filtro)
         {
             return new ClienteNegocio().ConsultarCliente(filtro);
+        }
+
+        public List<Compra> ConsultarCompra(Compra filtro)
+        {
+            return new CompraNegocio().ConsultarCompra(filtro);
         }
 
         public List<Funcionario> ConsultarFuncionario(Funcionario filtro)
@@ -65,6 +96,16 @@ namespace WcfFarmaPopTec
             return new ClienteNegocio().ListarClientes();
         }
 
+        public List<Compra> ListarCompras()
+        {
+            return new CompraNegocio().ListarCompras();
+        }
+
+        public List<Fornecedor> ListarFornecedor(Fornecedor filtro)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Funcionario> ListarFuncionarios()
         {
             return new FuncionarioNegocio().ListarFuncionarios();
@@ -88,6 +129,11 @@ namespace WcfFarmaPopTec
         public bool VerificarDuplicidadeCliente(Cliente cliente)
         {
             return new ClienteNegocio().VerificarDuplicidadeCliente(cliente);
+        }
+
+        public void VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
+        {
+            throw new NotImplementedException();
         }
     }
 }

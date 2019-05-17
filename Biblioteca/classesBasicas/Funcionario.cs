@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.classesBasicas
 {
-   public class Funcionario
+    public class Funcionario
     {
         private int codFuncionario;
         private string cpfFuncionario;

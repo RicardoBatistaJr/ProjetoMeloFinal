@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="classesBasicas\Cliente.cs" />
     <Compile Include="classesBasicas\Compra.cs" />
+    <Compile Include="classesBasicas\Compra_Produto.cs" />
     <Compile Include="classesBasicas\Fornecedor.cs" />
     <Compile Include="classesBasicas\Funcionario.cs" />
     <Compile Include="classesBasicas\Produto.cs" />
@@ -50,11 +51,17 @@
     <Compile Include="classesBasicas\VendaProduto.cs" />
     <Compile Include="conexao\Conexao.cs" />
     <Compile Include="dados\DadosCliente.cs" />
+    <Compile Include="dados\DadosCompra.cs" />
+    <Compile Include="dados\DadosFornecedor.cs" />
     <Compile Include="dados\DadosFuncionario.cs" />
     <Compile Include="dados\IClienteDados.cs" />
+    <Compile Include="dados\ICompraDados.cs" />
+    <Compile Include="dados\IFornecedorDados.cs" />
     <Compile Include="dados\IFuncionarioDados.cs" />
     <Compile Include="negocio\ClienteNegocio.cs" />
     <Compile Include="negocio\FuncionarioNegocio.cs" />
+    <Compile Include="negocio\CompraNegocio.cs" />
+    <Compile Include="negocio\FornecedorNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
