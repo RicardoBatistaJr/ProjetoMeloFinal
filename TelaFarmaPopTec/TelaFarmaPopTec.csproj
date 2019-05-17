@@ -58,10 +58,19 @@
     <Compile Include="CadastroFuncionario.Designer.cs">
       <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CadastroCliente.resx">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,14 +95,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Biblioteca\Biblioteca.csproj">
-      <Project>{19A6D727-97A4-4821-9101-CE66AF90DBFF}</Project>
-      <Name>Biblioteca</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WcfFarmaPopTec\WcfFarmaPopTec.csproj">
       <Project>{38465C70-D778-4027-BCE0-EF656C065F9B}</Project>
       <Name>WcfFarmaPopTec</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -74,12 +74,19 @@ namespace FarmaPopTec_1._0.Dados
                 cmd.Parameters.Add("cnpj", SqlDbType.VarChar);
                 cmd.Parameters["@cnpj"].Value = compra.Fornecedor.Cnpj;
                
-                string oi = sql;
+                
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
                 //liberando a memoria 
                 cmd.Dispose();
+                foreach (var item in compra.Colecao)
+                {
+                    //insert na tabela Compra_Produto
+                }
+
+
+
                 //fechando a conexao
                 this.FecharConexao();
             }

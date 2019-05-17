@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace FarmaPopTec_1._0.Negocio
 {
-    class NegocioCompra : ICompraDados
+    public class CompraNegocio : ICompraDados
     {
         public void AlterarCompra(Compra compra)
         {
@@ -25,17 +26,12 @@ namespace FarmaPopTec_1._0.Negocio
             throw new NotImplementedException();
         }
 
-        public void ConsultarCompra(Compra compra)
+        public List<Compra> ConsultarCompra(Compra filtro)
         {
             throw new NotImplementedException();
         }
 
         public List<Compra> ListarCompras(Compra filtro)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<Compra> ICompraDados.ConsultarCompra(Compra filtro)
         {
             throw new NotImplementedException();
         }

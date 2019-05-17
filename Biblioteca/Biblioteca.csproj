@@ -59,8 +59,8 @@
     <Compile Include="dados\IFuncionarioDados.cs" />
     <Compile Include="negocio\ClienteNegocio.cs" />
     <Compile Include="negocio\FuncionarioNegocio.cs" />
-    <Compile Include="negocio\NegocioCompra.cs" />
-    <Compile Include="negocio\NegocioFornecedor.cs" />
+    <Compile Include="negocio\CompraNegocio.cs" />
+    <Compile Include="negocio\FornecedorNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

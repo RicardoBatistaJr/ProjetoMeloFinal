@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FarmaPopTec_1._0.Dados
 {
-    interface ICompraDados
+    public interface ICompraDados
     {
         void CadastrarCompra(Compra compra);
         void AlterarCompra(Compra compra);
