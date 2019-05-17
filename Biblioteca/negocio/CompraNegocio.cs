@@ -31,7 +31,7 @@ namespace FarmaPopTec_1._0.Negocio
             throw new NotImplementedException();
         }
 
-        public List<Compra> ListarCompras(Compra filtro)
+        public List<Compra> ListarCompras()
         {
             throw new NotImplementedException();
         }

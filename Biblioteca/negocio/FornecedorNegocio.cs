@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FarmaPopTec_1._0.Negocio
 {
-    class FornecedorNegocio : IFornecedorDados
+    public class FornecedorNegocio : IFornecedorDados
     {
         public void AlterarFornecedor(Fornecedor fornecedor)
         {

@@ -13,6 +13,6 @@ namespace FarmaPopTec_1._0.Dados
         void AlterarCompra(Compra compra);
         void CancelarCompra(Compra compra);
         List<Compra> ConsultarCompra(Compra filtro);
-        List<Compra> ListarCompras(Compra filtro);
+        List<Compra> ListarCompras();
     }
 }
