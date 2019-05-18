@@ -48,7 +48,7 @@
             this.btnListarClientes = new System.Windows.Forms.Button();
             this.buttonAlterar = new System.Windows.Forms.Button();
             this.buttonListarCompras = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewCompras = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -228,21 +228,22 @@
             this.buttonListarCompras.Text = "Listar Compras do Cliente";
             this.buttonListarCompras.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // listViewCompras
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewCompras.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10,
             this.columnHeader6});
-            this.listView1.Location = new System.Drawing.Point(42, 413);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(918, 97);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listViewCompras.Location = new System.Drawing.Point(42, 413);
+            this.listViewCompras.Name = "listViewCompras";
+            this.listViewCompras.Size = new System.Drawing.Size(918, 97);
+            this.listViewCompras.TabIndex = 16;
+            this.listViewCompras.UseCompatibleStateImageBehavior = false;
+            this.listViewCompras.View = System.Windows.Forms.View.Details;
+            this.listViewCompras.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
@@ -279,7 +280,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1003, 524);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewCompras);
             this.Controls.Add(this.buttonListarCompras);
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.btnListarClientes);
@@ -325,7 +326,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button buttonAlterar;
         private System.Windows.Forms.Button buttonListarCompras;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewCompras;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;

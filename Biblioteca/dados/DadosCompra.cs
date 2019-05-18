@@ -10,8 +10,8 @@ using System.Collections.Generic;
 
 namespace FarmaPopTec_1._0.Dados
 {
-    class DadosCompra : Conexao, ICompraDados
-    {       
+        public class DadosCompra : Conexao
+        {
         //Método para Alterar a Compra
         public void AlterarCompra(Compra compra)
         {
@@ -110,7 +110,7 @@ namespace FarmaPopTec_1._0.Dados
                 //instrucao a ser executada
                 string sql = "SELECT numCompra,dataCompra,codFuncionario,cnpj";
                 sql += " FROM compra ";
-                sql += " WHERE numCompra = numCompra ";
+                sql += " WHERE numCompra = @numCompra ";
                 
                 //se for passado um numero de compra válido, este numero entrará como critério de filtro
                 if (filtro.NumCompra != 0)

@@ -12,7 +12,7 @@ namespace Biblioteca.dados
         void DeletarCliente (Cliente cliente);
         List<Cliente> ConsultarCliente (Cliente filtro);
         List<Cliente> ListarClientes ();
-        List<Venda> ListarVendaCliente(Cliente cliente);
+        List<VendaProduto> ListarVendaCliente(Cliente cliente);
         bool VerificarDuplicidadeCliente(Cliente cliente);
         bool ValidaCpfCliente(string cpf);
 

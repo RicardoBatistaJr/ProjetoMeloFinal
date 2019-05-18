@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TelaFarmaPopTec.localhost;
@@ -15,22 +16,46 @@ namespace TelaFarmaPopTec
     public partial class CadastroCliente : Form
     {
         Service1 sv = new Service1();
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente();        
         List<Cliente> clientes = new List<Cliente>();
         public CadastroCliente()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             try
             {
-                cliente.CpfCliente = textBoxCpf.Text;
-                cliente.NomeCliente = textBoxNome.Text;
-                cliente.EmailCliente = textBoxEmail.Text;
-                cliente.TelCliente = textBoxTel.Text;
-                sv.CadastrarCliente(cliente);
-                MessageBox.Show("Cliente cadastrado!");
+                string email = textBoxEmail.Text;
+                string tel = textBoxTel.Text;
+                Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+                string strMascara = "{0:(00)0000-0000}";
+                long lngNumero = Convert.ToInt64(tel);
+                if (rg.IsMatch(email))
+                {
+                    if (tel.Length == 11)
+                    {
+                        strMascara = "{0:(00)00000-0000}";
+                        string.Format(strMascara, lngNumero);
+
+                        cliente.CpfCliente = textBoxCpf.Text;
+                        cliente.NomeCliente = textBoxNome.Text;
+                        cliente.EmailCliente = textBoxEmail.Text;
+                        cliente.TelCliente = textBoxTel.Text;
+                        sv.CadastrarCliente(cliente);
+                        MessageBox.Show("Cliente cadastrado!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Telefone Inválido!");
+                    }
+                }
+                else
+                {
+                    
+                    MessageBox.Show("Email Inválido!");
+                }
+
             }
             catch (Exception ex)
             {
@@ -49,6 +74,7 @@ namespace TelaFarmaPopTec
                 textBoxNome.Text = "";
                 textBoxEmail.Text = "";
                 textBoxTel.Text = "";
+                listViewCliente.Items.Clear();
                 MessageBox.Show("cliente excluido com sucesso!");
             }
             catch (Exception ex)
@@ -170,6 +196,27 @@ namespace TelaFarmaPopTec
             {
                 MessageBox.Show(ex.Message);
 
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (listViewCompras.FocusedItem != null)
+                {
+                    int index = listViewCompras.FocusedItem.Index;
+                    Cliente cli = this.clientes.ElementAt(index);
+                    textBoxCpf.Text = cli.CpfCliente;
+                    textBoxNome.Text = cli.NomeCliente;
+                    textBoxEmail.Text = cli.EmailCliente;
+                    textBoxTel.Text = cli.TelCliente;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

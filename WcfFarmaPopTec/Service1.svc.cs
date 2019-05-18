@@ -101,6 +101,11 @@ namespace WcfFarmaPopTec
             return new CompraNegocio().ListarCompras();
         }
 
+        public List<Compra> ListarCompras(Compra filtro)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Fornecedor> ListarFornecedor(Fornecedor filtro)
         {
             throw new NotImplementedException();
@@ -111,7 +116,7 @@ namespace WcfFarmaPopTec
             return new FuncionarioNegocio().ListarFuncionarios();
         }
 
-        public List<Venda> ListarVendaCliente(Cliente cliente)
+        public List<VendaProduto> ListarVendaCliente(Cliente cliente)
         {
             return new ClienteNegocio().ListarVendaCliente(cliente);
         }

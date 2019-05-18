@@ -25,7 +25,7 @@ namespace WcfFarmaPopTec
         [OperationContract]
         List<Cliente> ListarClientes();
         [OperationContract]
-        List<Venda> ListarVendaCliente(Cliente cliente);
+        List<VendaProduto> ListarVendaCliente(Cliente cliente);
         [OperationContract]
         bool VerificarDuplicidadeCliente(Cliente cliente);
         [OperationContract]
