@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroCliente));
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonlimpar = new System.Windows.Forms.Button();
@@ -40,6 +41,22 @@
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxTel = new System.Windows.Forms.TextBox();
+            this.listViewCliente = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnListarClientes = new System.Windows.Forms.Button();
+            this.buttonAlterar = new System.Windows.Forms.Button();
+            this.buttonListarCompras = new System.Windows.Forms.Button();
+            this.listViewCompras = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonVoltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSalvar
@@ -143,15 +160,144 @@
             // textBoxTel
             // 
             this.textBoxTel.Location = new System.Drawing.Point(108, 191);
+            this.textBoxTel.MaxLength = 14;
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(229, 20);
             this.textBoxTel.TabIndex = 11;
+            // 
+            // listViewCliente
+            // 
+            this.listViewCliente.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listViewCliente.FullRowSelect = true;
+            this.listViewCliente.Location = new System.Drawing.Point(42, 269);
+            this.listViewCliente.Name = "listViewCliente";
+            this.listViewCliente.Size = new System.Drawing.Size(698, 97);
+            this.listViewCliente.TabIndex = 12;
+            this.listViewCliente.UseCompatibleStateImageBehavior = false;
+            this.listViewCliente.View = System.Windows.Forms.View.Details;
+            this.listViewCliente.SelectedIndexChanged += new System.EventHandler(this.listViewCliente_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "CPF";
+            this.columnHeader1.Width = 125;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            this.columnHeader2.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "E-mail";
+            this.columnHeader3.Width = 225;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Telefone";
+            this.columnHeader4.Width = 141;
+            // 
+            // btnListarClientes
+            // 
+            this.btnListarClientes.Location = new System.Drawing.Point(45, 236);
+            this.btnListarClientes.Name = "btnListarClientes";
+            this.btnListarClientes.Size = new System.Drawing.Size(152, 23);
+            this.btnListarClientes.TabIndex = 13;
+            this.btnListarClientes.Text = "Listar todos os Clientes";
+            this.btnListarClientes.UseVisualStyleBackColor = true;
+            this.btnListarClientes.Click += new System.EventHandler(this.buttonClientes_Click);
+            // 
+            // buttonAlterar
+            // 
+            this.buttonAlterar.Location = new System.Drawing.Point(416, 34);
+            this.buttonAlterar.Name = "buttonAlterar";
+            this.buttonAlterar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAlterar.TabIndex = 14;
+            this.buttonAlterar.Text = "Alterar";
+            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            // 
+            // buttonListarCompras
+            // 
+            this.buttonListarCompras.Location = new System.Drawing.Point(42, 383);
+            this.buttonListarCompras.Name = "buttonListarCompras";
+            this.buttonListarCompras.Size = new System.Drawing.Size(155, 23);
+            this.buttonListarCompras.TabIndex = 15;
+            this.buttonListarCompras.Text = "Listar Compras do Cliente";
+            this.buttonListarCompras.UseVisualStyleBackColor = true;
+            // 
+            // listViewCompras
+            // 
+            this.listViewCompras.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader6});
+            this.listViewCompras.Location = new System.Drawing.Point(42, 413);
+            this.listViewCompras.Name = "listViewCompras";
+            this.listViewCompras.Size = new System.Drawing.Size(918, 97);
+            this.listViewCompras.TabIndex = 16;
+            this.listViewCompras.UseCompatibleStateImageBehavior = false;
+            this.listViewCompras.View = System.Windows.Forms.View.Details;
+            this.listViewCompras.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "CPF";
+            this.columnHeader5.Width = 166;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Nº da Venda";
+            this.columnHeader7.Width = 77;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Data da Venda";
+            this.columnHeader8.Width = 181;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Nome do Produto";
+            this.columnHeader9.Width = 299;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Qtd. comp.";
+            this.columnHeader10.Width = 73;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Preço";
+            this.columnHeader6.Width = 130;
+            // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.Location = new System.Drawing.Point(498, 34);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(75, 23);
+            this.buttonVoltar.TabIndex = 17;
+            this.buttonVoltar.Text = "Voltar";
+            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // CadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1003, 524);
+            this.Controls.Add(this.buttonVoltar);
+            this.Controls.Add(this.listViewCompras);
+            this.Controls.Add(this.buttonListarCompras);
+            this.Controls.Add(this.buttonAlterar);
+            this.Controls.Add(this.btnListarClientes);
+            this.Controls.Add(this.listViewCliente);
             this.Controls.Add(this.textBoxTel);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxNome);
@@ -164,8 +310,10 @@
             this.Controls.Add(this.buttonlimpar);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonSalvar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroCliente";
-            this.Text = "CadastroCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro Cliente";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +333,21 @@
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxTel;
+        private System.Windows.Forms.ListView listViewCliente;
+        private System.Windows.Forms.Button btnListarClientes;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button buttonAlterar;
+        private System.Windows.Forms.Button buttonListarCompras;
+        private System.Windows.Forms.ListView listViewCompras;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button buttonVoltar;
     }
 }

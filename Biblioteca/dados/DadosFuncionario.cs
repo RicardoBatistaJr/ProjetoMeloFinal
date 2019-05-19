@@ -18,18 +18,18 @@ namespace Biblioteca.dados
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into Funcionario (codFuncionario,cpfFuncionario,senhaUsuario,funcaoFuncionario,nomeFuncionario) ";
-                sql += "values(@codFuncionario,@cpfFuncionario,@senhaUsuario,@funcaoFuncionario,@nomeFuncionario)";
+                string sql = "insert into Funcionario (cpfFuncionario,senhaUsuario,funcaoFuncionario,nomeFuncionario) ";
+                sql += "values(@cpfFuncionario,@senhaUsuario,@funcaoFuncionario,@nomeFuncionario)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("codFuncionario", SqlDbType.Int);
-                cmd.Parameters["@codFuncionario"].Value = funcionario.CodFuncionario;
+                //cmd.Parameters.Add("codFuncionario", SqlDbType.Int);
+                //cmd.Parameters["@codFuncionario"].Value = funcionario.CodFuncionario;
 
                 cmd.Parameters.Add("@cpfFuncionario", SqlDbType.VarChar);
                 cmd.Parameters["@cpfFuncionario"].Value = funcionario.CpfFuncionario;
 
-                cmd.Parameters.Add("@senhaUsuario", SqlDbType.Int);
+                cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar);
                 cmd.Parameters["@senhaUsuario"].Value = funcionario.SenhaUsuario;
 
                 cmd.Parameters.Add("@funcaoFuncionario", SqlDbType.VarChar);
@@ -58,22 +58,18 @@ namespace Biblioteca.dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = " update funcionario set ";
-                sql += " cpfFuncionario = @cpfFuncionario ";
-                sql += " senhaUsuario = @senhaUsuario ";
-                sql += " funcaoFuncionario = @funcaoFuncionario ";
-                sql += " nomeFuncionario = @nomeFuncionario ";
-                sql += " where codFuncionario = @codFuncionario";
+                string sql = " update Funcionario set cpfFuncionario = @cpfFuncionario, senhaUsuario = @senhaUsuario, funcaoFuncionario = @funcaoFuncionario, nomeFuncionario = @nomeFuncionario ";
+                sql += " where cpfFuncionario = @cpfFuncionario";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("codFuncionario", SqlDbType.Int);
-                cmd.Parameters["@codFuncionario"].Value = funcionario.CodFuncionario;
+                //cmd.Parameters.Add("codFuncionario", SqlDbType.Int);
+                //cmd.Parameters["@codFuncionario"].Value = funcionario.CodFuncionario;
 
                 cmd.Parameters.Add("@cpfFuncionario", SqlDbType.VarChar);
                 cmd.Parameters["@cpfFuncionario"].Value = funcionario.CpfFuncionario;
 
-                cmd.Parameters.Add("@senhaUsuario", SqlDbType.Int);
+                cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar);
                 cmd.Parameters["@senhaUsuario"].Value = funcionario.SenhaUsuario;
 
                 cmd.Parameters.Add("@funcaoFuncionario", SqlDbType.VarChar);
@@ -130,15 +126,9 @@ namespace Biblioteca.dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT codFuncionario,cpfFuncionario,senhaUsuario,funcaoFuncionario,nomeFuncionario ";
-                sql += " FROM funcionario ";
-                sql += " WHERE codFuncionario = codFuncionario ";
-                //se foi passada uma matricula válida, esta matricula entrará como critério de filtro
-                if (filtro.CodFuncionario != null)
-                {
-                    sql += " and codFuncionario = @codFuncionario";
-                }
-                //se for passado um cpf válido, este cpf entrará como critério de filtro
+                string sql = "SELECT * FROM funcionario ";
+                sql += " WHERE cpfFuncionario = @cpfFuncionario ";
+
                 if (filtro.CpfFuncionario != null)
                 {
                     sql += " and cpfFuncionario = @cpfFuncionario";
@@ -146,21 +136,14 @@ namespace Biblioteca.dados
                 //se foi passada um nome válido, este nome entrará como critério de filtro
                 if (filtro.NomeFuncionario != null && filtro.NomeFuncionario.Trim().Equals("") == false)
                 {
-                    sql += " and nome like @nomeFuncionario";
+                    sql += " and nomeFuncionario like @nomeFuncionario";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-
-                //se foi passada uma matricula válida, esta matricula entrará como critério de filtro
-                if (filtro.CodFuncionario != null)
-                {
-                    cmd.Parameters.Add("@codFuncionario", SqlDbType.Int);
-                    cmd.Parameters["@codFuncionario"].Value = "%" + filtro.CodFuncionario + "%";
-                }
-                //se for passado um cpf válido, este cpf entrará como critério de filtro
+                
                 if (filtro.CpfFuncionario != null)
                 {
                     cmd.Parameters.Add("@cpfFuncionario", SqlDbType.VarChar);
-                    cmd.Parameters["@cpfFuncionario"].Value = "%" + filtro.CpfFuncionario + "%";
+                    cmd.Parameters["@cpfFuncionario"].Value = filtro.CpfFuncionario;
                 }
                 //se foi passada um nome válido, este nome entrará como critério de filtro
                 if (filtro.NomeFuncionario != null && filtro.NomeFuncionario.Trim().Equals("") == false)
@@ -178,7 +161,7 @@ namespace Biblioteca.dados
                     //acessando os valores das colunas do resultado
                     funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
                     funcionario.CpfFuncionario = DbReader.GetString(DbReader.GetOrdinal("cpfFuncionario"));
-                    funcionario.SenhaUsuario = DbReader.GetInt32(DbReader.GetOrdinal("senhaUsuario"));
+                    funcionario.SenhaUsuario = DbReader.GetString(DbReader.GetOrdinal("senhaUsuario"));
                     funcionario.FuncaoFuncionario = DbReader.GetString(DbReader.GetOrdinal("funcaoFuncionario"));
                     funcionario.NomeFuncionario = DbReader.GetString(DbReader.GetOrdinal("nomeFuncionario"));
                     retorno.Add (funcionario);
@@ -216,7 +199,7 @@ namespace Biblioteca.dados
                     //acessando os valores das colunas do resultado
                     funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
                     funcionario.CpfFuncionario = DbReader.GetString(DbReader.GetOrdinal("cpfFuncionario"));
-                    funcionario.SenhaUsuario = DbReader.GetInt32(DbReader.GetOrdinal("senhaUsuario"));
+                    funcionario.SenhaUsuario = DbReader.GetString(DbReader.GetOrdinal("senhaUsuario"));
                     funcionario.FuncaoFuncionario = DbReader.GetString(DbReader.GetOrdinal("funcaoFuncionario"));
                     funcionario.NomeFuncionario = DbReader.GetString(DbReader.GetOrdinal("nomeFuncionario"));
                     funcionarios.Add(funcionario);
@@ -316,5 +299,41 @@ namespace Biblioteca.dados
             return cpf.EndsWith(digito);
 
         }
+        public Funcionario Logar (Funcionario funcionario)
+        {
+            try
+            {
+                //string retorno = "";
+                this.AbrirConexao();
+                Funcionario fun = null;
+
+                //instrucao a ser executada
+                string sql = "SELECT cpfFuncionario,senhaUsuario,funcaoFuncionario FROM Funcionario WHERE cpfFuncionario = '" + funcionario.CpfFuncionario + "'";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+
+                SqlDataReader DbReader = cmd.ExecuteReader();
+
+                while (DbReader.Read())
+                {
+                    fun = new Funcionario();
+                    fun.CpfFuncionario = DbReader.GetString(DbReader.GetOrdinal("cpfFuncionario"));
+                    fun.SenhaUsuario = DbReader.GetString(DbReader.GetOrdinal("senhaUsuario"));
+                    fun.FuncaoFuncionario = DbReader.GetString(DbReader.GetOrdinal("funcaoFuncionario"));
+                }
+
+                return fun;
+
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao logar funcionario: " + ex.Message);
+            }
+        }
+
     }
 }

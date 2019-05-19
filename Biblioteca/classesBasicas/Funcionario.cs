@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.classesBasicas
 {
-   public class Funcionario
+    public class Funcionario
     {
         private int codFuncionario;
         private string cpfFuncionario;
-        private int senhaUsuario;
+        private string senhaUsuario;
         private string funcaoFuncionario;
         private string nomeFuncionario;
 
         public int CodFuncionario { get => codFuncionario; set => codFuncionario = value; }
         public string CpfFuncionario { get => cpfFuncionario; set => cpfFuncionario = value; }
-        public int SenhaUsuario { get => senhaUsuario; set => senhaUsuario = value; }
+        public string SenhaUsuario { get => senhaUsuario; set => senhaUsuario = value; }
         public string FuncaoFuncionario { get => funcaoFuncionario; set => funcaoFuncionario = value; }
         public string NomeFuncionario { get => nomeFuncionario; set => nomeFuncionario = value; }
     }

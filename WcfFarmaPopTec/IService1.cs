@@ -25,11 +25,12 @@ namespace WcfFarmaPopTec
         [OperationContract]
         List<Cliente> ListarClientes();
         [OperationContract]
-        List<Venda> ListarVendaCliente(Cliente cliente);
+        List<VendaProduto> ListarVendaCliente(Cliente cliente);
         [OperationContract]
         bool VerificarDuplicidadeCliente(Cliente cliente);
         [OperationContract]
         bool ValidaCpfCliente(string cpf);
+        
 
         // Funcionario
         [OperationContract]
@@ -46,6 +47,30 @@ namespace WcfFarmaPopTec
         bool ExisteFuncionario(Funcionario funcionario);
         [OperationContract]
         bool ValidarCpfFuncionario(string cpf);
+        [OperationContract]
+        Funcionario Logar(Funcionario funcionario);
+
+        // Compra
+        [OperationContract]
+        void CadastrarCompra(Compra compra);
+        [OperationContract]
+        void AlterarCompra(Compra compra);
+        [OperationContract]
+        void CancelarCompra(Compra compra);
+        [OperationContract]
+        List<Compra> ConsultarCompra(Compra filtro);
+        [OperationContract]
+        List<Compra> ListarCompras(Compra filtro);
+
+        // Fornecedor
+        [OperationContract]
+        void CadastrarFornecedor(Fornecedor fornecedor);
+        [OperationContract]
+        void AlterarFornecedor(Fornecedor fornecedor);
+        [OperationContract]
+        List<Fornecedor> ListarFornecedor(Fornecedor filtro);
+        [OperationContract]
+        void VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
 
         // TODO: Adicione suas operações de serviço aqui
     }
