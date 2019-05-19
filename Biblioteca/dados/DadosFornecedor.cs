@@ -171,5 +171,6 @@ namespace FarmaPopTec_1._0.Dados
             digito = digito + resto.ToString();
             return cnpj.EndsWith(digito);
         }
+
     }       
 }

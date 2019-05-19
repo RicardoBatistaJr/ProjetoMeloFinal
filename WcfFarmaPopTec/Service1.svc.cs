@@ -116,7 +116,7 @@ namespace WcfFarmaPopTec
             return new FuncionarioNegocio().ListarFuncionarios();
         }
 
-        public List<Venda> ListarVendaCliente(Cliente cliente)
+        public List<VendaProduto> ListarVendaCliente(Cliente cliente)
         {
             return new ClienteNegocio().ListarVendaCliente(cliente);
         }
@@ -140,5 +140,10 @@ namespace WcfFarmaPopTec
         {
             throw new NotImplementedException();
         }
+        public Funcionario Logar(Funcionario funcionario)
+        {
+            return new FuncionarioNegocio().Logar(funcionario);
+        }
+
     }
 }

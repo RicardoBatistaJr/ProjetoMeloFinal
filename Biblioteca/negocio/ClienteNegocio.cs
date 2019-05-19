@@ -93,9 +93,11 @@ namespace Biblioteca.negocio
             return new DadosCliente().ListarClientes();
         }
 
-        public List<Venda> ListarVendaCliente(Cliente cliente)
+        public List<VendaProduto> ListarVendaCliente(Cliente cliente)
         {
             return new DadosCliente().ListarVendaCliente(cliente);
         }
+
     }
+
 }

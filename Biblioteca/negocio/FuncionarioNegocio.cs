@@ -20,18 +20,14 @@ namespace Biblioteca.negocio
             if (funcionario == null)
             {
                 throw new Exception("Informar os dados do funcionario.");
-            }
-            if (funcionario.CodFuncionario == null)
-            {
-                throw new Exception("Informar o CPF do funcionario.");
-            }
+            }          
             if (funcionario.CpfFuncionario != null)
             {
                 if (!new DadosFuncionario().ValidarCpfFuncionario(funcionario.CpfFuncionario))
                 {
                     throw new Exception("CPF invalido!");
                 }
-                if (!new DadosFuncionario().ExisteFuncionario(funcionario))
+                if (new DadosFuncionario().ExisteFuncionario(funcionario))
                 {
                     throw new Exception("CPF já cadastrado!");
                 }
@@ -88,6 +84,16 @@ namespace Biblioteca.negocio
         public bool ValidarCpfFuncionario(string cpf)
         {
             return new DadosFuncionario().ValidarCpfFuncionario(cpf);
+        }
+        public Funcionario Logar(Funcionario funcionario)
+        {
+            Funcionario fun = new Funcionario();
+            fun =  new DadosFuncionario().Logar(funcionario);
+            if (fun == null)           
+            {
+                throw new Exception("Funcionario não encontrado!");
+            }
+            return fun;
         }
     }
 }

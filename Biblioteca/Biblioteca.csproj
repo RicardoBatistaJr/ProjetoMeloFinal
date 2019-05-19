@@ -48,6 +48,7 @@
     <Compile Include="classesBasicas\Funcionario.cs" />
     <Compile Include="classesBasicas\Produto.cs" />
     <Compile Include="classesBasicas\Venda.cs" />
+    <Compile Include="classesBasicas\VendaProduto.cs" />
     <Compile Include="conexao\Conexao.cs" />
     <Compile Include="dados\DadosCliente.cs" />
     <Compile Include="dados\DadosCompra.cs" />
