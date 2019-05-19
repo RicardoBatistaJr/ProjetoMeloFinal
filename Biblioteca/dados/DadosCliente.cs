@@ -273,7 +273,7 @@ namespace Biblioteca.dados
                     existe = true;
                 }
                 else
-                {
+                {   
                     existe = false;
                 }
                 return existe;
@@ -337,6 +337,5 @@ namespace Biblioteca.dados
             return cpf.EndsWith(digito);
 
         }
-
     }
 }

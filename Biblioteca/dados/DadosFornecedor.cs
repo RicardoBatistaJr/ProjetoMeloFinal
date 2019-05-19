@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 
 namespace FarmaPopTec_1._0.Dados
 {
-    class DadosFornecedor : Conexao, IFornecedorDados
+    public class DadosFornecedor : Conexao
     {
+        //Método para alterar fornecedor
         public void AlterarFornecedor(Fornecedor fornecedor)
         {
             try
@@ -39,10 +40,10 @@ namespace FarmaPopTec_1._0.Dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
+                throw new Exception("Erro ao alterar fornecedor " + ex.Message);
             }
         }
-
+        //Método para cadastrar fornecedor
         public void CadastrarFornecedor(Fornecedor fornecedor)
         {
             try
@@ -73,7 +74,7 @@ namespace FarmaPopTec_1._0.Dados
                 throw new Exception("Erro ao inserir " + ex.Message);
             }
         }
-
+        //Método para listar fornecedor
         public List<Fornecedor> ListarFornecedor(Fornecedor filtro)
         {
             List<Fornecedor> listarFornecedores = new List<Fornecedor>();
@@ -107,10 +108,68 @@ namespace FarmaPopTec_1._0.Dados
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
         }
-
-        public void VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
+        //Método para verificar duplicidade de fornecedor
+        public bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            bool existe;
+            try
+            {
+                this.AbrirConexao();
+                //instrucao a ser executada
+                string sql = "SELECT cnpj FROM fornecedor";
+                sql += " WHERE cnpj = @cnpj ";
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                cmd.Parameters.AddWithValue("@numCompra", fornecedor.Cnpj);
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                if (DbReader.Read())
+                {
+                    existe = true;
+                }
+                else
+                {
+                    existe = false;
+                }
+                return existe;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao verificar duplicidade" + ex.Message);
+            }
+        }
+        //Método para validar cnpj
+        public bool ValidarCnpj(string cnpj)
+        {
+            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int soma;
+            int resto;
+            string digito;
+            string tempCnpj;
+            cnpj = cnpj.Trim();
+            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+            if (cnpj.Length != 14)
+                return false;
+            tempCnpj = cnpj.Substring(0, 12);
+            soma = 0;
+            for (int i = 0; i < 12; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = resto.ToString();
+            tempCnpj = tempCnpj + digito;
+            soma = 0;
+            for (int i = 0; i < 13; i++)
+                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+            resto = (soma % 11);
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cnpj.EndsWith(digito);
         }
     }       
 }

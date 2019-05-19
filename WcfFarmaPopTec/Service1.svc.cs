@@ -8,7 +8,7 @@ using System.Text;
 using Biblioteca.classesBasicas;
 using Biblioteca.dados;
 using Biblioteca.negocio;
-using FarmaPopTec_1._0.Negocio;
+using Biblioteca.Negocio;
 
 namespace WcfFarmaPopTec
 {
@@ -28,7 +28,7 @@ namespace WcfFarmaPopTec
 
         public void AlterarFornecedor(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            new FornecedorNegocio().AlterarFornecedor(fornecedor);         
         }
 
         public void AlterarFuncionario(Funcionario funcionario)
@@ -43,12 +43,12 @@ namespace WcfFarmaPopTec
 
         public void CadastrarCompra(Compra compra)
         {
-            throw new NotImplementedException();
+            new CompraNegocio().CadastrarCompra(compra);
         }
 
         public void CadastrarFornecedor(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            new FornecedorNegocio().CadastrarFornecedor(fornecedor);
         }
 
         public void CadastrarFuncionario(Funcionario funcionario)
@@ -58,7 +58,7 @@ namespace WcfFarmaPopTec
 
         public void CancelarCompra(Compra compra)
         {
-            throw new NotImplementedException();
+            new CompraNegocio().CancelarCompra(compra);
         }
 
         public List<Cliente> ConsultarCliente(Cliente filtro)
@@ -68,7 +68,7 @@ namespace WcfFarmaPopTec
 
         public List<Compra> ConsultarCompra(Compra filtro)
         {
-            throw new NotImplementedException();
+            return new CompraNegocio().ConsultarCompra(filtro);
         }
 
         public List<Funcionario> ConsultarFuncionario(Funcionario filtro)
@@ -94,6 +94,11 @@ namespace WcfFarmaPopTec
         public List<Cliente> ListarClientes()
         {
             return new ClienteNegocio().ListarClientes();
+        }
+
+        public List<Compra> ListarCompras()
+        {
+            return new CompraNegocio().ListarCompras();
         }
 
         public List<Compra> ListarCompras(Compra filtro)

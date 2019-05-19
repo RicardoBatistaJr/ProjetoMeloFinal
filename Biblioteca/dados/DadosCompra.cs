@@ -10,9 +10,9 @@ using System.Collections.Generic;
 
 namespace FarmaPopTec_1._0.Dados
 {
-    class DadosCompra : Conexao, ICompraDados
-    {       
-        //Método para Alterar a Compra
+    public class DadosCompra : Conexao
+    {
+        //Método para alterar a compra
         public void AlterarCompra(Compra compra)
         {
             try
@@ -48,10 +48,10 @@ namespace FarmaPopTec_1._0.Dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
+                throw new Exception("Erro ao alterar compra " + ex.Message);
             }
         }
-        //Método para Cadastrar a Compra
+        //Método para cadastrar a compra
         public void CadastrarCompra(Compra compra)
         {
             try
@@ -68,39 +68,84 @@ namespace FarmaPopTec_1._0.Dados
                 cmd.Parameters.Add("@dataCompra", SqlDbType.DateTime);
                 cmd.Parameters["@dataCompra"].Value = compra.DataCompra;
 
-                cmd.Parameters.Add("codFuncionario", SqlDbType.Int);
+                cmd.Parameters.Add("@codFuncionario", SqlDbType.Int);
                 cmd.Parameters["@codFuncionario"].Value = compra.Funcionario.CodFuncionario;
 
-                cmd.Parameters.Add("cnpj", SqlDbType.VarChar);
-                cmd.Parameters["@cnpj"].Value = compra.Fornecedor.Cnpj;
-               
-                
+                cmd.Parameters.Add("@cnpj", SqlDbType.VarChar);
+                cmd.Parameters["@cnpj"].Value = compra.Fornecedor.Cnpj;               
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
                 //liberando a memoria 
                 cmd.Dispose();
-                foreach (var item in compra.Colecao)
+
+                foreach (Compra_Produto compra_Produto in compra.Colecao)
                 {
                     //insert na tabela Compra_Produto
+                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade)";
+                    sqlCompraProduto += "values(@qtdCompra,@valorTotal,@codProduto,@nrCompra,@validade)";
+
+                    //instrucao a ser executada
+                    SqlCommand cmdCompraProduto = new SqlCommand(sqlCompraProduto, this.sqlConn);
+
+
+                    cmdCompraProduto.Parameters.Add("@qtdCompra", SqlDbType.Int);
+                    cmdCompraProduto.Parameters["@qtdCompra"].Value = compra_Produto.QtdCompra;
+
+                    cmdCompraProduto.Parameters.Add("@valorTotal", SqlDbType.Float);
+                    cmdCompraProduto.Parameters["@valorTotal"].Value = compra_Produto.ValorTotal;
+
+                    cmdCompraProduto.Parameters.Add("@codProduto", SqlDbType.Int);
+                    cmdCompraProduto.Parameters["@codProduto"].Value = compra_Produto.Produto.CodProduto;
+
+                    cmdCompraProduto.Parameters.Add("@nrCompra", SqlDbType.Int);
+                    cmdCompraProduto.Parameters["@nrCompra"].Value = compra_Produto.Compra.NumCompra;
+
+                    cmdCompraProduto.Parameters.Add("@validade", SqlDbType.Date);
+                    cmdCompraProduto.Parameters["@validade"].Value = compra_Produto.Validade;
+
+                    //executando a instrucao 
+                    cmdCompraProduto.ExecuteNonQuery();
+                    //liberando a memoria 
+                    cmdCompraProduto.Dispose();
                 }
-
-
 
                 //fechando a conexao
                 this.FecharConexao();
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao inserir " + ex.Message);
+                throw new Exception("Erro ao cadastrar " + ex.Message);
             }
         }
-
+        //Método para cancelar a compra
         public void CancelarCompra(Compra compra)
         {
-            throw new NotImplementedException();
+            try
+            {
+                //abrir a conexão
+                this.AbrirConexao();
+                string sql = " delete from compra ";
+                sql += " where numCompra = @numCompra";
+                //instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                cmd.Parameters.Add("@numCompra", SqlDbType.Int);
+                cmd.Parameters["@numCompra"].Value = compra.NumCompra;
+
+                //executando a instrucao 
+                cmd.ExecuteNonQuery();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao deletar compra" + ex.Message);
+            }
         }
-        //Método para consultar uma compra
+        //Método para consultar compra
         public List<Compra> ConsultarCompra(Compra filtro)
         {
             List<Compra> retorno = new List<Compra>();
@@ -159,11 +204,11 @@ namespace FarmaPopTec_1._0.Dados
 
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao consultar compra " + ex.Message);
             }
             return retorno;
         }
-
+        //Método para listar compra
         public List<Compra> ListarCompras(Compra filtro)
         {
             List<Compra> listarcompras = new List<Compra>();
@@ -196,7 +241,7 @@ namespace FarmaPopTec_1._0.Dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao listar compra " + ex.Message);
             }
         }
     }

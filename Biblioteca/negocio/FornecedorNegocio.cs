@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FarmaPopTec_1._0.Negocio
+namespace Biblioteca.Negocio
 {
-    class FornecedorNegocio : IFornecedorDados
+    public class FornecedorNegocio : IFornecedorDados
     {
         public void AlterarFornecedor(Fornecedor fornecedor)
         {
@@ -25,7 +25,12 @@ namespace FarmaPopTec_1._0.Negocio
             throw new NotImplementedException();
         }
 
-        public void VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
+        public bool ValidarCnpj(string cnpj)
+        {
+            throw new NotImplementedException();
+        }
+      
+        bool IFornecedorDados.VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
         {
             throw new NotImplementedException();
         }

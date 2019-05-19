@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace FarmaPopTec_1._0.Dados
 {
-    interface IFornecedorDados
+    public interface IFornecedorDados
     {
         void CadastrarFornecedor(Fornecedor fornecedor);
         void AlterarFornecedor(Fornecedor fornecedor);
         List<Fornecedor> ListarFornecedor(Fornecedor filtro);
-        void VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
+        bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
+        bool ValidarCnpj(string cnpj);
     }
 }
