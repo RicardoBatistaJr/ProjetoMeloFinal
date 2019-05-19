@@ -30,6 +30,7 @@ namespace WcfFarmaPopTec
         bool VerificarDuplicidadeCliente(Cliente cliente);
         [OperationContract]
         bool ValidaCpfCliente(string cpf);
+        
 
         // Funcionario
         [OperationContract]
@@ -46,6 +47,8 @@ namespace WcfFarmaPopTec
         bool ExisteFuncionario(Funcionario funcionario);
         [OperationContract]
         bool ValidarCpfFuncionario(string cpf);
+        [OperationContract]
+        Funcionario Logar(Funcionario funcionario);
 
         // Compra
         [OperationContract]

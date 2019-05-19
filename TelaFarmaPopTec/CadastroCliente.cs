@@ -184,13 +184,36 @@ namespace TelaFarmaPopTec
         {
             try
             {
-                cliente.CpfCliente = textBoxCpf.Text;
-                cliente.NomeCliente = textBoxNome.Text;
-                cliente.EmailCliente = textBoxEmail.Text;
-                cliente.TelCliente = textBoxTel.Text;
-                sv.AlterarCliente(cliente);
-                MessageBox.Show("cliente alterado com sucesso!");
-                listViewCliente.Items.Clear();
+                string email = textBoxEmail.Text;
+                string tel = textBoxTel.Text;
+                Regex rg = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+                string strMascara = "{0:(00)0000-0000}";
+                long lngNumero = Convert.ToInt64(tel);
+
+                if (rg.IsMatch(email))
+                {
+                    if (tel.Length == 11)
+                    {
+                        strMascara = "{0:(00)00000-0000}";
+                        string.Format(strMascara, lngNumero);
+
+                        cliente.CpfCliente = textBoxCpf.Text;
+                        cliente.NomeCliente = textBoxNome.Text;
+                        cliente.EmailCliente = textBoxEmail.Text;
+                        cliente.TelCliente = textBoxTel.Text;
+                        sv.AlterarCliente(cliente);
+                        MessageBox.Show("cliente alterado com sucesso!");
+                        listViewCliente.Items.Clear(); 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Telefone Inválido!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Email Inválido!");
+                }
             }
             catch (Exception ex)
             {
@@ -218,6 +241,11 @@ namespace TelaFarmaPopTec
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -140,5 +140,10 @@ namespace WcfFarmaPopTec
         {
             throw new NotImplementedException();
         }
+        public Funcionario Logar(Funcionario funcionario)
+        {
+            return new FuncionarioNegocio().Logar(funcionario);
+        }
+
     }
 }

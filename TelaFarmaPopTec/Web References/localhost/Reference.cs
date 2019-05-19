@@ -59,6 +59,26 @@ namespace TelaFarmaPopTec.localhost {
         
         private System.Threading.SendOrPostCallback ValidarCpfFuncionarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback LogarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CadastrarCompraOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarCompraOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CancelarCompraOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ConsultarCompraOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarComprasOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CadastrarFornecedorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarFornecedorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarFornecedorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback VerificarDuplicidadeFornecedorOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -141,6 +161,36 @@ namespace TelaFarmaPopTec.localhost {
         
         /// <remarks/>
         public event ValidarCpfFuncionarioCompletedEventHandler ValidarCpfFuncionarioCompleted;
+        
+        /// <remarks/>
+        public event LogarCompletedEventHandler LogarCompleted;
+        
+        /// <remarks/>
+        public event CadastrarCompraCompletedEventHandler CadastrarCompraCompleted;
+        
+        /// <remarks/>
+        public event AlterarCompraCompletedEventHandler AlterarCompraCompleted;
+        
+        /// <remarks/>
+        public event CancelarCompraCompletedEventHandler CancelarCompraCompleted;
+        
+        /// <remarks/>
+        public event ConsultarCompraCompletedEventHandler ConsultarCompraCompleted;
+        
+        /// <remarks/>
+        public event ListarComprasCompletedEventHandler ListarComprasCompleted;
+        
+        /// <remarks/>
+        public event CadastrarFornecedorCompletedEventHandler CadastrarFornecedorCompleted;
+        
+        /// <remarks/>
+        public event AlterarFornecedorCompletedEventHandler AlterarFornecedorCompleted;
+        
+        /// <remarks/>
+        public event ListarFornecedorCompletedEventHandler ListarFornecedorCompleted;
+        
+        /// <remarks/>
+        public event VerificarDuplicidadeFornecedorCompletedEventHandler VerificarDuplicidadeFornecedorCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -290,10 +340,10 @@ namespace TelaFarmaPopTec.localhost {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarVendaCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
-        public Venda[] ListarVendaCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Cliente cliente) {
+        public VendaProduto[] ListarVendaCliente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Cliente cliente) {
             object[] results = this.Invoke("ListarVendaCliente", new object[] {
                         cliente});
-            return ((Venda[])(results[0]));
+            return ((VendaProduto[])(results[0]));
         }
         
         /// <remarks/>
@@ -582,6 +632,297 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/Logar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Funcionario Logar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Funcionario funcionario) {
+            object[] results = this.Invoke("Logar", new object[] {
+                        funcionario});
+            return ((Funcionario)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LogarAsync(Funcionario funcionario) {
+            this.LogarAsync(funcionario, null);
+        }
+        
+        /// <remarks/>
+        public void LogarAsync(Funcionario funcionario, object userState) {
+            if ((this.LogarOperationCompleted == null)) {
+                this.LogarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLogarOperationCompleted);
+            }
+            this.InvokeAsync("Logar", new object[] {
+                        funcionario}, this.LogarOperationCompleted, userState);
+        }
+        
+        private void OnLogarOperationCompleted(object arg) {
+            if ((this.LogarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LogarCompleted(this, new LogarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CadastrarCompra([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Compra compra) {
+            this.Invoke("CadastrarCompra", new object[] {
+                        compra});
+        }
+        
+        /// <remarks/>
+        public void CadastrarCompraAsync(Compra compra) {
+            this.CadastrarCompraAsync(compra, null);
+        }
+        
+        /// <remarks/>
+        public void CadastrarCompraAsync(Compra compra, object userState) {
+            if ((this.CadastrarCompraOperationCompleted == null)) {
+                this.CadastrarCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCadastrarCompraOperationCompleted);
+            }
+            this.InvokeAsync("CadastrarCompra", new object[] {
+                        compra}, this.CadastrarCompraOperationCompleted, userState);
+        }
+        
+        private void OnCadastrarCompraOperationCompleted(object arg) {
+            if ((this.CadastrarCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CadastrarCompraCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarCompra([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Compra compra) {
+            this.Invoke("AlterarCompra", new object[] {
+                        compra});
+        }
+        
+        /// <remarks/>
+        public void AlterarCompraAsync(Compra compra) {
+            this.AlterarCompraAsync(compra, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarCompraAsync(Compra compra, object userState) {
+            if ((this.AlterarCompraOperationCompleted == null)) {
+                this.AlterarCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarCompraOperationCompleted);
+            }
+            this.InvokeAsync("AlterarCompra", new object[] {
+                        compra}, this.AlterarCompraOperationCompleted, userState);
+        }
+        
+        private void OnAlterarCompraOperationCompleted(object arg) {
+            if ((this.AlterarCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarCompraCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CancelarCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CancelarCompra([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Compra compra) {
+            this.Invoke("CancelarCompra", new object[] {
+                        compra});
+        }
+        
+        /// <remarks/>
+        public void CancelarCompraAsync(Compra compra) {
+            this.CancelarCompraAsync(compra, null);
+        }
+        
+        /// <remarks/>
+        public void CancelarCompraAsync(Compra compra, object userState) {
+            if ((this.CancelarCompraOperationCompleted == null)) {
+                this.CancelarCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCancelarCompraOperationCompleted);
+            }
+            this.InvokeAsync("CancelarCompra", new object[] {
+                        compra}, this.CancelarCompraOperationCompleted, userState);
+        }
+        
+        private void OnCancelarCompraOperationCompleted(object arg) {
+            if ((this.CancelarCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CancelarCompraCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ConsultarCompra", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Compra[] ConsultarCompra([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Compra filtro) {
+            object[] results = this.Invoke("ConsultarCompra", new object[] {
+                        filtro});
+            return ((Compra[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ConsultarCompraAsync(Compra filtro) {
+            this.ConsultarCompraAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void ConsultarCompraAsync(Compra filtro, object userState) {
+            if ((this.ConsultarCompraOperationCompleted == null)) {
+                this.ConsultarCompraOperationCompleted = new System.Threading.SendOrPostCallback(this.OnConsultarCompraOperationCompleted);
+            }
+            this.InvokeAsync("ConsultarCompra", new object[] {
+                        filtro}, this.ConsultarCompraOperationCompleted, userState);
+        }
+        
+        private void OnConsultarCompraOperationCompleted(object arg) {
+            if ((this.ConsultarCompraCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ConsultarCompraCompleted(this, new ConsultarCompraCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarCompras", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Compra[] ListarCompras([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Compra filtro) {
+            object[] results = this.Invoke("ListarCompras", new object[] {
+                        filtro});
+            return ((Compra[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarComprasAsync(Compra filtro) {
+            this.ListarComprasAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void ListarComprasAsync(Compra filtro, object userState) {
+            if ((this.ListarComprasOperationCompleted == null)) {
+                this.ListarComprasOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarComprasOperationCompleted);
+            }
+            this.InvokeAsync("ListarCompras", new object[] {
+                        filtro}, this.ListarComprasOperationCompleted, userState);
+        }
+        
+        private void OnListarComprasOperationCompleted(object arg) {
+            if ((this.ListarComprasCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarComprasCompleted(this, new ListarComprasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CadastrarFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor fornecedor) {
+            this.Invoke("CadastrarFornecedor", new object[] {
+                        fornecedor});
+        }
+        
+        /// <remarks/>
+        public void CadastrarFornecedorAsync(Fornecedor fornecedor) {
+            this.CadastrarFornecedorAsync(fornecedor, null);
+        }
+        
+        /// <remarks/>
+        public void CadastrarFornecedorAsync(Fornecedor fornecedor, object userState) {
+            if ((this.CadastrarFornecedorOperationCompleted == null)) {
+                this.CadastrarFornecedorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCadastrarFornecedorOperationCompleted);
+            }
+            this.InvokeAsync("CadastrarFornecedor", new object[] {
+                        fornecedor}, this.CadastrarFornecedorOperationCompleted, userState);
+        }
+        
+        private void OnCadastrarFornecedorOperationCompleted(object arg) {
+            if ((this.CadastrarFornecedorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CadastrarFornecedorCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor fornecedor) {
+            this.Invoke("AlterarFornecedor", new object[] {
+                        fornecedor});
+        }
+        
+        /// <remarks/>
+        public void AlterarFornecedorAsync(Fornecedor fornecedor) {
+            this.AlterarFornecedorAsync(fornecedor, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarFornecedorAsync(Fornecedor fornecedor, object userState) {
+            if ((this.AlterarFornecedorOperationCompleted == null)) {
+                this.AlterarFornecedorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarFornecedorOperationCompleted);
+            }
+            this.InvokeAsync("AlterarFornecedor", new object[] {
+                        fornecedor}, this.AlterarFornecedorOperationCompleted, userState);
+        }
+        
+        private void OnAlterarFornecedorOperationCompleted(object arg) {
+            if ((this.AlterarFornecedorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarFornecedorCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Fornecedor[] ListarFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor filtro) {
+            object[] results = this.Invoke("ListarFornecedor", new object[] {
+                        filtro});
+            return ((Fornecedor[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarFornecedorAsync(Fornecedor filtro) {
+            this.ListarFornecedorAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void ListarFornecedorAsync(Fornecedor filtro, object userState) {
+            if ((this.ListarFornecedorOperationCompleted == null)) {
+                this.ListarFornecedorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarFornecedorOperationCompleted);
+            }
+            this.InvokeAsync("ListarFornecedor", new object[] {
+                        filtro}, this.ListarFornecedorOperationCompleted, userState);
+        }
+        
+        private void OnListarFornecedorOperationCompleted(object arg) {
+            if ((this.ListarFornecedorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarFornecedorCompleted(this, new ListarFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/VerificarDuplicidadeFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void VerificarDuplicidadeFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor fornecedor) {
+            this.Invoke("VerificarDuplicidadeFornecedor", new object[] {
+                        fornecedor});
+        }
+        
+        /// <remarks/>
+        public void VerificarDuplicidadeFornecedorAsync(Fornecedor fornecedor) {
+            this.VerificarDuplicidadeFornecedorAsync(fornecedor, null);
+        }
+        
+        /// <remarks/>
+        public void VerificarDuplicidadeFornecedorAsync(Fornecedor fornecedor, object userState) {
+            if ((this.VerificarDuplicidadeFornecedorOperationCompleted == null)) {
+                this.VerificarDuplicidadeFornecedorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVerificarDuplicidadeFornecedorOperationCompleted);
+            }
+            this.InvokeAsync("VerificarDuplicidadeFornecedor", new object[] {
+                        fornecedor}, this.VerificarDuplicidadeFornecedorOperationCompleted, userState);
+        }
+        
+        private void OnVerificarDuplicidadeFornecedorOperationCompleted(object arg) {
+            if ((this.VerificarDuplicidadeFornecedorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.VerificarDuplicidadeFornecedorCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -667,6 +1008,249 @@ namespace TelaFarmaPopTec.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+    public partial class Fornecedor {
+        
+        private string cnpjField;
+        
+        private string nomeFornecedorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Cnpj {
+            get {
+                return this.cnpjField;
+            }
+            set {
+                this.cnpjField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NomeFornecedor {
+            get {
+                return this.nomeFornecedorField;
+            }
+            set {
+                this.nomeFornecedorField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+    public partial class Compra_Produto {
+        
+        private Compra compraField;
+        
+        private Produto produtoField;
+        
+        private int qtdCompraField;
+        
+        private bool qtdCompraFieldSpecified;
+        
+        private System.DateTime validadeField;
+        
+        private bool validadeFieldSpecified;
+        
+        private float valorTotalField;
+        
+        private bool valorTotalFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Compra Compra {
+            get {
+                return this.compraField;
+            }
+            set {
+                this.compraField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Produto Produto {
+            get {
+                return this.produtoField;
+            }
+            set {
+                this.produtoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QtdCompra {
+            get {
+                return this.qtdCompraField;
+            }
+            set {
+                this.qtdCompraField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool QtdCompraSpecified {
+            get {
+                return this.qtdCompraFieldSpecified;
+            }
+            set {
+                this.qtdCompraFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime Validade {
+            get {
+                return this.validadeField;
+            }
+            set {
+                this.validadeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ValidadeSpecified {
+            get {
+                return this.validadeFieldSpecified;
+            }
+            set {
+                this.validadeFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float ValorTotal {
+            get {
+                return this.valorTotalField;
+            }
+            set {
+                this.valorTotalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ValorTotalSpecified {
+            get {
+                return this.valorTotalFieldSpecified;
+            }
+            set {
+                this.valorTotalFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+    public partial class Compra {
+        
+        private Compra_Produto[] colecaoField;
+        
+        private System.DateTime dataCompraField;
+        
+        private bool dataCompraFieldSpecified;
+        
+        private Fornecedor fornecedorField;
+        
+        private Funcionario funcionarioField;
+        
+        private int numCompraField;
+        
+        private bool numCompraFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Compra_Produto[] Colecao {
+            get {
+                return this.colecaoField;
+            }
+            set {
+                this.colecaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DataCompra {
+            get {
+                return this.dataCompraField;
+            }
+            set {
+                this.dataCompraField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DataCompraSpecified {
+            get {
+                return this.dataCompraFieldSpecified;
+            }
+            set {
+                this.dataCompraFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Fornecedor Fornecedor {
+            get {
+                return this.fornecedorField;
+            }
+            set {
+                this.fornecedorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Funcionario Funcionario {
+            get {
+                return this.funcionarioField;
+            }
+            set {
+                this.funcionarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int NumCompra {
+            get {
+                return this.numCompraField;
+            }
+            set {
+                this.numCompraField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool NumCompraSpecified {
+            get {
+                return this.numCompraFieldSpecified;
+            }
+            set {
+                this.numCompraFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
     public partial class Funcionario {
         
         private int codFuncionarioField;
@@ -679,9 +1263,7 @@ namespace TelaFarmaPopTec.localhost {
         
         private string nomeFuncionarioField;
         
-        private int senhaUsuarioField;
-        
-        private bool senhaUsuarioFieldSpecified;
+        private string senhaUsuarioField;
         
         /// <remarks/>
         public int CodFuncionario {
@@ -738,7 +1320,8 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
-        public int SenhaUsuario {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string SenhaUsuario {
             get {
                 return this.senhaUsuarioField;
             }
@@ -746,15 +1329,126 @@ namespace TelaFarmaPopTec.localhost {
                 this.senhaUsuarioField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+    public partial class Produto {
+        
+        private int codProdutoField;
+        
+        private bool codProdutoFieldSpecified;
+        
+        private System.DateTime dataFabricacaoField;
+        
+        private bool dataFabricacaoFieldSpecified;
+        
+        private string nomeProdutoField;
+        
+        private float precoProdutoField;
+        
+        private bool precoProdutoFieldSpecified;
+        
+        private float saldoProdutoField;
+        
+        private bool saldoProdutoFieldSpecified;
+        
+        /// <remarks/>
+        public int CodProduto {
+            get {
+                return this.codProdutoField;
+            }
+            set {
+                this.codProdutoField = value;
+            }
+        }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool SenhaUsuarioSpecified {
+        public bool CodProdutoSpecified {
             get {
-                return this.senhaUsuarioFieldSpecified;
+                return this.codProdutoFieldSpecified;
             }
             set {
-                this.senhaUsuarioFieldSpecified = value;
+                this.codProdutoFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DataFabricacao {
+            get {
+                return this.dataFabricacaoField;
+            }
+            set {
+                this.dataFabricacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DataFabricacaoSpecified {
+            get {
+                return this.dataFabricacaoFieldSpecified;
+            }
+            set {
+                this.dataFabricacaoFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NomeProduto {
+            get {
+                return this.nomeProdutoField;
+            }
+            set {
+                this.nomeProdutoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float PrecoProduto {
+            get {
+                return this.precoProdutoField;
+            }
+            set {
+                this.precoProdutoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrecoProdutoSpecified {
+            get {
+                return this.precoProdutoFieldSpecified;
+            }
+            set {
+                this.precoProdutoFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public float SaldoProduto {
+            get {
+                return this.saldoProdutoField;
+            }
+            set {
+                this.saldoProdutoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SaldoProdutoSpecified {
+            get {
+                return this.saldoProdutoFieldSpecified;
+            }
+            set {
+                this.saldoProdutoFieldSpecified = value;
             }
         }
     }
@@ -845,6 +1539,91 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+    public partial class VendaProduto {
+        
+        private float precoField;
+        
+        private bool precoFieldSpecified;
+        
+        private Produto produtoField;
+        
+        private int qtdField;
+        
+        private bool qtdFieldSpecified;
+        
+        private Venda vendaField;
+        
+        /// <remarks/>
+        public float Preco {
+            get {
+                return this.precoField;
+            }
+            set {
+                this.precoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PrecoSpecified {
+            get {
+                return this.precoFieldSpecified;
+            }
+            set {
+                this.precoFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Produto Produto {
+            get {
+                return this.produtoField;
+            }
+            set {
+                this.produtoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Qtd {
+            get {
+                return this.qtdField;
+            }
+            set {
+                this.qtdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool QtdSpecified {
+            get {
+                return this.qtdFieldSpecified;
+            }
+            set {
+                this.qtdFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Venda Venda {
+            get {
+                return this.vendaField;
+            }
+            set {
+                this.vendaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void CadastrarClienteCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
@@ -926,10 +1705,10 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
-        public Venda[] Result {
+        public VendaProduto[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Venda[])(this.results[0]));
+                return ((VendaProduto[])(this.results[0]));
             }
         }
     }
@@ -1133,6 +1912,134 @@ namespace TelaFarmaPopTec.localhost {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void LogarCompletedEventHandler(object sender, LogarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LogarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LogarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Funcionario Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Funcionario)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void CadastrarCompraCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void AlterarCompraCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void CancelarCompraCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ConsultarCompraCompletedEventHandler(object sender, ConsultarCompraCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ConsultarCompraCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ConsultarCompraCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Compra[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Compra[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarComprasCompletedEventHandler(object sender, ListarComprasCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarComprasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarComprasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Compra[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Compra[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void CadastrarFornecedorCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void AlterarFornecedorCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarFornecedorCompletedEventHandler(object sender, ListarFornecedorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarFornecedorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Fornecedor[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Fornecedor[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void VerificarDuplicidadeFornecedorCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

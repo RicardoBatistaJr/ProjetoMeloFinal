@@ -16,7 +16,6 @@ namespace Biblioteca.dados
         List<Funcionario> ListarFuncionarios();
         bool ExisteFuncionario(Funcionario funcionario);
         bool ValidarCpfFuncionario(string cpf);
-
-
+        Funcionario Logar(Funcionario funcionario);
     }
 }

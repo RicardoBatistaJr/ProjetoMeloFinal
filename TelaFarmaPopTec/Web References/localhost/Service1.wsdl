@@ -97,6 +97,66 @@
   <wsdl:message name="IService1_ValidarCpfFuncionario_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarCpfFuncionarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Logar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Logar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CadastrarCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrarCompra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CadastrarCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrarCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarCompra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CancelarCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarCompra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CancelarCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelarCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ConsultarCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCompra" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ConsultarCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarCompras_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCompras" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarCompras_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarComprasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CadastrarFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrarFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CadastrarFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrarFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarFornecedorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VerificarDuplicidadeFornecedor_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarDuplicidadeFornecedor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VerificarDuplicidadeFornecedor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarDuplicidadeFornecedorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="CadastrarCliente">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarCliente" message="tns:IService1_CadastrarCliente_InputMessage" />
@@ -157,6 +217,46 @@
     <wsdl:operation name="ValidarCpfFuncionario">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ValidarCpfFuncionario" message="tns:IService1_ValidarCpfFuncionario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ValidarCpfFuncionarioResponse" message="tns:IService1_ValidarCpfFuncionario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Logar" message="tns:IService1_Logar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogarResponse" message="tns:IService1_Logar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarCompra" message="tns:IService1_CadastrarCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CadastrarCompraResponse" message="tns:IService1_CadastrarCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarCompra" message="tns:IService1_AlterarCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarCompraResponse" message="tns:IService1_AlterarCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CancelarCompra" message="tns:IService1_CancelarCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CancelarCompraResponse" message="tns:IService1_CancelarCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ConsultarCompra" message="tns:IService1_ConsultarCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ConsultarCompraResponse" message="tns:IService1_ConsultarCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCompras">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarCompras" message="tns:IService1_ListarCompras_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarComprasResponse" message="tns:IService1_ListarCompras_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarFornecedor" message="tns:IService1_CadastrarFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CadastrarFornecedorResponse" message="tns:IService1_CadastrarFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarFornecedor" message="tns:IService1_AlterarFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarFornecedorResponse" message="tns:IService1_AlterarFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarFornecedor" message="tns:IService1_ListarFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarFornecedorResponse" message="tns:IService1_ListarFornecedor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDuplicidadeFornecedor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeFornecedor" message="tns:IService1_VerificarDuplicidadeFornecedor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeFornecedorResponse" message="tns:IService1_VerificarDuplicidadeFornecedor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -289,6 +389,96 @@
     </wsdl:operation>
     <wsdl:operation name="ValidarCpfFuncionario">
       <soap:operation soapAction="http://tempuri.org/IService1/ValidarCpfFuncionario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logar">
+      <soap:operation soapAction="http://tempuri.org/IService1/Logar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarCompra">
+      <soap:operation soapAction="http://tempuri.org/IService1/CadastrarCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarCompra">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarCompra">
+      <soap:operation soapAction="http://tempuri.org/IService1/CancelarCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarCompra">
+      <soap:operation soapAction="http://tempuri.org/IService1/ConsultarCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCompras">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarCompras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/CadastrarFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarFornecedor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDuplicidadeFornecedor">
+      <soap:operation soapAction="http://tempuri.org/IService1/VerificarDuplicidadeFornecedor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
