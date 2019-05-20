@@ -28,34 +28,30 @@ namespace Biblioteca.negocio
             {
                 throw new Exception("Informar os dados da venda.");
             }
-            if (cliente.CpfCliente == null)
+            if (venda.numVenda == null)
             {
-                throw new Exception("Informar o CPF do cliente.");
+                throw new Exception("Informar o numero da venda.");
             }
-            if (cliente.CpfCliente != null)
+            if (venda.numVenda != null)
             {
-                if (!new DadosCliente().ValidaCpfCliente(cliente.CpfCliente))
+                if (new DadosVenda().VerificarDuplicidadeVenda(venda))
                 {
-                    throw new Exception("CPF invalido!");
-                }
-                if (new DadosCliente().VerificarDuplicidadeCliente(cliente))
-                {
-                    throw new Exception("CPF já cadastrado!");
+                    throw new Exception("Venda já cadastrada");
                 }
             }
-            if (string.IsNullOrWhiteSpace(cliente.CpfCliente) == true)
+            if (int.IsNullOrWhiteSpace(venda.numVenda) == true)
             {
-                throw new Exception("Informar o CPF do clinete.");
+                throw new Exception("Informar o número de venda.");
             }
-            if (string.IsNullOrEmpty(cliente.NomeCliente) == true)
+            if (string.IsNullOrEmpty(venda.Cliente.cpfCliente) == true)
             {
-                throw new Exception("Informar o nome do cliente.");
+                throw new Exception("Informar o  cpf Cliente");
             }
-            if (string.IsNullOrWhiteSpace(cliente.NomeCliente) == true)
+            if (string.IsNullOrWhiteSpace(venda.Funcionario.codFuncionario) == true)
             {
                 throw new Exception("Informar o nome do cliente");
             }
-            new DadosCliente().CadastrarCliente(cliente);
+            new DadosCliente().CadastrarVenda(venda);
         }
     }
 }

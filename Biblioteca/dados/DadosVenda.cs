@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Biblioteca.conexao;
+using Biblioteca.classesBasicas;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Biblioteca.conexao;
-using Biblioteca.classesBasicas;
-using System.Data.SqlClient;
+using System;
 using System.Data;
+using System.Collections.Generic;
 
 /// <summary>
 /// Summary description for Class1
@@ -199,7 +199,7 @@ namespace Biblioteca.dados
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
         }
-        //Método listar vendas canceladas
+        /*Método listar vendas canceladas
         public List<Venda> ListarVendaCanceladas(Venda venda)
         {
             List<Venda> vendas = new List<Venda>();
@@ -238,7 +238,7 @@ namespace Biblioteca.dados
             {
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
-        }
+        }*/
         //Método verificar se cliente ja existe no banco
         public bool VerificarDuplicidadeVenda(Venda venda)
         {

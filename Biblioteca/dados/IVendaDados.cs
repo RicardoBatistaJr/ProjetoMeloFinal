@@ -12,5 +12,6 @@ namespace Biblioteca.dados
         void DeletarVenda(Venda venda);
         List<Venda> ListarVendas();
         List<Venda> ListarVendaAtendente(Venda venda);
+        bool VerificarDuplicidadeVenda(Venda venda);
     }
 }
