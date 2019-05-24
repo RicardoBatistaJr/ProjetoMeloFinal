@@ -209,7 +209,7 @@ namespace FarmaPopTec_1._0.Dados
             return retorno;
         }
         //Método para listar compra
-        public List<Compra> ListarCompras(Compra filtro)
+        public List<Compra> ListarCompras()
         {
             List<Compra> listarcompras = new List<Compra>();
             try

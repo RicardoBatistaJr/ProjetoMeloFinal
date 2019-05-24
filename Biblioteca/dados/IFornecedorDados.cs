@@ -11,7 +11,8 @@ namespace FarmaPopTec_1._0.Dados
     {
         void CadastrarFornecedor(Fornecedor fornecedor);
         void AlterarFornecedor(Fornecedor fornecedor);
-        List<Fornecedor> ListarFornecedor(Fornecedor filtro);
+        List<Fornecedor> ListarFornecedor();
+        List<Fornecedor> ConsultarFornecedor(Fornecedor filtro);
         bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
         bool ValidarCnpj(string cnpj);
     }

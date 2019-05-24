@@ -60,7 +60,7 @@ namespace WcfFarmaPopTec
         [OperationContract]
         List<Compra> ConsultarCompra(Compra filtro);
         [OperationContract]
-        List<Compra> ListarCompras(Compra filtro);
+        List<Compra> ListarCompras();
 
         // Fornecedor
         [OperationContract]
@@ -68,10 +68,13 @@ namespace WcfFarmaPopTec
         [OperationContract]
         void AlterarFornecedor(Fornecedor fornecedor);
         [OperationContract]
-        List<Fornecedor> ListarFornecedor(Fornecedor filtro);
+        List<Fornecedor> ListarFornecedor();
         [OperationContract]
-        void VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
-
+        List<Fornecedor> ConsultarFornecedor(Fornecedor filtro);
+        [OperationContract]
+        bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
+        [OperationContract]
+        bool ValidarCnpj(String cnpj);
         // TODO: Adicione suas operações de serviço aqui
     }
 

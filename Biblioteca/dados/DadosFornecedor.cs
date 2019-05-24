@@ -20,7 +20,7 @@ namespace FarmaPopTec_1._0.Dados
                 //abrir a conexão
                 this.AbrirConexao();
                 string sql = " update Fornecedor set ";
-                sql += " nomeFornecedor = @nomeFornecedor ";                
+                sql += " nomeFornecedor = @nomeFornecedor ";
                 sql += " where cnpj = @cnpj ";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
@@ -29,7 +29,7 @@ namespace FarmaPopTec_1._0.Dados
                 cmd.Parameters["@cnpj"].Value = fornecedor.Cnpj;
 
                 cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
-                cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;                            
+                cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -59,7 +59,7 @@ namespace FarmaPopTec_1._0.Dados
 
                 cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
                 cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
-                    
+
                 string oi = sql;
 
                 //executando a instrucao 
@@ -75,7 +75,7 @@ namespace FarmaPopTec_1._0.Dados
             }
         }
         //Método para listar fornecedor
-        public List<Fornecedor> ListarFornecedor(Fornecedor filtro)
+        public List<Fornecedor> ListarFornecedor()
         {
             List<Fornecedor> listarFornecedores = new List<Fornecedor>();
             try
@@ -92,7 +92,7 @@ namespace FarmaPopTec_1._0.Dados
                     Fornecedor fornecedor = new Fornecedor();
                     //acessando os valores das colunas do resultado
                     fornecedor.Cnpj = DbReader.GetString(DbReader.GetOrdinal("cnpj"));
-                    fornecedor.NomeFornecedor = DbReader.GetString(DbReader.GetOrdinal("nomeFornecedor"));                    
+                    fornecedor.NomeFornecedor = DbReader.GetString(DbReader.GetOrdinal("nomeFornecedor"));
                     listarFornecedores.Add(fornecedor);
                 }
                 //fechando o leitor de resultados
@@ -107,6 +107,66 @@ namespace FarmaPopTec_1._0.Dados
             {
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
+        }
+        //Método para consultar fornecedor
+        public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
+        {
+            List<Fornecedor> retorno = new List<Fornecedor>();
+            try
+            {
+                this.AbrirConexao();
+                //instrucao a ser executada
+                string sql = "SELECT cnpj,nomefornecedor";
+                sql += " FROM fornecedor ";
+                sql += " WHERE cnpj = cnpj";
+                //se for passado um cnpj válido, este cnpj entrará como critério de filtro
+                if (filtro.Cnpj != null)
+                {
+                    sql += " and cnpj = @cnpj";
+                }
+                //se foi passada um nome de fornecedor válido, este nome entrará como critério de filtro
+                if (filtro.NomeFornecedor != null && filtro.NomeFornecedor.Trim().Equals("") == false)
+                {
+                    sql += " and nomeFornecedor like @nomeFornecedor";
+                }
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+
+                //se foi passada um cnpj válido, este cnpj entrará como critério de filtro
+                if (filtro.Cnpj != null)
+                {
+                    cmd.Parameters.Add("@cnpj", SqlDbType.VarChar);
+                    cmd.Parameters["@cnpj"].Value = filtro.Cnpj;
+                }
+                //se foi passada um nome de fornecedor válido, este nome entrará como critério de filtro
+                if (filtro.NomeFornecedor != null && filtro.NomeFornecedor.Trim().Equals("") == false)
+                {
+                    cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
+                    cmd.Parameters["@nomeFornecedor"].Value = "%" + filtro.NomeFornecedor + "%";
+                }
+                //executando a instrucao e colocando o resultado em um leitor
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                //lendo o resultado da consulta
+                while (DbReader.Read())
+                {
+                    Fornecedor fornecedor = new Fornecedor();
+                    //acessando os valores das colunas do resultado
+                    fornecedor.Cnpj = DbReader.GetString(DbReader.GetOrdinal("cnpj"));
+                    fornecedor.NomeFornecedor = DbReader.GetString(DbReader.GetOrdinal("nomeFornecedor"));                    
+                    retorno.Add(fornecedor);
+                }
+                //fechando o leitor de resultados
+                DbReader.Close();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+            }
+            return retorno;
         }
         //Método para verificar duplicidade de fornecedor
         public bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
@@ -172,5 +232,5 @@ namespace FarmaPopTec_1._0.Dados
             return cnpj.EndsWith(digito);
         }
 
-    }       
+    }
 }

@@ -12,15 +12,76 @@ namespace Biblioteca.Negocio
     {
         public void AlterarFornecedor(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            if (fornecedor == null)
+            {
+                throw new Exception("Informar os dados do fornecedor.");
+            }
+            if (fornecedor.Cnpj == null)
+            {
+                throw new Exception("Informar o CNPJ do fornecedor.");
+            }
+            if (fornecedor.Cnpj != null)
+            {
+                if (!new DadosFornecedor().ValidarCnpj(fornecedor.Cnpj))
+                {
+                    throw new Exception("CNPJ invalido!");
+                }
+                if (new DadosFornecedor().VerificarDuplicidadeFornecedor(fornecedor))
+                {
+                    throw new Exception("CNPJ já cadastrado!");
+                }
+            }
+            if (string.IsNullOrWhiteSpace(fornecedor.Cnpj) == true)
+            {
+                throw new Exception("Informar o CNPJ do fornecedor.");
+            }
+            if (string.IsNullOrEmpty(fornecedor.NomeFornecedor) == true)
+            {
+                throw new Exception("Informar o nome do fornecedor.");
+            }
+
+            new DadosFornecedor().AlterarFornecedor(fornecedor);
         }
 
         public void CadastrarFornecedor(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            if (fornecedor == null)
+            {
+                throw new Exception("Informar os dados do fornecedor.");
+            }
+            if (fornecedor.Cnpj == null)
+            {
+                throw new Exception("Informar o CNPJ do fornecedor.");
+            }
+            if (fornecedor.Cnpj != null)
+            {
+                if (!new DadosFornecedor().ValidarCnpj(fornecedor.Cnpj))
+                {
+                    throw new Exception("CNPJ invalido!");
+                }
+                if (new DadosFornecedor().VerificarDuplicidadeFornecedor(fornecedor))
+                {
+                    throw new Exception("CNPJ já cadastrado!");
+                }
+            }
+            if (string.IsNullOrWhiteSpace(fornecedor.Cnpj) == true)
+            {
+                throw new Exception("Informar o CNPJ do fornecedor.");
+            }
+            if (string.IsNullOrEmpty(fornecedor.NomeFornecedor) == true)
+            {
+                throw new Exception("Informar o nome do fornecedor.");
+            }
+            
+            new DadosFornecedor().CadastrarFornecedor(fornecedor);
         }
 
-        public List<Fornecedor> ListarFornecedor(Fornecedor filtro)
+        public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
+        {
+            throw new NotImplementedException();
+        }       
+
+        public List<Fornecedor> ListarFornecedor()
         {
             throw new NotImplementedException();
         }
@@ -30,7 +91,7 @@ namespace Biblioteca.Negocio
             throw new NotImplementedException();
         }
       
-        bool IFornecedorDados.VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
+        public bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
         {
             throw new NotImplementedException();
         }

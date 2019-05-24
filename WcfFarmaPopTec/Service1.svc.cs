@@ -19,17 +19,7 @@ namespace WcfFarmaPopTec
         public void AlterarCliente(Cliente cliente)
         {
             new ClienteNegocio().AlterarCliente(cliente);
-        }
-
-        public void AlterarCompra(Compra compra)
-        {
-             new CompraNegocio().AlterarCompra(compra);
-        }
-
-        public void AlterarFornecedor(Fornecedor fornecedor)
-        {
-            new FornecedorNegocio().AlterarFornecedor(fornecedor);         
-        }
+        }             
 
         public void AlterarFuncionario(Funcionario funcionario)
         {
@@ -39,42 +29,21 @@ namespace WcfFarmaPopTec
         public void CadastrarCliente(Cliente cliente)
         {
             new ClienteNegocio().CadastrarCliente(cliente);
-        }
-
-        public void CadastrarCompra(Compra compra)
-        {
-            new CompraNegocio().CadastrarCompra(compra);
-        }
-
-        public void CadastrarFornecedor(Fornecedor fornecedor)
-        {
-            new FornecedorNegocio().CadastrarFornecedor(fornecedor);
-        }
+        }              
 
         public void CadastrarFuncionario(Funcionario funcionario)
         {
             new FuncionarioNegocio().CadastrarFuncionario(funcionario);
         }
-
-        public void CancelarCompra(Compra compra)
-        {
-            new CompraNegocio().CancelarCompra(compra);
-        }
-
+       
         public List<Cliente> ConsultarCliente(Cliente filtro)
         {
             return new ClienteNegocio().ConsultarCliente(filtro);
-        }
-
-        public List<Compra> ConsultarCompra(Compra filtro)
-        {
-            return new CompraNegocio().ConsultarCompra(filtro);
-        }
+        }      
 
         public List<Funcionario> ConsultarFuncionario(Funcionario filtro)
         {
-            return new FuncionarioNegocio().ConsultarFuncionario(filtro);
-            
+            return new FuncionarioNegocio().ConsultarFuncionario(filtro);            
         }
         public void DeletarCliente(Cliente cliente)
         {
@@ -94,22 +63,7 @@ namespace WcfFarmaPopTec
         public List<Cliente> ListarClientes()
         {
             return new ClienteNegocio().ListarClientes();
-        }
-
-        public List<Compra> ListarCompras()
-        {
-            return new CompraNegocio().ListarCompras();
-        }
-
-        public List<Compra> ListarCompras(Compra filtro)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Fornecedor> ListarFornecedor(Fornecedor filtro)
-        {
-            throw new NotImplementedException();
-        }
+        }             
 
         public List<Funcionario> ListarFuncionarios()
         {
@@ -135,15 +89,62 @@ namespace WcfFarmaPopTec
         {
             return new ClienteNegocio().VerificarDuplicidadeCliente(cliente);
         }
-
-        public void VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
-        {
-            throw new NotImplementedException();
-        }
+       
         public Funcionario Logar(Funcionario funcionario)
         {
             return new FuncionarioNegocio().Logar(funcionario);
         }
-
+      
+        //service Fornecedor
+        public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
+        {
+            return new FornecedorNegocio().ConsultarFornecedor(filtro);
+        }
+        public bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
+        {
+            return new FornecedorNegocio().VerificarDuplicidadeFornecedor(fornecedor);
+        }
+        public List<Fornecedor> ListarFornecedor()
+        {
+            return new FornecedorNegocio().ListarFornecedor();
+        }
+        public void CadastrarFornecedor(Fornecedor fornecedor)
+        {
+            new FornecedorNegocio().CadastrarFornecedor(fornecedor);
+        }
+        public void AlterarFornecedor(Fornecedor fornecedor)
+        {
+            new FornecedorNegocio().AlterarFornecedor(fornecedor);
+        }
+        public bool ValidarCnpj(String cnpj)
+        {
+            return new FornecedorNegocio().ValidarCnpj(cnpj);
+        }
+        //service Compra
+        public List<Compra> ListarCompras(Compra filtro)
+        {
+            throw new NotImplementedException();
+        }
+        public List<Compra> ConsultarCompra(Compra filtro)
+        {
+            return new CompraNegocio().ConsultarCompra(filtro);
+        }
+        public List<Compra> ListarCompras()
+        {
+            return new CompraNegocio().ListarCompras();
+        }
+        public void CancelarCompra(Compra compra)
+        {
+            new CompraNegocio().CancelarCompra(compra);
+        }
+        public void CadastrarCompra(Compra compra)
+        {
+            new CompraNegocio().CadastrarCompra(compra);
+        }
+        public void AlterarCompra(Compra compra)
+        {
+            new CompraNegocio().AlterarCompra(compra);
+        }
+      
     }
 }
