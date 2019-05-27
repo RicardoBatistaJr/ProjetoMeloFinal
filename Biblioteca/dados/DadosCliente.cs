@@ -51,7 +51,7 @@ namespace Biblioteca.dados
 
         }
         //Método update cliente
-        public void AlterarCliente (Cliente cliente)
+        public void AlterarCliente(Cliente cliente)
         {
             try
             {

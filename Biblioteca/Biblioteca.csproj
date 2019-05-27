@@ -54,14 +54,20 @@
     <Compile Include="dados\DadosCompra.cs" />
     <Compile Include="dados\DadosFornecedor.cs" />
     <Compile Include="dados\DadosFuncionario.cs" />
+    <Compile Include="dados\DadosProduto.cs" />
+    <Compile Include="dados\DadosVenda.cs" />
     <Compile Include="dados\IClienteDados.cs" />
     <Compile Include="dados\ICompraDados.cs" />
     <Compile Include="dados\IFornecedorDados.cs" />
     <Compile Include="dados\IFuncionarioDados.cs" />
+    <Compile Include="dados\IProdutoDados.cs" />
+    <Compile Include="dados\IVendaDados.cs" />
     <Compile Include="negocio\ClienteNegocio.cs" />
     <Compile Include="negocio\FuncionarioNegocio.cs" />
     <Compile Include="negocio\CompraNegocio.cs" />
     <Compile Include="negocio\FornecedorNegocio.cs" />
+    <Compile Include="negocio\ProdutoNegocio.cs" />
+    <Compile Include="negocio\VendaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -28,30 +28,45 @@ namespace Biblioteca.negocio
             {
                 throw new Exception("Informar os dados da venda.");
             }
-            if (venda.numVenda == null)
+            if (venda.NumVenda == 0)
             {
                 throw new Exception("Informar o numero da venda.");
             }
-            if (venda.numVenda != null)
+            if (venda.NumVenda != 0)
             {
                 if (new DadosVenda().VerificarDuplicidadeVenda(venda))
                 {
                     throw new Exception("Venda já cadastrada");
                 }
             }
-            if (int.IsNullOrWhiteSpace(venda.numVenda) == true)
-            {
-                throw new Exception("Informar o número de venda.");
-            }
-            if (string.IsNullOrEmpty(venda.Cliente.cpfCliente) == true)
+            if (string.IsNullOrEmpty(venda.Cliente.CpfCliente) == true)
             {
                 throw new Exception("Informar o  cpf Cliente");
             }
-            if (string.IsNullOrWhiteSpace(venda.Funcionario.codFuncionario) == true)
+            new DadosVenda().CadastrarVenda(venda);
+        }
+
+        public void DeletarVenda(Venda venda)
+        {
+            DadosVenda dadosvenda = new DadosVenda();
+            if (dadosvenda.VerificarDuplicidadeVenda(venda))
             {
-                throw new Exception("Informar o nome do cliente");
+                dadosvenda.DeletarVenda(venda);
             }
-            new DadosCliente().CadastrarVenda(venda);
+            else
+            {
+                throw new Exception("Venda não existe!");
+            }
+        }
+
+        public List<Venda> ListarVendas()
+        {
+            return new DadosVenda().ListarVendas();
+        }
+
+        public List<Venda> ListarVendaAtendente(Venda venda)
+        {
+            return new DadosVenda().ListarVendaAtendente(venda);
         }
     }
 }

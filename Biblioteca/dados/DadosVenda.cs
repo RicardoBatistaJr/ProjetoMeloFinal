@@ -30,17 +30,17 @@ namespace Biblioteca.dados
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@numVenda", SqlDbType.Integer);
-                cmd.Parameters["@numVenda"].Value = venda.numVenda;
+                cmd.Parameters.Add("@numVenda", SqlDbType.Int);
+                cmd.Parameters["@numVenda"].Value = venda.NumVenda;
 
                 cmd.Parameters.Add("@dataVenda", SqlDbType.Date);
-                cmd.Parameters["@dataVenda"].Value = cliente.NomeCliente;
+                cmd.Parameters["@dataVenda"].Value = venda.DataVenda;
 
                 cmd.Parameters.Add("@cpfCliente", SqlDbType.VarChar);
-                cmd.Parameters["@cpfCliente"].Value = cliente.EmailCliente;
+                cmd.Parameters["@cpfCliente"].Value = venda.Cliente.CpfCliente;
 
                 cmd.Parameters.Add("@codFuncionario", SqlDbType.Int);
-                cmd.Parameters["@codFuncionario"].Value = cliente.TelCliente;
+                cmd.Parameters["@codFuncionario"].Value = venda.Funcionario.CodFuncionario;
 
                 string oi = sql;
 
@@ -62,26 +62,21 @@ namespace Biblioteca.dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = "update venda set ";
-                sql += " numVenda = @numVenda ";
-                sql += " dataVenda = @dataVenda ";
-                sql += " cpfCliente = @cpfCliente ";
-                sql += " codFuncionario = @codFuncionario";
-                sql += " where numVenda = @numVenda";
+                string sql = "update venda set numVenda = @numVenda, dataVenda = @dataVenda, cpfCliente = @cpfCliente, codFuncionario = @codFuncionario where numVenda = @numVenda";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@numVenda", SqlDbType.Integer);
-                cmd.Parameters["@numVenda"].Value = venda.numVenda;
+                cmd.Parameters.Add("@numVenda", SqlDbType.Int);
+                cmd.Parameters["@numVenda"].Value = venda.NumVenda;
 
                 cmd.Parameters.Add("@dataVenda", SqlDbType.Date);
-                cmd.Parameters["@dataVenda"].Value = cliente.NomeCliente;
+                cmd.Parameters["@dataVenda"].Value = venda.DataVenda;
 
                 cmd.Parameters.Add("@cpfCliente", SqlDbType.VarChar);
-                cmd.Parameters["@cpfCliente"].Value = cliente.EmailCliente;
+                cmd.Parameters["@cpfCliente"].Value = venda.Cliente.CpfCliente;
 
                 cmd.Parameters.Add("@codFuncionario", SqlDbType.Int);
-                cmd.Parameters["@codFuncionario"].Value = cliente.TelCliente;
+                cmd.Parameters["@codFuncionario"].Value = venda.Funcionario.CodFuncionario;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -107,8 +102,8 @@ namespace Biblioteca.dados
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@cpfCliente", SqlDbType.VarChar);
-                cmd.Parameters["@cpfCliente"].Value = cliente.CpfCliente;
+                cmd.Parameters.Add("@numVenda", SqlDbType.Int);
+                cmd.Parameters["@numVenda"].Value = venda.NumVenda;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -138,12 +133,12 @@ namespace Biblioteca.dados
                 //lendo o resultado da consulta
                 while (DbReader.Read())
                 {
-                    Venda vendas = new Venda();
+                    Venda venda = new Venda();
                     //acessando os valores das colunas do resultado
-                    vendas.numVenda = DbReader.GetString(DbReader.GetOrdinal("numVenda"));
-                    vendas.dataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
-                    vendas.Cliente.cpfCliente= DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
-                    vendas.Funcionario.codFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
+                    venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
+                    venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
+                    venda.Cliente.CpfCliente= DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
+                    venda.Funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
                     vendas.Add(venda);
                 }
                 //fechando o leitor de resultados
@@ -170,19 +165,19 @@ namespace Biblioteca.dados
                 string sql = "SELECT * from vendas ";
                 sql += "WHERE codFuncionario = @codFuncionario";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@codFuncionario", venda.Funcionario.codFuncionario);
+                cmd.Parameters.AddWithValue("@codFuncionario", venda.Funcionario.CodFuncionario);
                 //executando a instrucao e colocando o resultado em um leitor
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 //lendo o resultado da consulta
                 while (DbReader.Read())
                 {
-                    Venda venda = new Venda();
+                    Venda vendass = new Venda();
                     //acessando os valores das colunas do resultado
-                    venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
-                    venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
-                    venda.Cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
-                    venda.Funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
-                    vendas.Add(venda);
+                    vendass.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
+                    vendass.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
+                    vendass.Cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
+                    vendass.Funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
+                    vendas.Add(vendass);
                 }
                 //fechando o leitor de resultados
                 DbReader.Close();
@@ -250,7 +245,7 @@ namespace Biblioteca.dados
                 string sql = "SELECT numVenda FROM venda";
                 sql += " WHERE numVenda = @numVenda ";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@numVenda", venda.numVenda);
+                cmd.Parameters.AddWithValue("@numVenda", venda.NumVenda);
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 if (DbReader.Read())
                 {

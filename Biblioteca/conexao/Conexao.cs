@@ -17,9 +17,9 @@ namespace Biblioteca.conexao
         //nome do banco de dados no qual desejamos nos comunicar
         private const string banco_de_dados = "FarmaPopTec";
         //usuário que tenha os privilégios para utilizar o banco de dados
-        private const string usuario = "MattSoeldner";
+        private const string usuario = "FarmaPopTec";
         //senha do usuario
-        private const string senha = "matt1998";
+        private const string senha = "123456";
         #endregion
 
         //string de conexão obtida para o sql sever
