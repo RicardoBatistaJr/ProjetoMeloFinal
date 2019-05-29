@@ -120,7 +120,11 @@ namespace WcfFarmaPopTec
         {
             return new FornecedorNegocio().ValidarCnpj(cnpj);
         }
-        //service Compra
+        public List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro)
+        {
+            return new FornecedorNegocio().ListarComprasComFornecedor(filtro);
+        }
+        //service Compra/
         public List<Compra> ListarCompras(Compra filtro)
         {
             throw new NotImplementedException();
@@ -144,7 +148,6 @@ namespace WcfFarmaPopTec
         public void AlterarCompra(Compra compra)
         {
             new CompraNegocio().AlterarCompra(compra);
-        }
-      
+        }       
     }
 }

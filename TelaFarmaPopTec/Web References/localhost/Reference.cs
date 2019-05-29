@@ -44,7 +44,12 @@ namespace TelaFarmaPopTec.localhost {
         private System.Threading.SendOrPostCallback VerificarDuplicidadeClienteOperationCompleted;
         
         private System.Threading.SendOrPostCallback ValidaCpfClienteOperationCompleted;
-        
+
+        internal object ConsultarFornecedor(Fornecedor fornecedor)
+        {
+            throw new NotImplementedException();
+        }
+
         private System.Threading.SendOrPostCallback CadastrarFuncionarioOperationCompleted;
         
         private System.Threading.SendOrPostCallback AlterarFuncionarioOperationCompleted;
@@ -1034,6 +1039,11 @@ namespace TelaFarmaPopTec.localhost {
             set {
                 this.nomeFornecedorField = value;
             }
+        }
+
+        internal void Clear()
+        {
+            throw new NotImplementedException();
         }
     }
     

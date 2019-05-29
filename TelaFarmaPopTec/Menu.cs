@@ -93,5 +93,17 @@ namespace TelaFarmaPopTec
         {
             this.Dispose(true);
         }
+
+        private void buttonFornacedor_Click(object sender, EventArgs e)
+        {
+            CadastrarFornecedor cadastrarFornecedor = new CadastrarFornecedor();
+            cadastrarFornecedor.ShowDialog();          
+        }
+
+        private void buttonProdutos_Click(object sender, EventArgs e)
+        {
+            OpcoesProduto opcoesProduto = new OpcoesProduto();
+            opcoesProduto.ShowDialog();
+        }
     }
 }
