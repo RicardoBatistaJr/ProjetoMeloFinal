@@ -104,5 +104,11 @@ namespace TelaFarmaPopTec
             OpcoesProduto opcoesProduto = new OpcoesProduto();
             opcoesProduto.ShowDialog();
         }
+
+        private void buttonCaixa_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
     }
 }
