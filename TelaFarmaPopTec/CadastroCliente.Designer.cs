@@ -229,6 +229,7 @@
             this.buttonListarCompras.TabIndex = 15;
             this.buttonListarCompras.Text = "Listar Compras do Cliente";
             this.buttonListarCompras.UseVisualStyleBackColor = true;
+            this.buttonListarCompras.Click += new System.EventHandler(this.buttonListarCompras_Click);
             // 
             // listViewCompras
             // 

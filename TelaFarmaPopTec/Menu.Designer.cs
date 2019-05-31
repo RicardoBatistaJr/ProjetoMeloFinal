@@ -85,6 +85,7 @@
             this.buttonProdutos.TabIndex = 3;
             this.buttonProdutos.Text = "PRODUTOS";
             this.buttonProdutos.UseVisualStyleBackColor = false;
+            this.buttonProdutos.Click += new System.EventHandler(this.buttonProdutos_Click);
             // 
             // buttonVenda
             // 
@@ -130,6 +131,7 @@
             this.buttonFornacedor.TabIndex = 7;
             this.buttonFornacedor.Text = "FORNECEDOR";
             this.buttonFornacedor.UseVisualStyleBackColor = false;
+            this.buttonFornacedor.Click += new System.EventHandler(this.buttonFornacedor_Click);
             // 
             // Menu
             // 
