@@ -57,7 +57,6 @@ namespace TelaFarmaPopTec
                 buttonSair.Enabled = true;
                 buttonFornacedor.BackColor = Color.Gainsboro;
                 buttonFuncionario.BackColor = Color.Gainsboro;
-                buttonCaixa.BackColor = Color.Gainsboro;
                 buttonRelatorios.BackColor = Color.Gainsboro;
             }
             else if (funcao.Equals("Farmacêutico"))
@@ -92,6 +91,11 @@ namespace TelaFarmaPopTec
         private void buttonSair_Click(object sender, EventArgs e)
         {
             this.Dispose(true);
+        }
+
+        private void buttonCaixa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

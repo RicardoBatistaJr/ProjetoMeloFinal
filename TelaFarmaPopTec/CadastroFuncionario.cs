@@ -59,7 +59,7 @@ namespace TelaFarmaPopTec
         {
             try
             {
-                funcionario.CodFuncionario = int.Parse(textBoxCod.Text);
+                funcionario.CpfFuncionario = textBoxCpfFunc.Text;
                 sv.DeletarFuncionario(funcionario);
                 textBoxCod.Text = "";
                 textBoxCpfFunc.Text = "";
@@ -187,7 +187,20 @@ namespace TelaFarmaPopTec
                 sv.AlterarFuncionario(funcionario);
                 MessageBox.Show("Funcionário alterado com sucesso!");
                 listViewFuncionarios.Items.Clear();
-                 
+                this.funcionarios = sv.ConsultarFuncionario(funcionario).ToList();
+                foreach (var item in funcionarios)
+                {
+                    ListViewItem lvi = listViewFuncionarios.Items.Add(item.CodFuncionario.ToString());
+                    lvi.SubItems.Add(item.CpfFuncionario);
+                    lvi.SubItems.Add(item.NomeFuncionario);
+                    lvi.SubItems.Add(item.FuncaoFuncionario);
+                    lvi.SubItems.Add(item.SenhaUsuario.ToString());
+                }
+                textBoxCod.Text = "";
+                textBoxCpfFunc.Text = "";
+                textBoxNomeFunc.Text = "";
+                comboBoxFuncao.Text = "";
+                textBoxSenha.Text = "";
             }
             catch (Exception ex)
             {

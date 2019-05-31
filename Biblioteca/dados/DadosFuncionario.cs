@@ -99,12 +99,12 @@ namespace Biblioteca.dados
                 //abrir a conexão
                 this.AbrirConexao();
                 string sql = " delete from funcionario ";
-                sql += " where codFuncionario = @codFuncionario";
+                sql += " where cpfFuncionario = @cpfFuncionario";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@codFuncionario", SqlDbType.Int);
-                cmd.Parameters["@codFuncionario"].Value = funcionario.CodFuncionario;
+                cmd.Parameters.Add("@cpfFuncionario", SqlDbType.VarChar);
+                cmd.Parameters["@cpfFuncionario"].Value = funcionario.CpfFuncionario;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
