@@ -55,5 +55,10 @@ namespace TelaFarmaPopTec
         {
             
         }
+
+        private void ButtonListarCompras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
