@@ -13,13 +13,13 @@ namespace Biblioteca.classesBasicas
         private DateTime dataFabricacao;
         private string nomeProduto;
         private float precoProduto;
-        private int statusProduto;
+        private string statusProduto;
 
         public int CodProduto { get => codProduto; set => codProduto = value; }
         public float SaldoProduto { get => saldoProduto; set => saldoProduto = value; }
         public DateTime DataFabricacao { get => dataFabricacao; set => dataFabricacao = value; }
         public string NomeProduto { get => nomeProduto; set => nomeProduto = value; }
         public float PrecoProduto { get => precoProduto; set => precoProduto = value; }
-        public int StatusProduto { get => statusProduto; set => statusProduto = value; }
+        public string StatusProduto { get => statusProduto; set => statusProduto = value; }
     }
 }

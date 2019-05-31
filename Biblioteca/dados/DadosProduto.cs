@@ -190,7 +190,7 @@ namespace Biblioteca.dados
                     produto.DataFabricacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataFabricacao"));
                     produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
                     produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoProduto"));
-                    produto.StatusProduto = DbReader.GetInt32(DbReader.GetOrdinal("statusProduto"));
+                    produto.StatusProduto = DbReader.GetString(DbReader.GetOrdinal("statusProduto"));
                     retorno.Add(produto);
                 }
                 //fechando o leitor de resultados
@@ -236,7 +236,7 @@ namespace Biblioteca.dados
                     produto.DataFabricacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataFabricacao"));
                     produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
                     produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoProduto"));
-                    produto.StatusProduto = DbReader.GetInt32(DbReader.GetOrdinal("statusProduto"));
+                    produto.StatusProduto = DbReader.GetString(DbReader.GetOrdinal("statusProduto"));
                     produtos.Add(produto);
                 }
                 //fechando o leitor de resultados

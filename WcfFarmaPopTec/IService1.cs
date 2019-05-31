@@ -78,6 +78,25 @@ namespace WcfFarmaPopTec
         [OperationContract]
         List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro);
         // TODO: Adicione suas operações de serviço aqui
+
+
+        // PRODUTOS
+        [OperationContract]
+        void CadastrarProduto(Produto produto);
+        [OperationContract]
+        void AlterarProduto(Produto produto);
+        [OperationContract]
+        void DeletarProduto(Produto produto);
+        [OperationContract]
+        void DesativarProduto(Produto produto);
+        [OperationContract]
+        List<Produto> ConsultarProduto(Produto filtro);
+        [OperationContract]
+        void TrocarProduto();
+        [OperationContract]
+        List<Produto> ListarProdutos();
+        [OperationContract]
+        bool VerificarDuplicidadeProduto(Produto produto);
     }
 
 
