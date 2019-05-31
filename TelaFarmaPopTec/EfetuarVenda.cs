@@ -29,15 +29,15 @@ namespace TelaFarmaPopTec
         {
             try
             {
-                //this.cl
-                // this.produtos = sv.ListarProdutos();
+                this.produtos.Clear();
+                this.produtos = sv.ListarProdutos().ToList();
 
-                listViewProdutos2.Items.Clear();
+                listViewListarProdutos.Items.Clear();
 
 
                 foreach (var item in this.produtos)
                 {
-                    ListViewItem lvi = listViewProdutos2.Items.Add(item.CodProduto.ToString());
+                    ListViewItem lvi = listViewListarProdutos.Items.Add(item.CodProduto.ToString());
                     lvi.SubItems.Add(item.SaldoProduto.ToString());
                     lvi.SubItems.Add(item.DataFabricacao.ToString());
                     lvi.SubItems.Add(item.NomeProduto);
