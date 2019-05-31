@@ -282,7 +282,7 @@ namespace FarmaPopTec_1._0.Dados
                     compra.DataCompra = DbReader.GetDateTime(DbReader.GetOrdinal("dataCompra"));
                     compra_Produto.ValorTotal = DbReader.GetFloat(DbReader.GetOrdinal("valorTotal"));
                     //retorno.Add(compra,compra_Produto);
-                }                
+                }               
                 //fechando o leitor de resultados
                 DbReader.Close();
                 //liberando a memoria 

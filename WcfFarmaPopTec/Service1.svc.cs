@@ -148,6 +148,41 @@ namespace WcfFarmaPopTec
         public void AlterarCompra(Compra compra)
         {
             new CompraNegocio().AlterarCompra(compra);
-        }       
+        }
+
+        // PRODUTO
+
+        public void CadastrarProduto(Produto produto)
+        {
+            new ProdutoNegocio().CadastrarProduto(produto);
+        }
+        public void AlterarProduto(Produto produto)
+        {
+            new ProdutoNegocio().AlterarProduto(produto);
+        }
+        public void DeletarProduto(Produto produto)
+        {
+            new ProdutoNegocio().DeletarProduto(produto);
+        }
+        public void DesativarProduto(Produto produto)
+        {
+            new ProdutoNegocio().DeletarProduto(produto);
+        }
+        public List<Produto> ConsultarProduto(Produto filtro)
+        {
+            return new ProdutoNegocio().ConsultarProduto(filtro);
+        }
+        public void TrocarProduto()
+        {
+            new ProdutoNegocio().TrocarProduto();
+        }
+        public List<Produto> ListarProdutos()
+        {
+            return new ProdutoNegocio().ListarProdutos();
+        }
+        public bool VerificarDuplicidadeProduto(Produto produto)
+        {
+           return  new ProdutoNegocio().VerificarDuplicidadeProduto(produto);
+        }
     }
 }

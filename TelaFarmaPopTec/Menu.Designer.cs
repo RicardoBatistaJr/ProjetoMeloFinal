@@ -84,7 +84,7 @@
             this.buttonProdutos.Text = "PRODUTOS";
             this.buttonProdutos.UseVisualStyleBackColor = false;
             this.buttonProdutos.Click += new System.EventHandler(this.buttonProdutos_Click);
-
+            // 
             // buttonVenda
             this.buttonVenda.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

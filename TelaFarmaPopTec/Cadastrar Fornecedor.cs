@@ -140,5 +140,10 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);                
             }
         }
+
+        private void ButtonListarCompras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
