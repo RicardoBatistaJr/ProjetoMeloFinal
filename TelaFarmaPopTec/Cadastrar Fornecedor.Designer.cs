@@ -58,6 +58,7 @@
             this.buttonVoltar.TabIndex = 35;
             this.buttonVoltar.Text = "Voltar";
             this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // listViewCompras
             // 
@@ -101,6 +102,7 @@
             this.buttonListarCompras.TabIndex = 33;
             this.buttonListarCompras.Text = "Listar compras com esse Fornecedor";
             this.buttonListarCompras.UseVisualStyleBackColor = true;
+            this.buttonListarCompras.Click += new System.EventHandler(this.buttonListarCompras_Click);
             // 
             // buttonAlterar
             // 
@@ -110,6 +112,7 @@
             this.buttonAlterar.TabIndex = 32;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
             // 
             // btnListarClientes
             // 
@@ -119,6 +122,7 @@
             this.btnListarClientes.TabIndex = 31;
             this.btnListarClientes.Text = "Listar todos os Fornecedores";
             this.btnListarClientes.UseVisualStyleBackColor = true;
+            this.btnListarClientes.Click += new System.EventHandler(this.btnListarClientes_Click);
             // 
             // listViewFornecedor
             // 

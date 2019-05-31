@@ -247,5 +247,10 @@ namespace TelaFarmaPopTec
         {
             this.Close();
         }
+
+        private void buttonListarCompras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

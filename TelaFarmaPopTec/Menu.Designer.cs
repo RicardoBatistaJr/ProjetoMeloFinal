@@ -50,9 +50,8 @@
             this.buttonCliente.Text = "CLIENTE";
             this.buttonCliente.UseVisualStyleBackColor = false;
             this.buttonCliente.Click += new System.EventHandler(this.buttonCliente_Click);
-            // 
+
             // buttonFuncionario
-            // 
             this.buttonFuncionario.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFuncionario.Location = new System.Drawing.Point(6, 159);
@@ -62,9 +61,8 @@
             this.buttonFuncionario.Text = "FUNCIONARIOS";
             this.buttonFuncionario.UseVisualStyleBackColor = false;
             this.buttonFuncionario.Click += new System.EventHandler(this.buttonFuncionario_Click);
-            // 
+
             // buttonSair
-            // 
             this.buttonSair.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSair.Location = new System.Drawing.Point(1111, 371);
@@ -85,9 +83,9 @@
             this.buttonProdutos.TabIndex = 3;
             this.buttonProdutos.Text = "PRODUTOS";
             this.buttonProdutos.UseVisualStyleBackColor = false;
-            // 
+            this.buttonProdutos.Click += new System.EventHandler(this.buttonProdutos_Click);
+
             // buttonVenda
-            // 
             this.buttonVenda.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonVenda.Location = new System.Drawing.Point(1111, 159);
@@ -131,6 +129,7 @@
             this.buttonFornacedor.TabIndex = 7;
             this.buttonFornacedor.Text = "FORNECEDOR";
             this.buttonFornacedor.UseVisualStyleBackColor = false;
+            this.buttonFornacedor.Click += new System.EventHandler(this.buttonFornacedor_Click);
             // 
             // Menu
             // 

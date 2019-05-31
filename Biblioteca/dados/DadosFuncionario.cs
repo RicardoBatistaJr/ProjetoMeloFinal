@@ -323,7 +323,6 @@ namespace Biblioteca.dados
                 }
 
                 return fun;
-
                 //liberando a memoria 
                 cmd.Dispose();
                 //fechando a conexao
