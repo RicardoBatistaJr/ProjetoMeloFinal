@@ -951,14 +951,14 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ConsultarFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
-        public Fornecedor[] ConsultarFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor filtro) {
-            object[] results = this.Invoke("ConsultarFornecedor", new object[] {
-                        filtro});
-            return ((Fornecedor[])(results[0]));
-        }
+        //[System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ConsultarFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        //[return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        //[return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        ////public Fornecedor[] ConsultarFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor filtro) {
+        //    object[] results = this.Invoke("ConsultarFornecedor", new object[] {
+        //                filtro});
+        //    return ((Fornecedor[])(results[0]));
+        //}
         
         /// <remarks/>
         public void ConsultarFornecedorAsync(Fornecedor filtro) {

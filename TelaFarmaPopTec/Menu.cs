@@ -107,7 +107,8 @@ namespace TelaFarmaPopTec
 
         private void buttonCaixa_Click(object sender, EventArgs e)
         {
-            
+            Caixa caixa = new Caixa();
+            caixa.ShowDialog();
         }
         
     }

@@ -52,18 +52,27 @@
             this.richTextBoxDesconto = new System.Windows.Forms.RichTextBox();
             this.richTextBoxTotalLiq = new System.Windows.Forms.RichTextBox();
             this.buttonPesquisarVenda = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewVenda
             // 
+            this.listViewVenda.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
             this.listViewVenda.Location = new System.Drawing.Point(23, 24);
             this.listViewVenda.Name = "listViewVenda";
             this.listViewVenda.Size = new System.Drawing.Size(349, 284);
             this.listViewVenda.TabIndex = 8;
             this.listViewVenda.UseCompatibleStateImageBehavior = false;
+            this.listViewVenda.View = System.Windows.Forms.View.Details;
             // 
             // richTextBoxCodVenda
             // 
+            this.richTextBoxCodVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxCodVenda.Location = new System.Drawing.Point(519, 61);
             this.richTextBoxCodVenda.Name = "richTextBoxCodVenda";
             this.richTextBoxCodVenda.Size = new System.Drawing.Size(207, 41);
@@ -82,7 +91,9 @@
             // 
             // richTextBoxCpf
             // 
+            this.richTextBoxCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxCpf.Location = new System.Drawing.Point(447, 12);
+            this.richTextBoxCpf.MaxLength = 11;
             this.richTextBoxCpf.Name = "richTextBoxCpf";
             this.richTextBoxCpf.Size = new System.Drawing.Size(279, 43);
             this.richTextBoxCpf.TabIndex = 1;
@@ -100,6 +111,7 @@
             // 
             // richTextBoxValorRecebido
             // 
+            this.richTextBoxValorRecebido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxValorRecebido.Location = new System.Drawing.Point(405, 398);
             this.richTextBoxValorRecebido.Name = "richTextBoxValorRecebido";
             this.richTextBoxValorRecebido.Size = new System.Drawing.Size(207, 41);
@@ -108,6 +120,7 @@
             // 
             // richTextBoxTroco
             // 
+            this.richTextBoxTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxTroco.Location = new System.Drawing.Point(405, 445);
             this.richTextBoxTroco.Name = "richTextBoxTroco";
             this.richTextBoxTroco.Size = new System.Drawing.Size(207, 37);
@@ -245,6 +258,7 @@
             // 
             // richTextBoxTotalVenda
             // 
+            this.richTextBoxTotalVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxTotalVenda.Location = new System.Drawing.Point(519, 108);
             this.richTextBoxTotalVenda.Name = "richTextBoxTotalVenda";
             this.richTextBoxTotalVenda.Size = new System.Drawing.Size(207, 41);
@@ -253,6 +267,7 @@
             // 
             // richTextBoxDesconto
             // 
+            this.richTextBoxDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxDesconto.Location = new System.Drawing.Point(519, 155);
             this.richTextBoxDesconto.Name = "richTextBoxDesconto";
             this.richTextBoxDesconto.Size = new System.Drawing.Size(207, 41);
@@ -261,6 +276,7 @@
             // 
             // richTextBoxTotalLiq
             // 
+            this.richTextBoxTotalLiq.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxTotalLiq.Location = new System.Drawing.Point(519, 202);
             this.richTextBoxTotalLiq.Name = "richTextBoxTotalLiq";
             this.richTextBoxTotalLiq.Size = new System.Drawing.Size(207, 41);
@@ -278,6 +294,20 @@
             this.buttonPesquisarVenda.Text = "Pesquisar Venda";
             this.buttonPesquisarVenda.UseVisualStyleBackColor = false;
             this.buttonPesquisarVenda.Click += new System.EventHandler(this.buttonPesquisarVenda_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Quant.";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Produto";
+            this.columnHeader2.Width = 196;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Valor Unid.";
+            this.columnHeader3.Width = 99;
             // 
             // Caixa
             // 
@@ -309,6 +339,7 @@
             this.Controls.Add(this.listViewVenda);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Caixa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caixa";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -340,5 +371,8 @@
         private System.Windows.Forms.RichTextBox richTextBoxDesconto;
         private System.Windows.Forms.RichTextBox richTextBoxTotalLiq;
         private System.Windows.Forms.Button buttonPesquisarVenda;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
