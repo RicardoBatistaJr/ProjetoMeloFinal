@@ -108,37 +108,25 @@ namespace TelaFarmaPopTec
             this.Dispose();
         }
         //Função para listar fornecedores
-        private void btnListarClientes_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    this.fornecedor.Clear();
-            //    this.fornecedor = sv.ListarFornecedor().ToList();
-
-            //    listViewFornecedor.Items.Clear();
-
-            //    foreach (var item in this.fornecedor)
-            //    {
-            //        ListViewItem lvi = listViewFornecedor.Items.Add(item.CpfCliente);
-            //        lvi.SubItems.Add(item.Fornecedor);                    
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-        //Função para listar compras com o fornecedor
-        private void buttonListarCompras_Click(object sender, EventArgs e)
+        private void btnListarFornecedores_Click(object sender, EventArgs e)
         {
             try
             {
+                this.fornecedores.Clear();
+                this.fornecedores = sv.ListarFornecedor().ToList();                
 
+                listViewFornecedor.Items.Clear();
+
+                foreach (var item in this.fornecedores)
+                {
+                    ListViewItem lvi = listViewFornecedor.Items.Add(item.Cnpj);
+                    lvi.SubItems.Add(item.NomeFornecedor);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);                
+                MessageBox.Show(ex.Message);
             }
-        }
+        }          
     }
 }

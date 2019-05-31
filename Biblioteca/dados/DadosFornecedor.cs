@@ -232,9 +232,9 @@ namespace FarmaPopTec_1._0.Dados
             return cnpj.EndsWith(digito);
         }
         //Método para pesquisar compras com o fornecedor
-        public List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro)
+        public List<Compra> ListarComprasComFornecedor(Fornecedor filtro)
         {
-            List<Fornecedor> retorno = new List<Fornecedor>();
+            List<Compra> retorno = new List<Compra>();
             try
             {
                 this.AbrirConexao();
@@ -275,13 +275,12 @@ namespace FarmaPopTec_1._0.Dados
                 while (DbReader.Read())
                 {                    
                     Compra compra = new Compra();
-                    Compra_Produto compra_Produto = new Compra_Produto();
                     //acessando os valores das colunas do resultado
                     compra.Funcionario.CodFuncionario = DbReader.GetInt16(DbReader.GetOrdinal("codFuncionario"));
                     compra.NumCompra = DbReader.GetInt16(DbReader.GetOrdinal("numCompra"));
                     compra.DataCompra = DbReader.GetDateTime(DbReader.GetOrdinal("dataCompra"));
-                    compra_Produto.ValorTotal = DbReader.GetFloat(DbReader.GetOrdinal("valorTotal"));
-                    retorno.Add(compra,compra_Produto);
+                    //compra_Produto.ValorTotal = DbReader.GetFloat(DbReader.GetOrdinal("valorTotal"));
+                    retorno.Add(compra);
                 }                
                 //fechando o leitor de resultados
                 DbReader.Close();

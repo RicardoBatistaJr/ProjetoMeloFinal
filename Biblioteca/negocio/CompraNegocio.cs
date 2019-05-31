@@ -36,5 +36,10 @@ namespace Biblioteca.Negocio
         {
             throw new NotImplementedException();
         }
+        //Exeções para método de listar compras por num de compra
+        public List<Compra_Produto> ListarProdutosCompras(Compra filtro)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -37,6 +37,7 @@
       <xs:element minOccurs="0" name="NomeProduto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PrecoProduto" type="xs:float" />
       <xs:element minOccurs="0" name="SaldoProduto" type="xs:float" />
+      <xs:element minOccurs="0" name="StatusProduto" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Produto" nillable="true" type="tns:Produto" />

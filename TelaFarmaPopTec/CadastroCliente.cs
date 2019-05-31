@@ -99,41 +99,41 @@ namespace TelaFarmaPopTec
         }
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            try
-            {
+                try
+                {
                 
-                if (textBoxCpf.Text != null || textBoxNome.Text != null)
-                {
-                    cliente.CpfCliente = textBoxCpf.Text;
-                    cliente.NomeCliente = textBoxNome.Text;
-
-                    this.clientes.Clear();
-                    this.clientes = sv.ConsultarCliente(cliente).ToList();
-
-                    listViewCliente.Items.Clear();
-
-                    foreach (var item in clientes)
+                    if (textBoxCpf.Text != null || textBoxNome.Text != null)
                     {
-                        ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
-                        lvi.SubItems.Add(item.NomeCliente);
-                        lvi.SubItems.Add(item.EmailCliente);
-                        lvi.SubItems.Add(item.TelCliente);
-                    }
-                    textBoxCpf.Text = "";
-                    textBoxNome.Text = "";
-                    textBoxEmail.Text = "";
-                    textBoxTel.Text = "";
+                        cliente.CpfCliente = textBoxCpf.Text;
+                        cliente.NomeCliente = textBoxNome.Text;
 
+                        this.clientes.Clear();
+                        this.clientes = sv.ConsultarCliente(cliente).ToList();
+
+                        listViewCliente.Items.Clear();
+
+                        foreach (var item in clientes)
+                        {
+                            ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
+                            lvi.SubItems.Add(item.NomeCliente);
+                            lvi.SubItems.Add(item.EmailCliente);
+                            lvi.SubItems.Add(item.TelCliente);
+                        }
+                        textBoxCpf.Text = "";
+                        textBoxNome.Text = "";
+                        textBoxEmail.Text = "";
+                        textBoxTel.Text = "";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Informar um nome ou CPF!");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Informar um nome ou CPF!");
+                    MessageBox.Show(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
         private void buttonClientes_Click(object sender, EventArgs e)
         {

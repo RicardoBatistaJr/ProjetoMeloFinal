@@ -30,14 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastrarFornecedor));
             this.buttonVoltar = new System.Windows.Forms.Button();
-            this.listViewCompras = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonListarCompras = new System.Windows.Forms.Button();
             this.buttonAlterar = new System.Windows.Forms.Button();
-            this.btnListarClientes = new System.Windows.Forms.Button();
+            this.btnListarFornecedores = new System.Windows.Forms.Button();
             this.listViewFornecedor = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,50 +54,6 @@
             this.buttonVoltar.UseVisualStyleBackColor = true;
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
-            // listViewCompras
-            // 
-            this.listViewCompras.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
-            this.listViewCompras.Location = new System.Drawing.Point(32, 401);
-            this.listViewCompras.Name = "listViewCompras";
-            this.listViewCompras.Size = new System.Drawing.Size(618, 97);
-            this.listViewCompras.TabIndex = 34;
-            this.listViewCompras.UseCompatibleStateImageBehavior = false;
-            this.listViewCompras.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "CPF do funcionario";
-            this.columnHeader5.Width = 166;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Nº da Compra";
-            this.columnHeader7.Width = 143;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Data da Compra";
-            this.columnHeader8.Width = 181;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Preço Total da compra";
-            this.columnHeader9.Width = 123;
-            // 
-            // buttonListarCompras
-            // 
-            this.buttonListarCompras.Location = new System.Drawing.Point(32, 371);
-            this.buttonListarCompras.Name = "buttonListarCompras";
-            this.buttonListarCompras.Size = new System.Drawing.Size(212, 23);
-            this.buttonListarCompras.TabIndex = 33;
-            this.buttonListarCompras.Text = "Listar compras com esse Fornecedor";
-            this.buttonListarCompras.UseVisualStyleBackColor = true;
-            this.buttonListarCompras.Click += new System.EventHandler(this.buttonListarCompras_Click);
-            // 
             // buttonAlterar
             // 
             this.buttonAlterar.Location = new System.Drawing.Point(314, 22);
@@ -114,15 +64,15 @@
             this.buttonAlterar.UseVisualStyleBackColor = true;
             this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
             // 
-            // btnListarClientes
+            // btnListarFornecedores
             // 
-            this.btnListarClientes.Location = new System.Drawing.Point(35, 174);
-            this.btnListarClientes.Name = "btnListarClientes";
-            this.btnListarClientes.Size = new System.Drawing.Size(152, 23);
-            this.btnListarClientes.TabIndex = 31;
-            this.btnListarClientes.Text = "Listar todos os Fornecedores";
-            this.btnListarClientes.UseVisualStyleBackColor = true;
-            this.btnListarClientes.Click += new System.EventHandler(this.btnListarClientes_Click);
+            this.btnListarFornecedores.Location = new System.Drawing.Point(35, 174);
+            this.btnListarFornecedores.Name = "btnListarFornecedores";
+            this.btnListarFornecedores.Size = new System.Drawing.Size(152, 23);
+            this.btnListarFornecedores.TabIndex = 31;
+            this.btnListarFornecedores.Text = "Listar todos os Fornecedores";
+            this.btnListarFornecedores.UseVisualStyleBackColor = true;
+            this.btnListarFornecedores.Click += new System.EventHandler(this.btnListarFornecedores_Click);
             // 
             // listViewFornecedor
             // 
@@ -214,12 +164,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 558);
+            this.ClientSize = new System.Drawing.Size(678, 322);
             this.Controls.Add(this.buttonVoltar);
-            this.Controls.Add(this.listViewCompras);
-            this.Controls.Add(this.buttonListarCompras);
             this.Controls.Add(this.buttonAlterar);
-            this.Controls.Add(this.btnListarClientes);
+            this.Controls.Add(this.btnListarFornecedores);
             this.Controls.Add(this.listViewFornecedor);
             this.Controls.Add(this.textBoxFornecedor);
             this.Controls.Add(this.textBoxCnpj);
@@ -240,14 +188,8 @@
         #endregion
 
         private System.Windows.Forms.Button buttonVoltar;
-        private System.Windows.Forms.ListView listViewCompras;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.Button buttonListarCompras;
         private System.Windows.Forms.Button buttonAlterar;
-        private System.Windows.Forms.Button btnListarClientes;
+        private System.Windows.Forms.Button btnListarFornecedores;
         private System.Windows.Forms.ListView listViewFornecedor;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

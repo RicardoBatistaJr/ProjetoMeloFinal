@@ -261,22 +261,20 @@
   </xs:element>
   <xs:element name="ListarCompras">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="filtro" nillable="true" type="q24:Compra" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarComprasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarComprasResult" nillable="true" type="q25:ArrayOfCompra" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarComprasResult" nillable="true" type="q24:ArrayOfCompra" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CadastrarFornecedor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="fornecedor" nillable="true" type="q26:Fornecedor" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="fornecedor" nillable="true" type="q25:Fornecedor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -288,7 +286,7 @@
   <xs:element name="AlterarFornecedor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="fornecedor" nillable="true" type="q27:Fornecedor" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="fornecedor" nillable="true" type="q26:Fornecedor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -299,15 +297,27 @@
   </xs:element>
   <xs:element name="ListarFornecedor">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="filtro" nillable="true" type="q28:Fornecedor" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ListarFornecedorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarFornecedorResult" nillable="true" type="q29:ArrayOfFornecedor" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarFornecedorResult" nillable="true" type="q27:ArrayOfFornecedor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFornecedor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="filtro" nillable="true" type="q28:Fornecedor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFornecedorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ConsultarFornecedorResult" nillable="true" type="q29:ArrayOfFornecedor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -320,7 +330,37 @@
   </xs:element>
   <xs:element name="VerificarDuplicidadeFornecedorResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarDuplicidadeFornecedorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarCnpj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cnpj" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarCnpjResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarCnpjResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarComprasComFornecedor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="filtro" nillable="true" type="q31:Fornecedor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarComprasComFornecedorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarComprasComFornecedorResult" nillable="true" type="q32:ArrayOfFornecedor" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

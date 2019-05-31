@@ -244,6 +244,42 @@ namespace FarmaPopTec_1._0.Dados
                 throw new Exception("Erro ao listar compra " + ex.Message);
             }
         }
+
+        public List<Compra_Produto> ListarProdutosCompras(Compra compra)
+        {
+            List<Compra_Produto> listarcompras = new List<Compra_Produto>();
+            try
+            {
+                this.AbrirConexao();
+                //instrucao a ser executada
+                string sql = "SELECT * from Compra_produto where numcompra = @numcompra ";
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                //executando a instrucao e colocando o resultado em um leitor
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                //lendo o resultado da consulta 
+                while (DbReader.Read())
+                {
+                    Compra_Produto compraProd = new Compra_Produto();
+                    //acessando os valores das colunas do resultado 
+                    /*compra.NumCompra = DbReader.GetInt16(DbReader.GetOrdinal("numCompra"));
+                    compra.DataCompra = DbReader.GetDateTime(DbReader.GetOrdinal("dataCompra"));
+                    compra.Funcionario.CodFuncionario = DbReader.GetInt16(DbReader.GetOrdinal("codFuncionario"));
+                    compra.Fornecedor.Cnpj = DbReader.GetString(DbReader.GetOrdinal("cnpj"));*/
+                    listarcompras.Add(compraProd);
+                }
+                //fechando o leitor de resultados
+                DbReader.Close();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+                return listarcompras;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao listar compra " + ex.Message);
+            }
+        }
     }
     
 }
