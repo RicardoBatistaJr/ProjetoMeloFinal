@@ -79,12 +79,7 @@ namespace Biblioteca.Negocio
         public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
         {
             throw new NotImplementedException();
-        }
-
-        public List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro)
-        {
-            throw new NotImplementedException();
-        }
+        }        
 
         public List<Fornecedor> ListarFornecedor()
         {
