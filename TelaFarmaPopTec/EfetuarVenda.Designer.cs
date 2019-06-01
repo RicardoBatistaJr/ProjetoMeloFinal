@@ -30,10 +30,21 @@
         {
             this.listViewListarProdutos = new System.Windows.Forms.ListView();
             this.btListarProdutos = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewListarProdutos
             // 
+            this.listViewListarProdutos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
             this.listViewListarProdutos.FullRowSelect = true;
             this.listViewListarProdutos.Location = new System.Drawing.Point(22, 209);
             this.listViewListarProdutos.Name = "listViewListarProdutos";
@@ -52,6 +63,26 @@
             this.btListarProdutos.UseVisualStyleBackColor = true;
             this.btListarProdutos.Click += new System.EventHandler(this.BtListarProdutos_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Cod. Produto";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Saldo Produto";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Data Fabric.";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Nome Produto";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Preço Produto";
+            // 
             // EfetuarVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,5 +100,10 @@
 
         private System.Windows.Forms.ListView listViewListarProdutos;
         private System.Windows.Forms.Button btListarProdutos;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

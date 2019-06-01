@@ -117,7 +117,7 @@
             this.buttonCaixa.TabIndex = 4;
             this.buttonCaixa.Text = "CAIXA";
             this.buttonCaixa.UseVisualStyleBackColor = false;
-            this.buttonCaixa.Click += new System.EventHandler(this.buttonCaixa_Click);
+           // this.buttonCaixa.Click += new System.EventHandler(this.buttonCaixa_Click);
             // 
             // buttonFornacedor
             // 

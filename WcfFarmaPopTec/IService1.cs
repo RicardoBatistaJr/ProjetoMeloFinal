@@ -61,6 +61,7 @@ namespace WcfFarmaPopTec
         List<Compra> ConsultarCompra(Compra filtro);
         [OperationContract]
         List<Compra> ListarCompras();
+        
 
         // Fornecedor
         [OperationContract]
@@ -97,6 +98,20 @@ namespace WcfFarmaPopTec
         List<Produto> ListarProdutos();
         [OperationContract]
         bool VerificarDuplicidadeProduto(Produto produto);
+
+        // VENDA
+        [OperationContract]
+        void CadastrarVenda(Venda venda);
+        [OperationContract]
+        void AlterarVenda(Venda venda);
+        [OperationContract]
+        void DeletarVenda(Venda venda);
+        [OperationContract]
+        List<Venda> ListarVendas();
+        [OperationContract]
+        List<Venda> ListarVendaAtendente(Venda venda);
+        [OperationContract]
+        bool VerificarDuplicidadeVenda(Venda venda);
     }
 
 

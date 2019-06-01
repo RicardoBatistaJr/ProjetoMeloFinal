@@ -184,5 +184,34 @@ namespace WcfFarmaPopTec
         {
            return  new ProdutoNegocio().VerificarDuplicidadeProduto(produto);
         }
+
+        // VENDA
+
+        public bool VerificarDuplicidadeVenda(Venda venda)
+        {
+           return new VendaNegocio().VerificarDuplicidadeVenda(venda);
+        }
+
+        public void CadastrarVenda(Venda venda)
+        {
+            new VendaNegocio().CadastrarVenda(venda);
+        }
+        public void AlterarVenda(Venda venda)
+        {
+            new VendaNegocio().AlterarVenda(venda);
+        }
+        public void DeletarVenda(Venda venda)
+        {
+            new VendaNegocio().DeletarVenda(venda);
+        }
+        public List<Venda> ListarVendas()
+        {
+           return new VendaNegocio().ListarVendas();
+        }
+        public List<Venda> ListarVendaAtendente(Venda venda)
+        {
+           return new VendaNegocio().ListarVendaAtendente(venda);
+        }
+
     }
 }
