@@ -12,7 +12,7 @@ namespace Biblioteca.classesBasicas
         private string nomeCliente;
         private string emailCliente;
         private string telCliente;
-
+        
         public string CpfCliente { get => cpfCliente; set => cpfCliente = value; }
         public string NomeCliente { get => nomeCliente; set => nomeCliente = value; }
         public string EmailCliente { get => emailCliente; set => emailCliente = value; }
