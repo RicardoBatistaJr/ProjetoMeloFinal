@@ -33,6 +33,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.richTextBoxCodVenda = new System.Windows.Forms.RichTextBox();
             this.labelCodVenda = new System.Windows.Forms.Label();
             this.richTextBoxCpf = new System.Windows.Forms.RichTextBox();
@@ -41,8 +42,6 @@
             this.richTextBoxTroco = new System.Windows.Forms.RichTextBox();
             this.labelRecebido = new System.Windows.Forms.Label();
             this.labelTroco = new System.Windows.Forms.Label();
-            this.labelDesconto = new System.Windows.Forms.Label();
-            this.labelLiquido = new System.Windows.Forms.Label();
             this.rbDinheiro = new System.Windows.Forms.RadioButton();
             this.rbCartao = new System.Windows.Forms.RadioButton();
             this.buttonReceber = new System.Windows.Forms.Button();
@@ -52,10 +51,8 @@
             this.buttonCancelarVenda = new System.Windows.Forms.Button();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.richTextBoxTotalVenda = new System.Windows.Forms.RichTextBox();
-            this.richTextBoxDesconto = new System.Windows.Forms.RichTextBox();
-            this.richTextBoxTotalLiq = new System.Windows.Forms.RichTextBox();
             this.buttonPesquisarVenda = new System.Windows.Forms.Button();
-            this.buttonDesconto = new System.Windows.Forms.Button();
+            this.buttonSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewVenda
@@ -63,17 +60,20 @@
             this.listViewVenda.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.listViewVenda.Location = new System.Drawing.Point(23, 24);
             this.listViewVenda.Name = "listViewVenda";
-            this.listViewVenda.Size = new System.Drawing.Size(349, 284);
+            this.listViewVenda.Size = new System.Drawing.Size(473, 284);
             this.listViewVenda.TabIndex = 8;
             this.listViewVenda.UseCompatibleStateImageBehavior = false;
             this.listViewVenda.View = System.Windows.Forms.View.Details;
+            this.listViewVenda.SelectedIndexChanged += new System.EventHandler(this.listViewVenda_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Quant.";
+            this.columnHeader1.Width = 48;
             // 
             // columnHeader2
             // 
@@ -83,12 +83,17 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Valor Unid.";
-            this.columnHeader3.Width = 99;
+            this.columnHeader3.Width = 97;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Vendedor";
+            this.columnHeader4.Width = 127;
             // 
             // richTextBoxCodVenda
             // 
             this.richTextBoxCodVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxCodVenda.Location = new System.Drawing.Point(519, 61);
+            this.richTextBoxCodVenda.Location = new System.Drawing.Point(648, 95);
             this.richTextBoxCodVenda.Name = "richTextBoxCodVenda";
             this.richTextBoxCodVenda.Size = new System.Drawing.Size(207, 41);
             this.richTextBoxCodVenda.TabIndex = 2;
@@ -98,7 +103,7 @@
             // 
             this.labelCodVenda.AutoSize = true;
             this.labelCodVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCodVenda.Location = new System.Drawing.Point(386, 78);
+            this.labelCodVenda.Location = new System.Drawing.Point(515, 112);
             this.labelCodVenda.Name = "labelCodVenda";
             this.labelCodVenda.Size = new System.Drawing.Size(127, 24);
             this.labelCodVenda.TabIndex = 2;
@@ -107,7 +112,7 @@
             // richTextBoxCpf
             // 
             this.richTextBoxCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxCpf.Location = new System.Drawing.Point(447, 12);
+            this.richTextBoxCpf.Location = new System.Drawing.Point(576, 46);
             this.richTextBoxCpf.MaxLength = 11;
             this.richTextBoxCpf.Name = "richTextBoxCpf";
             this.richTextBoxCpf.Size = new System.Drawing.Size(279, 43);
@@ -118,7 +123,7 @@
             // 
             this.labelCpf.AutoSize = true;
             this.labelCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCpf.Location = new System.Drawing.Point(385, 31);
+            this.labelCpf.Location = new System.Drawing.Point(514, 65);
             this.labelCpf.Name = "labelCpf";
             this.labelCpf.Size = new System.Drawing.Size(56, 24);
             this.labelCpf.TabIndex = 6;
@@ -127,7 +132,7 @@
             // richTextBoxValorRecebido
             // 
             this.richTextBoxValorRecebido.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxValorRecebido.Location = new System.Drawing.Point(405, 398);
+            this.richTextBoxValorRecebido.Location = new System.Drawing.Point(523, 376);
             this.richTextBoxValorRecebido.Name = "richTextBoxValorRecebido";
             this.richTextBoxValorRecebido.Size = new System.Drawing.Size(207, 41);
             this.richTextBoxValorRecebido.TabIndex = 6;
@@ -136,7 +141,7 @@
             // richTextBoxTroco
             // 
             this.richTextBoxTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxTroco.Location = new System.Drawing.Point(405, 445);
+            this.richTextBoxTroco.Location = new System.Drawing.Point(523, 458);
             this.richTextBoxTroco.Name = "richTextBoxTroco";
             this.richTextBoxTroco.Size = new System.Drawing.Size(207, 37);
             this.richTextBoxTroco.TabIndex = 7;
@@ -146,47 +151,27 @@
             // 
             this.labelRecebido.AutoSize = true;
             this.labelRecebido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecebido.Location = new System.Drawing.Point(244, 401);
+            this.labelRecebido.Location = new System.Drawing.Point(546, 341);
             this.labelRecebido.Name = "labelRecebido";
-            this.labelRecebido.Size = new System.Drawing.Size(161, 24);
+            this.labelRecebido.Size = new System.Drawing.Size(155, 24);
             this.labelRecebido.TabIndex = 11;
-            this.labelRecebido.Text = "Valor Recebido:";
+            this.labelRecebido.Text = "Valor Recebido";
             // 
             // labelTroco
             // 
             this.labelTroco.AutoSize = true;
             this.labelTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTroco.Location = new System.Drawing.Point(334, 454);
+            this.labelTroco.Location = new System.Drawing.Point(602, 429);
             this.labelTroco.Name = "labelTroco";
-            this.labelTroco.Size = new System.Drawing.Size(71, 24);
+            this.labelTroco.Size = new System.Drawing.Size(65, 24);
             this.labelTroco.TabIndex = 12;
-            this.labelTroco.Text = "Troco:";
-            // 
-            // labelDesconto
-            // 
-            this.labelDesconto.AutoSize = true;
-            this.labelDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDesconto.Location = new System.Drawing.Point(409, 172);
-            this.labelDesconto.Name = "labelDesconto";
-            this.labelDesconto.Size = new System.Drawing.Size(104, 24);
-            this.labelDesconto.TabIndex = 14;
-            this.labelDesconto.Text = "Desconto:";
-            // 
-            // labelLiquido
-            // 
-            this.labelLiquido.AutoSize = true;
-            this.labelLiquido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLiquido.Location = new System.Drawing.Point(411, 219);
-            this.labelLiquido.Name = "labelLiquido";
-            this.labelLiquido.Size = new System.Drawing.Size(102, 24);
-            this.labelLiquido.TabIndex = 16;
-            this.labelLiquido.Text = "Total Liq.:";
+            this.labelTroco.Text = "Troco";
             // 
             // rbDinheiro
             // 
             this.rbDinheiro.AutoSize = true;
             this.rbDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDinheiro.Location = new System.Drawing.Point(445, 346);
+            this.rbDinheiro.Location = new System.Drawing.Point(580, 296);
             this.rbDinheiro.Name = "rbDinheiro";
             this.rbDinheiro.Size = new System.Drawing.Size(107, 28);
             this.rbDinheiro.TabIndex = 17;
@@ -198,7 +183,7 @@
             // 
             this.rbCartao.AutoSize = true;
             this.rbCartao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCartao.Location = new System.Drawing.Point(575, 346);
+            this.rbCartao.Location = new System.Drawing.Point(710, 296);
             this.rbCartao.Name = "rbCartao";
             this.rbCartao.Size = new System.Drawing.Size(88, 28);
             this.rbCartao.TabIndex = 18;
@@ -210,7 +195,7 @@
             // 
             this.buttonReceber.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReceber.Location = new System.Drawing.Point(618, 380);
+            this.buttonReceber.Location = new System.Drawing.Point(747, 376);
             this.buttonReceber.Name = "buttonReceber";
             this.buttonReceber.Size = new System.Drawing.Size(108, 102);
             this.buttonReceber.TabIndex = 19;
@@ -221,7 +206,7 @@
             // 
             this.labelTotalVenda.AutoSize = true;
             this.labelTotalVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalVenda.Location = new System.Drawing.Point(384, 125);
+            this.labelTotalVenda.Location = new System.Drawing.Point(513, 159);
             this.labelTotalVenda.Name = "labelTotalVenda";
             this.labelTotalVenda.Size = new System.Drawing.Size(129, 24);
             this.labelTotalVenda.TabIndex = 21;
@@ -231,7 +216,7 @@
             // 
             this.buttonExcluir.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluir.Location = new System.Drawing.Point(45, 320);
+            this.buttonExcluir.Location = new System.Drawing.Point(75, 320);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(143, 47);
             this.buttonExcluir.TabIndex = 22;
@@ -242,18 +227,19 @@
             // 
             this.buttonAdicionarProduto.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonAdicionarProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdicionarProduto.Location = new System.Drawing.Point(218, 320);
+            this.buttonAdicionarProduto.Location = new System.Drawing.Point(281, 320);
             this.buttonAdicionarProduto.Name = "buttonAdicionarProduto";
             this.buttonAdicionarProduto.Size = new System.Drawing.Size(143, 47);
             this.buttonAdicionarProduto.TabIndex = 23;
             this.buttonAdicionarProduto.Text = "Adicionar";
             this.buttonAdicionarProduto.UseVisualStyleBackColor = false;
+            this.buttonAdicionarProduto.Click += new System.EventHandler(this.buttonAdicionarProduto_Click);
             // 
             // buttonCancelarVenda
             // 
             this.buttonCancelarVenda.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonCancelarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelarVenda.Location = new System.Drawing.Point(45, 388);
+            this.buttonCancelarVenda.Location = new System.Drawing.Point(58, 389);
             this.buttonCancelarVenda.Name = "buttonCancelarVenda";
             this.buttonCancelarVenda.Size = new System.Drawing.Size(173, 51);
             this.buttonCancelarVenda.TabIndex = 24;
@@ -264,45 +250,28 @@
             // 
             this.buttonLimpar.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLimpar.Location = new System.Drawing.Point(45, 445);
+            this.buttonLimpar.Location = new System.Drawing.Point(264, 390);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(173, 51);
             this.buttonLimpar.TabIndex = 25;
             this.buttonLimpar.Text = "Limpar";
             this.buttonLimpar.UseVisualStyleBackColor = false;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // richTextBoxTotalVenda
             // 
             this.richTextBoxTotalVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxTotalVenda.Location = new System.Drawing.Point(519, 108);
+            this.richTextBoxTotalVenda.Location = new System.Drawing.Point(648, 142);
             this.richTextBoxTotalVenda.Name = "richTextBoxTotalVenda";
             this.richTextBoxTotalVenda.Size = new System.Drawing.Size(207, 41);
             this.richTextBoxTotalVenda.TabIndex = 3;
             this.richTextBoxTotalVenda.Text = "";
             // 
-            // richTextBoxDesconto
-            // 
-            this.richTextBoxDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxDesconto.Location = new System.Drawing.Point(519, 155);
-            this.richTextBoxDesconto.Name = "richTextBoxDesconto";
-            this.richTextBoxDesconto.Size = new System.Drawing.Size(207, 41);
-            this.richTextBoxDesconto.TabIndex = 4;
-            this.richTextBoxDesconto.Text = "";
-            // 
-            // richTextBoxTotalLiq
-            // 
-            this.richTextBoxTotalLiq.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxTotalLiq.Location = new System.Drawing.Point(519, 202);
-            this.richTextBoxTotalLiq.Name = "richTextBoxTotalLiq";
-            this.richTextBoxTotalLiq.Size = new System.Drawing.Size(207, 41);
-            this.richTextBoxTotalLiq.TabIndex = 5;
-            this.richTextBoxTotalLiq.Text = "";
-            // 
             // buttonPesquisarVenda
             // 
             this.buttonPesquisarVenda.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonPesquisarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesquisarVenda.Location = new System.Drawing.Point(388, 277);
+            this.buttonPesquisarVenda.Location = new System.Drawing.Point(592, 222);
             this.buttonPesquisarVenda.Name = "buttonPesquisarVenda";
             this.buttonPesquisarVenda.Size = new System.Drawing.Size(189, 53);
             this.buttonPesquisarVenda.TabIndex = 29;
@@ -310,27 +279,25 @@
             this.buttonPesquisarVenda.UseVisualStyleBackColor = false;
             this.buttonPesquisarVenda.Click += new System.EventHandler(this.buttonPesquisarVenda_Click);
             // 
-            // buttonDesconto
+            // buttonSair
             // 
-            this.buttonDesconto.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDesconto.Location = new System.Drawing.Point(583, 277);
-            this.buttonDesconto.Name = "buttonDesconto";
-            this.buttonDesconto.Size = new System.Drawing.Size(142, 53);
-            this.buttonDesconto.TabIndex = 30;
-            this.buttonDesconto.Text = "Desconto";
-            this.buttonDesconto.UseVisualStyleBackColor = false;
-            this.buttonDesconto.Click += new System.EventHandler(this.buttonDesconto_Click);
+            this.buttonSair.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSair.Location = new System.Drawing.Point(184, 453);
+            this.buttonSair.Name = "buttonSair";
+            this.buttonSair.Size = new System.Drawing.Size(136, 47);
+            this.buttonSair.TabIndex = 30;
+            this.buttonSair.Text = "Sair";
+            this.buttonSair.UseVisualStyleBackColor = false;
+            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
             // 
             // Caixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 508);
-            this.Controls.Add(this.buttonDesconto);
+            this.ClientSize = new System.Drawing.Size(867, 508);
+            this.Controls.Add(this.buttonSair);
             this.Controls.Add(this.buttonPesquisarVenda);
-            this.Controls.Add(this.richTextBoxTotalLiq);
-            this.Controls.Add(this.richTextBoxDesconto);
             this.Controls.Add(this.richTextBoxTotalVenda);
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonCancelarVenda);
@@ -340,8 +307,6 @@
             this.Controls.Add(this.buttonReceber);
             this.Controls.Add(this.rbCartao);
             this.Controls.Add(this.rbDinheiro);
-            this.Controls.Add(this.labelLiquido);
-            this.Controls.Add(this.labelDesconto);
             this.Controls.Add(this.labelTroco);
             this.Controls.Add(this.labelRecebido);
             this.Controls.Add(this.richTextBoxTroco);
@@ -371,8 +336,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxTroco;
         private System.Windows.Forms.Label labelRecebido;
         private System.Windows.Forms.Label labelTroco;
-        private System.Windows.Forms.Label labelDesconto;
-        private System.Windows.Forms.Label labelLiquido;
         private System.Windows.Forms.RadioButton rbDinheiro;
         private System.Windows.Forms.RadioButton rbCartao;
         private System.Windows.Forms.Button buttonReceber;
@@ -382,12 +345,11 @@
         private System.Windows.Forms.Button buttonCancelarVenda;
         private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.RichTextBox richTextBoxTotalVenda;
-        private System.Windows.Forms.RichTextBox richTextBoxDesconto;
-        private System.Windows.Forms.RichTextBox richTextBoxTotalLiq;
         private System.Windows.Forms.Button buttonPesquisarVenda;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Button buttonDesconto;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button buttonSair;
     }
 }

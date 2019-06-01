@@ -95,7 +95,7 @@ namespace WcfFarmaPopTec
             return new FuncionarioNegocio().Logar(funcionario);
         }
       
-        //service Fornecedor
+        //FORNECEDOR
         public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
         {
             return new FornecedorNegocio().ConsultarFornecedor(filtro);
@@ -124,7 +124,7 @@ namespace WcfFarmaPopTec
         {
             return new FornecedorNegocio().ListarComprasComFornecedor(filtro);
         }
-        //service Compra/
+        //COMPRA
         public List<Compra> ListarCompras(Compra filtro)
         {
             throw new NotImplementedException();
@@ -204,10 +204,15 @@ namespace WcfFarmaPopTec
         {
             new VendaNegocio().DeletarVenda(venda);
         }
-        public List<Venda> ListarVendas()
+        public List<VendaProduto> ListarVendas()
         {
-           return new VendaNegocio().ListarVendas();
+            return new VendaNegocio().ListarVendas();
         }
+        public List<VendaProduto> ListarVenda(Venda venda)
+        {
+            return new VendaNegocio().ListarVenda(venda);
+        }
+
         public List<Venda> ListarVendaAtendente(Venda venda)
         {
            return new VendaNegocio().ListarVendaAtendente(venda);

@@ -59,9 +59,13 @@ namespace Biblioteca.negocio
             }
         }
 
-        public List<Venda> ListarVendas()
+        public List<VendaProduto> ListarVendas()
         {
             return new DadosVenda().ListarVendas();
+        }
+        public List<VendaProduto> ListarVenda(Venda venda)
+        {
+            return new DadosVenda().ListarVenda(venda);
         }
 
         public List<Venda> ListarVendaAtendente(Venda venda)

@@ -10,7 +10,8 @@ namespace Biblioteca.dados
         void CadastrarVenda(Venda venda);
         void AlterarVenda(Venda venda);
         void DeletarVenda(Venda venda);
-        List<Venda> ListarVendas();
+        List<VendaProduto> ListarVendas();
+        List<VendaProduto> ListarVenda(Venda venda);
         List<Venda> ListarVendaAtendente(Venda venda);
         bool VerificarDuplicidadeVenda(Venda venda);
     }

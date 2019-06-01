@@ -107,7 +107,9 @@ namespace WcfFarmaPopTec
         [OperationContract]
         void DeletarVenda(Venda venda);
         [OperationContract]
-        List<Venda> ListarVendas();
+        List<VendaProduto> ListarVendas();
+        [OperationContract]
+        List<VendaProduto> ListarVenda(Venda venda);
         [OperationContract]
         List<Venda> ListarVendaAtendente(Venda venda);
         [OperationContract]

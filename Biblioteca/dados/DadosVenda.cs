@@ -119,27 +119,82 @@ namespace Biblioteca.dados
         }
  
         //Método select todos os clientes
-        public List<Venda> ListarVendas()
+        public List<VendaProduto> ListarVendas()
         {
-            List<Venda> vendas = new List<Venda>();
+            List<VendaProduto> vendas = new List<VendaProduto>();
             try
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT * from venda ";
+                string sql = "select venda.numVenda, venda.dataVenda, cliente.cpfCliente, funcionario.nomeFuncionario, venda_produto.qtd, venda_produto.preco, produto.nomeProduto, produto.precoProduto";
+                sql += "from venda";
+                sql += "inner join cliente on  venda.cpfCliente = cliente.cpfCliente";
+                sql += "inner join funcionario on venda.codFuncionario = funcionario.codFuncionario";
+                sql += "inner join  venda_produto on venda.numVenda = venda_produto.numVenda";
+                sql += "inner join produto on venda_produto.codProduto = produto.codProduto";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 //executando a instrucao e colocando o resultado em um leitor
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 //lendo o resultado da consulta
                 while (DbReader.Read())
                 {
-                    Venda venda = new Venda();
+                    VendaProduto vendaP = new VendaProduto();
                     //acessando os valores das colunas do resultado
-                    venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
-                    venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
-                    venda.Cliente.CpfCliente= DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
-                    venda.Funcionario.CodFuncionario = DbReader.GetInt32(DbReader.GetOrdinal("codFuncionario"));
-                    vendas.Add(venda);
+                    vendaP.Venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
+                    vendaP.Venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
+                    vendaP.Venda.Cliente.CpfCliente= DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
+                    vendaP.Venda.Funcionario.NomeFuncionario = DbReader.GetString(DbReader.GetOrdinal("nomeFuncionario"));
+                    vendaP.Qtd = DbReader.GetInt32(DbReader.GetOrdinal("qtd"));
+                    vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                    vendaP.Produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
+                    vendaP.Produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoproduto"));
+                    vendas.Add(vendaP);
+                }
+                //fechando o leitor de resultados
+                DbReader.Close();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+                return vendas;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+            }
+        }
+        public List<VendaProduto> ListarVenda(Venda venda)
+        {
+            List<VendaProduto> vendas = new List<VendaProduto>();
+            try
+            {
+                this.AbrirConexao();
+                //instrucao a ser executada
+                string sql = "select venda.numVenda, venda.dataVenda, cliente.cpfCliente, funcionario.nomeFuncionario, venda_produto.qtd, venda_produto.preco, produto.nomeProduto, produto.precoProduto";
+                sql += "from venda";
+                sql += "inner join cliente on  venda.cpfCliente = cliente.cpfCliente";
+                sql += "inner join funcionario on venda.codFuncionario = funcionario.codFuncionario";
+                sql += "inner join  venda_produto on venda.numVenda = venda_produto.numVenda";
+                sql += "inner join produto on venda_produto.codProduto = produto.codProduto";
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                cmd.Parameters.AddWithValue("@numVenda", venda.NumVenda);
+                cmd.Parameters.AddWithValue("@cpfCliente", venda.Cliente.CpfCliente);
+                //executando a instrucao e colocando o resultado em um leitor
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                //lendo o resultado da consulta
+                while (DbReader.Read())
+                {
+                    VendaProduto vendaP = new VendaProduto();
+                    //acessando os valores das colunas do resultado
+                    vendaP.Venda.NumVenda = DbReader.GetInt32(DbReader.GetOrdinal("numVenda"));
+                    vendaP.Venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
+                    vendaP.Venda.Cliente.CpfCliente = DbReader.GetString(DbReader.GetOrdinal("cpfCliente"));
+                    vendaP.Venda.Funcionario.NomeFuncionario = DbReader.GetString(DbReader.GetOrdinal("nomeFuncionario"));
+                    vendaP.Qtd = DbReader.GetInt32(DbReader.GetOrdinal("qtd"));
+                    vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                    vendaP.Produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
+                    vendaP.Produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoproduto"));
+                    vendas.Add(vendaP);
                 }
                 //fechando o leitor de resultados
                 DbReader.Close();

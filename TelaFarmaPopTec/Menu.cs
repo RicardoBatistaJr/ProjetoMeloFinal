@@ -111,5 +111,10 @@ namespace TelaFarmaPopTec
             EfetuarVenda vend = new EfetuarVenda();
             vend.ShowDialog();
         }
+        private void buttonCaixa_Click_1(object sender, EventArgs e)
+        {
+            Caixa caixa = new Caixa();
+            caixa.ShowDialog();
+        }
     }
 }
