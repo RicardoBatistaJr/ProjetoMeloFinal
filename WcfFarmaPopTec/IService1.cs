@@ -97,6 +97,8 @@ namespace WcfFarmaPopTec
         List<Produto> ListarProdutos();
         [OperationContract]
         bool VerificarDuplicidadeProduto(Produto produto);
+
+
     }
 
 

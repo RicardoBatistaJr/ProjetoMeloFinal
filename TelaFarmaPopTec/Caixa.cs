@@ -20,21 +20,24 @@ namespace TelaFarmaPopTec
             richTextBoxTotalLiq.SelectionAlignment = HorizontalAlignment.Right;
             richTextBoxValorRecebido.SelectionAlignment = HorizontalAlignment.Right;
             richTextBoxTroco.SelectionAlignment = HorizontalAlignment.Right;
-
         }
-        double desconto;
+       
         Service1 sv = new Service1();
-        VendaProduto venda = new VendaProduto();
-        List<Venda> vendas = new List<Venda>();
+
+        //double liquido = venda.Preco - (desconto/100);
         private void buttonPesquisarVenda_Click(object sender, EventArgs e)
         {
+            VendaProduto venda = new VendaProduto();
+            List<Venda> vendas = new List<Venda>();
+            double desconto = 0;
             if (richTextBoxCpf.Text != null || richTextBoxCodVenda.Text != null)
             {
                 venda.Venda.Cliente.CpfCliente = richTextBoxCpf.Text;
                 venda.Venda.NumVenda = Int32.Parse(richTextBoxCodVenda.Text);
+                
 
-                this.vendas.Clear();
-                //this.vendas = sv.li
+                vendas.Clear();
+                //vendas = sv.li
 
                 listViewVenda.Items.Clear();
 
@@ -48,6 +51,12 @@ namespace TelaFarmaPopTec
                 }
                 
             }
+        }
+
+        private void buttonDesconto_Click(object sender, EventArgs e)
+        {
+            double desconto = 0;
+
         }
     }
 }

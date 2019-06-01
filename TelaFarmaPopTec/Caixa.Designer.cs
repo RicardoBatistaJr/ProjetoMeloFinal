@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Caixa));
             this.listViewVenda = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.richTextBoxCodVenda = new System.Windows.Forms.RichTextBox();
             this.labelCodVenda = new System.Windows.Forms.Label();
             this.richTextBoxCpf = new System.Windows.Forms.RichTextBox();
@@ -47,14 +50,12 @@
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonAdicionarProduto = new System.Windows.Forms.Button();
             this.buttonCancelarVenda = new System.Windows.Forms.Button();
-            this.buttonNovaVanda = new System.Windows.Forms.Button();
+            this.buttonLimpar = new System.Windows.Forms.Button();
             this.richTextBoxTotalVenda = new System.Windows.Forms.RichTextBox();
             this.richTextBoxDesconto = new System.Windows.Forms.RichTextBox();
             this.richTextBoxTotalLiq = new System.Windows.Forms.RichTextBox();
             this.buttonPesquisarVenda = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonDesconto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewVenda
@@ -69,6 +70,20 @@
             this.listViewVenda.TabIndex = 8;
             this.listViewVenda.UseCompatibleStateImageBehavior = false;
             this.listViewVenda.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Quant.";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Produto";
+            this.columnHeader2.Width = 196;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Valor Unid.";
+            this.columnHeader3.Width = 99;
             // 
             // richTextBoxCodVenda
             // 
@@ -245,16 +260,16 @@
             this.buttonCancelarVenda.Text = "Cancelar Venda";
             this.buttonCancelarVenda.UseVisualStyleBackColor = false;
             // 
-            // buttonNovaVanda
+            // buttonLimpar
             // 
-            this.buttonNovaVanda.BackColor = System.Drawing.SystemColors.GrayText;
-            this.buttonNovaVanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNovaVanda.Location = new System.Drawing.Point(45, 445);
-            this.buttonNovaVanda.Name = "buttonNovaVanda";
-            this.buttonNovaVanda.Size = new System.Drawing.Size(173, 51);
-            this.buttonNovaVanda.TabIndex = 25;
-            this.buttonNovaVanda.Text = "Nova Venda";
-            this.buttonNovaVanda.UseVisualStyleBackColor = false;
+            this.buttonLimpar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpar.Location = new System.Drawing.Point(45, 445);
+            this.buttonLimpar.Name = "buttonLimpar";
+            this.buttonLimpar.Size = new System.Drawing.Size(173, 51);
+            this.buttonLimpar.TabIndex = 25;
+            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.UseVisualStyleBackColor = false;
             // 
             // richTextBoxTotalVenda
             // 
@@ -287,7 +302,7 @@
             // 
             this.buttonPesquisarVenda.BackColor = System.Drawing.SystemColors.GrayText;
             this.buttonPesquisarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPesquisarVenda.Location = new System.Drawing.Point(458, 265);
+            this.buttonPesquisarVenda.Location = new System.Drawing.Point(388, 277);
             this.buttonPesquisarVenda.Name = "buttonPesquisarVenda";
             this.buttonPesquisarVenda.Size = new System.Drawing.Size(189, 53);
             this.buttonPesquisarVenda.TabIndex = 29;
@@ -295,30 +310,29 @@
             this.buttonPesquisarVenda.UseVisualStyleBackColor = false;
             this.buttonPesquisarVenda.Click += new System.EventHandler(this.buttonPesquisarVenda_Click);
             // 
-            // columnHeader1
+            // buttonDesconto
             // 
-            this.columnHeader1.Text = "Quant.";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Produto";
-            this.columnHeader2.Width = 196;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Valor Unid.";
-            this.columnHeader3.Width = 99;
+            this.buttonDesconto.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDesconto.Location = new System.Drawing.Point(583, 277);
+            this.buttonDesconto.Name = "buttonDesconto";
+            this.buttonDesconto.Size = new System.Drawing.Size(142, 53);
+            this.buttonDesconto.TabIndex = 30;
+            this.buttonDesconto.Text = "Desconto";
+            this.buttonDesconto.UseVisualStyleBackColor = false;
+            this.buttonDesconto.Click += new System.EventHandler(this.buttonDesconto_Click);
             // 
             // Caixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 508);
+            this.Controls.Add(this.buttonDesconto);
             this.Controls.Add(this.buttonPesquisarVenda);
             this.Controls.Add(this.richTextBoxTotalLiq);
             this.Controls.Add(this.richTextBoxDesconto);
             this.Controls.Add(this.richTextBoxTotalVenda);
-            this.Controls.Add(this.buttonNovaVanda);
+            this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonCancelarVenda);
             this.Controls.Add(this.buttonAdicionarProduto);
             this.Controls.Add(this.buttonExcluir);
@@ -366,7 +380,7 @@
         private System.Windows.Forms.Button buttonExcluir;
         private System.Windows.Forms.Button buttonAdicionarProduto;
         private System.Windows.Forms.Button buttonCancelarVenda;
-        private System.Windows.Forms.Button buttonNovaVanda;
+        private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.RichTextBox richTextBoxTotalVenda;
         private System.Windows.Forms.RichTextBox richTextBoxDesconto;
         private System.Windows.Forms.RichTextBox richTextBoxTotalLiq;
@@ -374,5 +388,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button buttonDesconto;
     }
 }
