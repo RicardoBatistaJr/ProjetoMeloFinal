@@ -37,17 +37,28 @@ namespace TelaFarmaPopTec
 
                 foreach (var item in this.produtos)
                 {
-                    ListViewItem lvi = listViewListarProdutos.Items.Add(item.CodProduto.ToString());
+                    /*ListViewItem lvi = listViewListarProdutos.Items.Add(item.CodProduto.ToString());
                     lvi.SubItems.Add(item.SaldoProduto.ToString());
                     lvi.SubItems.Add(item.DataFabricacao.ToString());
                     lvi.SubItems.Add(item.NomeProduto);
-                    lvi.SubItems.Add(item.PrecoProduto.ToString());
+                    lvi.SubItems.Add(item.PrecoProduto.ToString());*/
+
+                    ListViewItem lvi = listViewListarProdutos.Items.Add(item.NomeProduto);
+                    //lvi.SubItems.Add(item.SaldoProduto.ToString());
+                    // lvi.SubItems.Add(item.DataFabricacao.ToString());
+                   // lvi.SubItems.Add(item.NomeProduto);
+                   // lvi.SubItems.Add(item.PrecoProduto.ToString());
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ListViewListarProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

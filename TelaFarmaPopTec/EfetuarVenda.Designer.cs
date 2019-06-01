@@ -34,11 +34,13 @@
             // 
             // listViewListarProdutos
             // 
+            this.listViewListarProdutos.FullRowSelect = true;
             this.listViewListarProdutos.Location = new System.Drawing.Point(22, 209);
             this.listViewListarProdutos.Name = "listViewListarProdutos";
-            this.listViewListarProdutos.Size = new System.Drawing.Size(466, 207);
+            this.listViewListarProdutos.Size = new System.Drawing.Size(471, 207);
             this.listViewListarProdutos.TabIndex = 0;
             this.listViewListarProdutos.UseCompatibleStateImageBehavior = false;
+            this.listViewListarProdutos.SelectedIndexChanged += new System.EventHandler(this.ListViewListarProdutos_SelectedIndexChanged);
             // 
             // btListarProdutos
             // 
