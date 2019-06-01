@@ -22,10 +22,6 @@ namespace Biblioteca.negocio
             {
                 throw new Exception("Informar os dados do produto.");
             }
-            if (produto.CodProduto == 0)
-            {
-                throw new Exception("Informar o numero do produto.");
-            }
             if (produto.CodProduto != 0)
             {
                 if (new DadosProduto().VerificarDuplicidadeProduto(produto))
@@ -56,7 +52,18 @@ namespace Biblioteca.negocio
                 throw new Exception("Produto não existe!");
             }
         }
-
+        public void AtivarProduto(Produto produto)
+        {
+            DadosProduto dadosproduto = new DadosProduto();
+            if (dadosproduto.VerificarDuplicidadeProduto(produto))
+            {
+                dadosproduto.AtivarProduto(produto);
+            }
+            else
+            {
+                throw new Exception("Produto não existe!");
+            }
+        }
         public List<Produto> ListarProdutos()
         {
             return new DadosProduto().ListarProdutos();

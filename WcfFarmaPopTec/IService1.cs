@@ -91,6 +91,8 @@ namespace WcfFarmaPopTec
         [OperationContract]
         void DesativarProduto(Produto produto);
         [OperationContract]
+        void AtivarProduto(Produto produto);
+        [OperationContract]
         List<Produto> ConsultarProduto(Produto filtro);
         [OperationContract]
         void TrocarProduto();

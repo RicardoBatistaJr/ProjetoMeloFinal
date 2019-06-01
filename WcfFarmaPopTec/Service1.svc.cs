@@ -168,6 +168,10 @@ namespace WcfFarmaPopTec
         {
             new ProdutoNegocio().DeletarProduto(produto);
         }
+        public void AtivarProduto(Produto produto)
+        {
+            new ProdutoNegocio().AtivarProduto(produto);
+        }
         public List<Produto> ConsultarProduto(Produto filtro)
         {
             return new ProdutoNegocio().ConsultarProduto(filtro);

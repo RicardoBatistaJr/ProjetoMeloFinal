@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.listViewListarProdutos = new System.Windows.Forms.ListView();
-            this.btListarProdutos = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btListarProdutos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewListarProdutos
@@ -52,16 +52,6 @@
             this.listViewListarProdutos.TabIndex = 0;
             this.listViewListarProdutos.UseCompatibleStateImageBehavior = false;
             this.listViewListarProdutos.SelectedIndexChanged += new System.EventHandler(this.ListViewListarProdutos_SelectedIndexChanged);
-            // 
-            // btListarProdutos
-            // 
-            this.btListarProdutos.Location = new System.Drawing.Point(22, 180);
-            this.btListarProdutos.Name = "btListarProdutos";
-            this.btListarProdutos.Size = new System.Drawing.Size(147, 23);
-            this.btListarProdutos.TabIndex = 1;
-            this.btListarProdutos.Text = "Listar Produtos";
-            this.btListarProdutos.UseVisualStyleBackColor = true;
-            this.btListarProdutos.Click += new System.EventHandler(this.BtListarProdutos_Click);
             // 
             // columnHeader1
             // 
@@ -83,6 +73,16 @@
             // 
             this.columnHeader5.Text = "Preço Produto";
             // 
+            // btListarProdutos
+            // 
+            this.btListarProdutos.Location = new System.Drawing.Point(22, 180);
+            this.btListarProdutos.Name = "btListarProdutos";
+            this.btListarProdutos.Size = new System.Drawing.Size(147, 23);
+            this.btListarProdutos.TabIndex = 1;
+            this.btListarProdutos.Text = "Listar Produtos";
+            this.btListarProdutos.UseVisualStyleBackColor = true;
+            this.btListarProdutos.Click += new System.EventHandler(this.BtListarProdutos_Click);
+            // 
             // EfetuarVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,6 +92,7 @@
             this.Controls.Add(this.listViewListarProdutos);
             this.Name = "EfetuarVenda";
             this.Text = "EfetuarVenda";
+            this.Load += new System.EventHandler(this.EfetuarVenda_Load);
             this.ResumeLayout(false);
 
         }
