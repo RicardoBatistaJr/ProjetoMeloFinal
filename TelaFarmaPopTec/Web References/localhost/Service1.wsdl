@@ -199,6 +199,12 @@
   <wsdl:message name="IService1_DesativarProduto_OutputMessage">
     <wsdl:part name="parameters" element="tns:DesativarProdutoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AtivarProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtivarProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AtivarProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtivarProdutoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_ConsultarProduto_InputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarProduto" />
   </wsdl:message>
@@ -222,6 +228,42 @@
   </wsdl:message>
   <wsdl:message name="IService1_VerificarDuplicidadeProduto_OutputMessage">
     <wsdl:part name="parameters" element="tns:VerificarDuplicidadeProdutoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CadastrarVenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrarVenda" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CadastrarVenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CadastrarVendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarVenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarVenda" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarVenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarVendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletarVenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarVenda" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletarVenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletarVendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarVendas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarVendas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarVendas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarVendasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarVendaAtendente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarVendaAtendente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarVendaAtendente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarVendaAtendenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VerificarDuplicidadeVenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarDuplicidadeVenda" />
+  </wsdl:message>
+  <wsdl:message name="IService1_VerificarDuplicidadeVenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarDuplicidadeVendaResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="CadastrarCliente">
@@ -352,6 +394,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DesativarProduto" message="tns:IService1_DesativarProduto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DesativarProdutoResponse" message="tns:IService1_DesativarProduto_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AtivarProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AtivarProduto" message="tns:IService1_AtivarProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AtivarProdutoResponse" message="tns:IService1_AtivarProduto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ConsultarProduto">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ConsultarProduto" message="tns:IService1_ConsultarProduto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ConsultarProdutoResponse" message="tns:IService1_ConsultarProduto_OutputMessage" />
@@ -367,6 +413,30 @@
     <wsdl:operation name="VerificarDuplicidadeProduto">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeProduto" message="tns:IService1_VerificarDuplicidadeProduto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeProdutoResponse" message="tns:IService1_VerificarDuplicidadeProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarVenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarVenda" message="tns:IService1_CadastrarVenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CadastrarVendaResponse" message="tns:IService1_CadastrarVenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarVenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarVenda" message="tns:IService1_AlterarVenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarVendaResponse" message="tns:IService1_AlterarVenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletarVenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletarVenda" message="tns:IService1_DeletarVenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletarVendaResponse" message="tns:IService1_DeletarVenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarVendas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarVendas" message="tns:IService1_ListarVendas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarVendasResponse" message="tns:IService1_ListarVendas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarVendaAtendente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarVendaAtendente" message="tns:IService1_ListarVendaAtendente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarVendaAtendenteResponse" message="tns:IService1_ListarVendaAtendente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDuplicidadeVenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeVenda" message="tns:IService1_VerificarDuplicidadeVenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeVendaResponse" message="tns:IService1_VerificarDuplicidadeVenda_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -659,6 +729,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AtivarProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/AtivarProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ConsultarProduto">
       <soap:operation soapAction="http://tempuri.org/IService1/ConsultarProduto" style="document" />
       <wsdl:input>
@@ -688,6 +767,60 @@
     </wsdl:operation>
     <wsdl:operation name="VerificarDuplicidadeProduto">
       <soap:operation soapAction="http://tempuri.org/IService1/VerificarDuplicidadeProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CadastrarVenda">
+      <soap:operation soapAction="http://tempuri.org/IService1/CadastrarVenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarVenda">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarVenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletarVenda">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletarVenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarVendas">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarVendas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarVendaAtendente">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarVendaAtendente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarDuplicidadeVenda">
+      <soap:operation soapAction="http://tempuri.org/IService1/VerificarDuplicidadeVenda" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

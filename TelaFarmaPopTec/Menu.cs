@@ -102,8 +102,10 @@ namespace TelaFarmaPopTec
 
         private void buttonProdutos_Click(object sender, EventArgs e)
         {
-            OpcoesProduto opcoesProduto = new OpcoesProduto();
-            opcoesProduto.ShowDialog();
+            ManterProdutos manterProdutos = new ManterProdutos();
+            manterProdutos.ShowDialog();
+            //  OpcoesProduto opcoesProduto = new OpcoesProduto();
+            // opcoesProduto.ShowDialog();
         }
 
         private void ButtonVenda_Click(object sender, EventArgs e)

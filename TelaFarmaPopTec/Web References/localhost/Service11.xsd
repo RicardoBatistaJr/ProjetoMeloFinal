@@ -411,17 +411,29 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AtivarProduto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="produto" nillable="true" type="q37:Produto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AtivarProdutoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ConsultarProduto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="filtro" nillable="true" type="q37:Produto" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="filtro" nillable="true" type="q38:Produto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ConsultarProdutoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ConsultarProdutoResult" nillable="true" type="q38:ArrayOfProduto" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ConsultarProdutoResult" nillable="true" type="q39:ArrayOfProduto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -443,14 +455,14 @@
   <xs:element name="ListarProdutosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarProdutosResult" nillable="true" type="q39:ArrayOfProduto" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarProdutosResult" nillable="true" type="q40:ArrayOfProduto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="VerificarDuplicidadeProduto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="produto" nillable="true" type="q40:Produto" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="produto" nillable="true" type="q41:Produto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -458,6 +470,82 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="VerificarDuplicidadeProdutoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CadastrarVenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="venda" nillable="true" type="q42:Venda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CadastrarVendaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterarVenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="venda" nillable="true" type="q43:Venda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterarVendaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletarVenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="venda" nillable="true" type="q44:Venda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletarVendaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarVendas">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarVendasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarVendasResult" nillable="true" type="q45:ArrayOfVenda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarVendaAtendente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="venda" nillable="true" type="q46:Venda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarVendaAtendenteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="ListarVendaAtendenteResult" nillable="true" type="q47:ArrayOfVenda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarDuplicidadeVenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas" minOccurs="0" name="venda" nillable="true" type="q48:Venda" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarDuplicidadeVendaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarDuplicidadeVendaResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
