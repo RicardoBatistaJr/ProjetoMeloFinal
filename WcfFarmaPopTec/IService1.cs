@@ -118,6 +118,8 @@ namespace WcfFarmaPopTec
         List<Venda> ListarVendaAtendente(Venda venda);
         [OperationContract]
         bool VerificarDuplicidadeVenda(Venda venda);
+        [OperationContract]
+        void DeletarItemVenda(int numVenda, int codProduto);
     }
 
 

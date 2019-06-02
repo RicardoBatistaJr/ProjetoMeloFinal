@@ -38,8 +38,6 @@ namespace TelaFarmaPopTec
                     vendas = sv.ListarVenda(numVenda).ToList();
                     if (vendas != null)
                     {
-
-
                         listViewVenda.Items.Clear();
 
                         foreach (var item in vendas)
@@ -142,15 +140,18 @@ namespace TelaFarmaPopTec
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
-            //List<VendaProduto> vendas = new List<VendaProduto>();
-            //if (listViewVenda.FocusedItem != null)
-            //{ 
-            //    int index = listViewVenda.FocusedItem.Index;
-            //    VendaProduto vp = vendas.ElementAt(index);
-            //    richTextBoxCpf.Text = vp.Venda.Cliente.CpfCliente;
-            //    richTextBoxCodVenda.Text = vp.Venda.NumVenda.ToString();
-            //}
+            List<VendaProduto> vendas = new List<VendaProduto>();
+            int numeroVenda = Convert.ToInt32(richTextBoxCodVenda.Text);
 
+            if (listViewVenda.FocusedItem != null)
+            {
+                vendas = sv.ListarVenda(numeroVenda).ToList();
+                int index = listViewVenda.FocusedItem.Index;
+                VendaProduto vp = vendas.ElementAt(index);
+                sv.DeletarItemVenda(numeroVenda, vp.Produto.CodProduto);
+            }
+            listViewVenda.Items.Clear();
+            buttonPesquisarVenda_Click(sender, e);
         }
     }
 }

@@ -220,15 +220,15 @@ namespace Biblioteca.dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "select cliente.cpfCliente, venda_produto.numVenda, venda.dataVenda, produto.nomeProduto, venda_produto.qtd, venda_produto.preco";
-                sql += "from cliente";
-                sql += "inner join venda on cliente.cpfCliente = venda.cpfCliente";
-                sql += "inner join venda_produto on venda.numVenda = venda_produto.numVenda";
-                sql += "inner join produto on venda_produto.codProduto = produto.codProduto";
+                string sql = "select cliente.cpfCliente, venda_produto.numVenda, venda.dataVenda, produto.nomeProduto, venda_produto.qtd, venda_produto.preco from cliente inner join venda on cliente.cpfCliente = venda.cpfCliente inner join venda_produto on venda.numVenda = venda_produto.numVenda inner join produto on venda_produto.codProduto = produto.codProduto";
+
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@cpfCliente", cliente.CpfCliente);
-                //executando a instrucao e colocando o resultado em um leitor
+
+                cmd.Parameters.Add("@cpfCliente", SqlDbType.VarChar);
+                cmd.Parameters["@cpfCliente"].Value = cliente.CpfCliente;
+
                 SqlDataReader DbReader = cmd.ExecuteReader();
+
                 //lendo o resultado da consulta
                 while (DbReader.Read())
                 {
@@ -239,7 +239,9 @@ namespace Biblioteca.dados
                     vendaP.Venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
                     vendaP.Produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
                     vendaP.Qtd = DbReader.GetInt32(DbReader.GetOrdinal("qtd"));
-                    vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                   // vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                    object o = DbReader.GetValue(DbReader.GetOrdinal("preco"));
+                    vendaP.Preco = float.Parse(o.ToString());
                     vendas.Add(vendaP);
                 }
                 //fechando o leitor de resultados

@@ -119,6 +119,8 @@ namespace TelaFarmaPopTec.localhost {
         
         private System.Threading.SendOrPostCallback VerificarDuplicidadeVendaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback DeletarItemVendaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -291,6 +293,9 @@ namespace TelaFarmaPopTec.localhost {
         
         /// <remarks/>
         public event VerificarDuplicidadeVendaCompletedEventHandler VerificarDuplicidadeVendaCompleted;
+        
+        /// <remarks/>
+        public event DeletarItemVendaCompletedEventHandler DeletarItemVendaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1604,6 +1609,38 @@ namespace TelaFarmaPopTec.localhost {
             if ((this.VerificarDuplicidadeVendaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.VerificarDuplicidadeVendaCompleted(this, new VerificarDuplicidadeVendaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeletarItemVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeletarItemVenda(int numVenda, int codProduto) {
+            this.Invoke("DeletarItemVenda", new object[] {
+                        numVenda,
+                        codProduto});
+        }
+        
+        /// <remarks/>
+        public void DeletarItemVendaAsync(int numVenda, bool numVendaSpecified, int codProduto, bool codProdutoSpecified) {
+            this.DeletarItemVendaAsync(numVenda, numVendaSpecified, codProduto, codProdutoSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void DeletarItemVendaAsync(int numVenda, bool numVendaSpecified, int codProduto, bool codProdutoSpecified, object userState) {
+            if ((this.DeletarItemVendaOperationCompleted == null)) {
+                this.DeletarItemVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeletarItemVendaOperationCompleted);
+            }
+            this.InvokeAsync("DeletarItemVenda", new object[] {
+                        numVenda,
+                        numVendaSpecified,
+                        codProduto,
+                        codProdutoSpecified}, this.DeletarItemVendaOperationCompleted, userState);
+        }
+        
+        private void OnDeletarItemVendaOperationCompleted(object arg) {
+            if ((this.DeletarItemVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeletarItemVendaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3092,6 +3129,10 @@ namespace TelaFarmaPopTec.localhost {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void DeletarItemVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

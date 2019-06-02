@@ -64,5 +64,9 @@ namespace Biblioteca.negocio
         {
             return new DadosVenda().ListarVendaAtendente(venda);
         }
+        public void DeletarItemVenda(int numVenda, int codProduto)
+        {
+            new DadosVenda().DeletarItemVenda(numVenda, codProduto);
+        }
     }
 }

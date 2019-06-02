@@ -225,6 +225,10 @@ namespace WcfFarmaPopTec
         {
            return new VendaNegocio().ListarVendaAtendente(venda);
         }
+        public void DeletarItemVenda(int numVenda, int codProduto)
+        {
+            new VendaNegocio().DeletarItemVenda(numVenda, codProduto);
+        }
 
     }
 }

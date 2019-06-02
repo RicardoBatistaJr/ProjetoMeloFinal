@@ -117,7 +117,6 @@ namespace Biblioteca.dados
                 throw new Exception("Erro ao conecar e inserir " + ex.Message);
             }
         }
- 
         //Método select todos os clientes
         public List<VendaProduto> ListarVendas()
         {
@@ -171,14 +170,6 @@ namespace Biblioteca.dados
                 this.AbrirConexao();
                 //instrucao a ser executada
                 string sql = "select venda.numVenda, venda.dataVenda, cliente.cpfCliente, funcionario.nomeFuncionario, venda_produto.qtd, venda_produto.preco, produto.nomeProduto, produto.precoProduto, venda_produto.codProduto from venda inner join cliente on venda.cpfCliente = cliente.cpfCliente inner join funcionario on venda.codFuncionario = funcionario.codFuncionario inner join  venda_produto on venda.numVenda = venda_produto.numVenda inner join produto on venda_produto.codProduto = produto.codProduto where Venda.numVenda = @numVenda";
-                //string sql = "select venda.numVenda, venda.dataVenda, cliente.cpfCliente, funcionario.nomeFuncionario, venda_produto.qtd, venda_produto.preco, produto.nomeProduto, produto.precoProduto";
-                //sql += "from venda";
-                //sql += "inner join cliente on  venda.cpfCliente = cliente.cpfCliente";
-                //sql += "inner join funcionario on venda.codFuncionario = funcionario.codFuncionario";
-                //sql += "inner join  venda_produto on venda.numVenda = venda_produto.numVenda";
-                //sql += "inner join produto on venda_produto.codProduto = produto.codProduto";
-                //sql += "where Venda.numVenda = @numVenda";
-
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -258,7 +249,6 @@ namespace Biblioteca.dados
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
         }
-        
         public bool VerificarDuplicidadeVenda(Venda venda)
         {
             bool existe;
@@ -284,6 +274,36 @@ namespace Biblioteca.dados
             catch (Exception ex)
             {
                 throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+            }
+        }
+        public void DeletarItemVenda(int numVenda, int codProduto)
+        {
+            try
+            {
+                //abrir a conexão
+                this.AbrirConexao();
+                string sql = "delete from Venda_Produto where numVenda = @numVenda and codProduto = @codProduto";
+
+                //instrucao a ser executada
+                SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                cmd.Parameters.Add("@numVenda", SqlDbType.Int);
+                cmd.Parameters["@numVenda"].Value = numVenda;
+
+                cmd.Parameters.Add("@codProduto", SqlDbType.Int);
+                cmd.Parameters["@codProduto"].Value = codProduto;
+
+
+                //executando a instrucao 
+                cmd.ExecuteNonQuery();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao conecar e inserir " + ex.Message);
             }
         }
     }
