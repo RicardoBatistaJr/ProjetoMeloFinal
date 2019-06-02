@@ -175,18 +175,6 @@
   <wsdl:message name="IService1_ValidarCnpj_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarCnpjResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_ValidarCnpj_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarCnpj" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ValidarCnpj_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarCnpjResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListarComprasComFornecedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListarComprasComFornecedor" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListarComprasComFornecedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListarComprasComFornecedorResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_CadastrarProduto_InputMessage">
     <wsdl:part name="parameters" element="tns:CadastrarProduto" />
   </wsdl:message>
@@ -407,14 +395,6 @@
     <wsdl:operation name="ValidarCnpj">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ValidarCnpj" message="tns:IService1_ValidarCnpj_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ValidarCnpjResponse" message="tns:IService1_ValidarCnpj_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ValidarCnpj">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ValidarCnpj" message="tns:IService1_ValidarCnpj_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ValidarCnpjResponse" message="tns:IService1_ValidarCnpj_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ListarComprasComFornecedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarComprasComFornecedor" message="tns:IService1_ListarComprasComFornecedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarComprasComFornecedorResponse" message="tns:IService1_ListarComprasComFornecedor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CadastrarProduto">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarProduto" message="tns:IService1_CadastrarProduto_InputMessage" />
@@ -736,24 +716,6 @@
     </wsdl:operation>
     <wsdl:operation name="ValidarCnpj">
       <soap:operation soapAction="http://tempuri.org/IService1/ValidarCnpj" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ValidarCnpj">
-      <soap:operation soapAction="http://tempuri.org/IService1/ValidarCnpj" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ListarComprasComFornecedor">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListarComprasComFornecedor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

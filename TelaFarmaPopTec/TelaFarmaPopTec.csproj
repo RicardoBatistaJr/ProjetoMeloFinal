@@ -216,12 +216,6 @@
     <None Include="Resources\cliente.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WcfFarmaPopTec\WcfFarmaPopTec.csproj">
-      <Project>{38465c70-d778-4027-bce0-ef656c065f9b}</Project>
-      <Name>WcfFarmaPopTec</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WebReferenceUrl Include="http://localhost:61858/Service1.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
@@ -236,6 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\localhost\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WcfFarmaPopTec\WcfFarmaPopTec.csproj">
+      <Project>{38465c70-d778-4027-bce0-ef656c065f9b}</Project>
+      <Name>WcfFarmaPopTec</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

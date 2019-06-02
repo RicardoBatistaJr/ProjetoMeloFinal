@@ -77,9 +77,7 @@ namespace WcfFarmaPopTec
         bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
         [OperationContract]
         bool ValidarCnpj(String cnpj);      
-        bool ValidarCnpj(String cnpj);
-        [OperationContract]
-        List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro);
+
         // TODO: Adicione suas operações de serviço aqui
 
 

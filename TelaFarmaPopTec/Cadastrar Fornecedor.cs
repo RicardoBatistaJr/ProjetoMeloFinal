@@ -137,10 +137,10 @@ namespace TelaFarmaPopTec
             {
                 if (listViewFornecedor.FocusedItem != null)
                 {
-                    int index = listViewFornecedor.FocusedItem.Index;
-                    Fornecedor fornecedor = this.fornecedor.ElementAt(index);
-                    textBoxCnpj.Text = fornecedor.Cnpj;
-                    textBoxFornecedor.Text = fornecedor.NomeFornecedor;
+                    //int index = listViewFornecedor.FocusedItem.Index;
+                    //Fornecedor fornecedor = this.fornecedor.ElementAt(index);
+                    //textBoxCnpj.Text = fornecedor.Cnpj;
+                    //textBoxFornecedor.Text = fornecedor.NomeFornecedor;
                 }
             }
             catch (Exception ex)
@@ -149,10 +149,10 @@ namespace TelaFarmaPopTec
             }
         }
         
-        public Fornecedor NewMethod(int index)
-        {            
-            return this.fornecedor.ElementAt(index);
-        }
+        //public Fornecedor NewMethod(int index)
+        //{            
+        //    //return this.fornecedor.ElementAt(index);
+        //}
 
         private void ButtonListarCompras_Click(object sender, EventArgs e)
         {

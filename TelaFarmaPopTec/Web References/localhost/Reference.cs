@@ -85,10 +85,6 @@ namespace TelaFarmaPopTec.localhost {
         
         private System.Threading.SendOrPostCallback ValidarCnpjOperationCompleted;
         
-        private System.Threading.SendOrPostCallback ValidarCnpjOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback ListarComprasComFornecedorOperationCompleted;
-        
         private System.Threading.SendOrPostCallback CadastrarProdutoOperationCompleted;
         
         private System.Threading.SendOrPostCallback AlterarProdutoOperationCompleted;
@@ -246,12 +242,6 @@ namespace TelaFarmaPopTec.localhost {
         
         /// <remarks/>
         public event ValidarCnpjCompletedEventHandler ValidarCnpjCompleted;
-        
-        /// <remarks/>
-        public event ValidarCnpjCompletedEventHandler ValidarCnpjCompleted;
-        
-        /// <remarks/>
-        public event ListarComprasComFornecedorCompletedEventHandler ListarComprasComFornecedorCompleted;
         
         /// <remarks/>
         public event CadastrarProdutoCompletedEventHandler CadastrarProdutoCompleted;
@@ -1094,7 +1084,6 @@ namespace TelaFarmaPopTec.localhost {
             if ((this.VerificarDuplicidadeFornecedorCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.VerificarDuplicidadeFornecedorCompleted(this, new VerificarDuplicidadeFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-                this.VerificarDuplicidadeFornecedorCompleted(this, new VerificarDuplicidadeFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1125,37 +1114,6 @@ namespace TelaFarmaPopTec.localhost {
             if ((this.ValidarCnpjCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ValidarCnpjCompleted(this, new ValidarCnpjCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarComprasComFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
-        public Fornecedor[] ListarComprasComFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor filtro) {
-            object[] results = this.Invoke("ListarComprasComFornecedor", new object[] {
-                        filtro});
-            return ((Fornecedor[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void ListarComprasComFornecedorAsync(Fornecedor filtro) {
-            this.ListarComprasComFornecedorAsync(filtro, null);
-        }
-        
-        /// <remarks/>
-        public void ListarComprasComFornecedorAsync(Fornecedor filtro, object userState) {
-            if ((this.ListarComprasComFornecedorOperationCompleted == null)) {
-                this.ListarComprasComFornecedorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarComprasComFornecedorOperationCompleted);
-            }
-            this.InvokeAsync("ListarComprasComFornecedor", new object[] {
-                        filtro}, this.ListarComprasComFornecedorOperationCompleted, userState);
-        }
-        
-        private void OnListarComprasComFornecedorOperationCompleted(object arg) {
-            if ((this.ListarComprasComFornecedorCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ListarComprasComFornecedorCompleted(this, new ListarComprasComFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1417,7 +1375,7 @@ namespace TelaFarmaPopTec.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarSaldoProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void AlterarSaldoProduto(int codProdruto, int qtd) {
+        public void AlterarSaldoProduto(int codProdruto,  int qtd) {
             this.Invoke("AlterarSaldoProduto", new object[] {
                         codProdruto,
                         qtd});
@@ -1656,7 +1614,7 @@ namespace TelaFarmaPopTec.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeletarItemVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void DeletarItemVenda(int numVenda, int codProduto) {
+        public void DeletarItemVenda(int numVenda,  int codProduto) {
             this.Invoke("DeletarItemVenda", new object[] {
                         numVenda,
                         codProduto});
@@ -1683,36 +1641,6 @@ namespace TelaFarmaPopTec.localhost {
             if ((this.DeletarItemVendaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DeletarItemVendaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ValidarCnpj", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ValidarCnpj([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string cnpj, out bool ValidarCnpjResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool ValidarCnpjResultSpecified) {
-            object[] results = this.Invoke("ValidarCnpj", new object[] {
-                        cnpj});
-            ValidarCnpjResult = ((bool)(results[0]));
-            ValidarCnpjResultSpecified = ((bool)(results[1]));
-        }
-        
-        /// <remarks/>
-        public void ValidarCnpjAsync(string cnpj) {
-            this.ValidarCnpjAsync(cnpj, null);
-        }
-        
-        /// <remarks/>
-        public void ValidarCnpjAsync(string cnpj, object userState) {
-            if ((this.ValidarCnpjOperationCompleted == null)) {
-                this.ValidarCnpjOperationCompleted = new System.Threading.SendOrPostCallback(this.OnValidarCnpjOperationCompleted);
-            }
-            this.InvokeAsync("ValidarCnpj", new object[] {
-                        cnpj}, this.ValidarCnpjOperationCompleted, userState);
-        }
-        
-        private void OnValidarCnpjOperationCompleted(object arg) {
-            if ((this.ValidarCnpjCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ValidarCnpjCompleted(this, new ValidarCnpjCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1828,11 +1756,6 @@ namespace TelaFarmaPopTec.localhost {
             set {
                 this.nomeFornecedorField = value;
             }
-        }
-
-        internal Fornecedor ElementAt(int index)
-        {
-            throw new NotImplementedException();
         }
     }
     
@@ -2156,10 +2079,6 @@ namespace TelaFarmaPopTec.localhost {
         
         private bool saldoProdutoFieldSpecified;
         
-        private int statusProdutoField;
-        
-        private bool statusProdutoFieldSpecified;
-        
         private string statusProdutoField;
         
         /// <remarks/>
@@ -2258,31 +2177,6 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
-        public int StatusProduto {
-            get {
-                return this.statusProdutoField;
-            }
-            set {
-                this.statusProdutoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool StatusProdutoSpecified {
-            get {
-                return this.statusProdutoFieldSpecified;
-            }
-            set {
-                this.statusProdutoFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string StatusProduto {
             get {
@@ -2295,7 +2189,7 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2905,11 +2799,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ConsultarFornecedorCompletedEventHandler(object sender, ConsultarFornecedorCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ConsultarFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2931,11 +2825,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void VerificarDuplicidadeFornecedorCompletedEventHandler(object sender, VerificarDuplicidadeFornecedorCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class VerificarDuplicidadeFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2965,11 +2859,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ValidarCnpjCompletedEventHandler(object sender, ValidarCnpjCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ValidarCnpjCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2999,57 +2893,31 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    public delegate void ListarComprasComFornecedorCompletedEventHandler(object sender, ListarComprasComFornecedorCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ListarComprasComFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal ListarComprasComFornecedorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public Fornecedor[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((Fornecedor[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void CadastrarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void AlterarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void DeletarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void DesativarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void AtivarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ConsultarProdutoCompletedEventHandler(object sender, ConsultarProdutoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ConsultarProdutoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3071,15 +2939,15 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void TrocarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ListarProdutosCompletedEventHandler(object sender, ListarProdutosCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ListarProdutosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3101,11 +2969,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void VerificarDuplicidadeProdutoCompletedEventHandler(object sender, VerificarDuplicidadeProdutoCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class VerificarDuplicidadeProdutoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3135,27 +3003,27 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void AlterarSaldoProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void CadastrarVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void AlterarVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void DeletarVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ListarVendasCompletedEventHandler(object sender, ListarVendasCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ListarVendasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3177,11 +3045,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ListarVendaCompletedEventHandler(object sender, ListarVendaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ListarVendaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3203,11 +3071,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void ListarVendaAtendenteCompletedEventHandler(object sender, ListarVendaAtendenteCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ListarVendaAtendenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3229,11 +3097,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void VerificarDuplicidadeVendaCompletedEventHandler(object sender, VerificarDuplicidadeVendaCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class VerificarDuplicidadeVendaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -3263,7 +3131,7 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
     public delegate void DeletarItemVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
