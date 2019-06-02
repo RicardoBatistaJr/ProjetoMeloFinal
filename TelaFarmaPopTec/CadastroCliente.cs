@@ -16,11 +16,11 @@ namespace TelaFarmaPopTec
     public partial class CadastroCliente : Form
     {
         Service1 sv = new Service1();
-        Cliente cliente = new Cliente();        
+        Cliente cliente = new Cliente();
         List<Cliente> clientes = new List<Cliente>();
         public CadastroCliente()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
@@ -52,7 +52,7 @@ namespace TelaFarmaPopTec
                 }
                 else
                 {
-                    
+
                     MessageBox.Show("Email Inválido!");
                 }
 
@@ -62,7 +62,6 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             try
@@ -99,41 +98,41 @@ namespace TelaFarmaPopTec
         }
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-                try
+            try
+            {
+
+                if (textBoxCpf.Text != null || textBoxNome.Text != null)
                 {
-                
-                    if (textBoxCpf.Text != null || textBoxNome.Text != null)
+                    cliente.CpfCliente = textBoxCpf.Text;
+                    cliente.NomeCliente = textBoxNome.Text;
+
+                    this.clientes.Clear();
+                    this.clientes = sv.ConsultarCliente(cliente).ToList();
+
+                    listViewCliente.Items.Clear();
+
+                    foreach (var item in clientes)
                     {
-                        cliente.CpfCliente = textBoxCpf.Text;
-                        cliente.NomeCliente = textBoxNome.Text;
-
-                        this.clientes.Clear();
-                        this.clientes = sv.ConsultarCliente(cliente).ToList();
-
-                        listViewCliente.Items.Clear();
-
-                        foreach (var item in clientes)
-                        {
-                            ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
-                            lvi.SubItems.Add(item.NomeCliente);
-                            lvi.SubItems.Add(item.EmailCliente);
-                            lvi.SubItems.Add(item.TelCliente);
-                        }
-                        textBoxCpf.Text = "";
-                        textBoxNome.Text = "";
-                        textBoxEmail.Text = "";
-                        textBoxTel.Text = "";
-
+                        ListViewItem lvi = listViewCliente.Items.Add(item.CpfCliente);
+                        lvi.SubItems.Add(item.NomeCliente);
+                        lvi.SubItems.Add(item.EmailCliente);
+                        lvi.SubItems.Add(item.TelCliente);
                     }
-                    else
-                    {
-                        MessageBox.Show("Informar um nome ou CPF!");
-                    }
+                    textBoxCpf.Text = "";
+                    textBoxNome.Text = "";
+                    textBoxEmail.Text = "";
+                    textBoxTel.Text = "";
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Informar um nome ou CPF!");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void buttonClientes_Click(object sender, EventArgs e)
         {
@@ -203,7 +202,7 @@ namespace TelaFarmaPopTec
                         cliente.TelCliente = textBoxTel.Text;
                         sv.AlterarCliente(cliente);
                         MessageBox.Show("cliente alterado com sucesso!");
-                        listViewCliente.Items.Clear(); 
+                        listViewCliente.Items.Clear();
                     }
                     else
                     {

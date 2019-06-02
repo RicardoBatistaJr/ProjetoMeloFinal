@@ -78,7 +78,7 @@ namespace FarmaPopTec_1._0.Dados
                 cmd.ExecuteNonQuery();
                 //liberando a memoria 
                 cmd.Dispose();
-
+                //Método complementar para inserir dados na coleção
                 foreach (Compra_Produto compra_Produto in compra.Colecao)
                 {
                     //insert na tabela Compra_Produto
@@ -244,7 +244,7 @@ namespace FarmaPopTec_1._0.Dados
                 throw new Exception("Erro ao listar compra " + ex.Message);
             }
         }
-
+        //Método para Listar os produtos da Compra
         public List<Compra_Produto> ListarProdutosCompras(Compra compra)
         {
             List<Compra_Produto> listarcompras = new List<Compra_Produto>();
@@ -261,10 +261,12 @@ namespace FarmaPopTec_1._0.Dados
                 {
                     Compra_Produto compraProd = new Compra_Produto();
                     //acessando os valores das colunas do resultado 
-                    /*compra.NumCompra = DbReader.GetInt16(DbReader.GetOrdinal("numCompra"));
-                    compra.DataCompra = DbReader.GetDateTime(DbReader.GetOrdinal("dataCompra"));
-                    compra.Funcionario.CodFuncionario = DbReader.GetInt16(DbReader.GetOrdinal("codFuncionario"));
-                    compra.Fornecedor.Cnpj = DbReader.GetString(DbReader.GetOrdinal("cnpj"));*/
+                    compraProd.Compra.NumCompra = DbReader.GetInt16(DbReader.GetOrdinal("numCompra"));
+                    compraProd.QtdCompra = DbReader.GetInt16(DbReader.GetOrdinal("QtdCompra"));
+                    compraProd.Produto.CodProduto = DbReader.GetInt16(DbReader.GetOrdinal("codProduto"));
+                    compraProd.Produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("PrecoProduto"));
+                    compraProd.Validade = DbReader.GetDateTime(DbReader.GetOrdinal("validade"));
+                    compraProd.ValorTotal = DbReader.GetFloat(DbReader.GetOrdinal("ValorTotal"));
                     listarcompras.Add(compraProd);
                 }
                 //fechando o leitor de resultados

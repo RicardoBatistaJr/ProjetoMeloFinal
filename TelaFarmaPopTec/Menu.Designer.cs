@@ -37,6 +37,7 @@
             this.buttonRelatorios = new System.Windows.Forms.Button();
             this.buttonCaixa = new System.Windows.Forms.Button();
             this.buttonFornacedor = new System.Windows.Forms.Button();
+            this.buttonCompra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonCliente
@@ -67,7 +68,7 @@
             // 
             this.buttonSair.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSair.Location = new System.Drawing.Point(1111, 371);
+            this.buttonSair.Location = new System.Drawing.Point(1111, 436);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Size = new System.Drawing.Size(130, 100);
             this.buttonSair.TabIndex = 2;
@@ -79,7 +80,7 @@
             // 
             this.buttonProdutos.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonProdutos.Location = new System.Drawing.Point(1111, 53);
+            this.buttonProdutos.Location = new System.Drawing.Point(1111, 12);
             this.buttonProdutos.Name = "buttonProdutos";
             this.buttonProdutos.Size = new System.Drawing.Size(130, 100);
             this.buttonProdutos.TabIndex = 3;
@@ -91,7 +92,7 @@
             // 
             this.buttonVenda.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonVenda.Location = new System.Drawing.Point(1111, 159);
+            this.buttonVenda.Location = new System.Drawing.Point(1111, 118);
             this.buttonVenda.Name = "buttonVenda";
             this.buttonVenda.Size = new System.Drawing.Size(130, 100);
             this.buttonVenda.TabIndex = 5;
@@ -102,7 +103,7 @@
             // 
             this.buttonRelatorios.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRelatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRelatorios.Location = new System.Drawing.Point(1111, 265);
+            this.buttonRelatorios.Location = new System.Drawing.Point(1111, 224);
             this.buttonRelatorios.Name = "buttonRelatorios";
             this.buttonRelatorios.Size = new System.Drawing.Size(130, 100);
             this.buttonRelatorios.TabIndex = 6;
@@ -133,6 +134,18 @@
             this.buttonFornacedor.UseVisualStyleBackColor = false;
             this.buttonFornacedor.Click += new System.EventHandler(this.buttonFornacedor_Click);
             // 
+            // buttonCompra
+            // 
+            this.buttonCompra.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCompra.Location = new System.Drawing.Point(1111, 330);
+            this.buttonCompra.Name = "buttonCompra";
+            this.buttonCompra.Size = new System.Drawing.Size(130, 100);
+            this.buttonCompra.TabIndex = 8;
+            this.buttonCompra.Text = "COMPRA";
+            this.buttonCompra.UseVisualStyleBackColor = false;
+            this.buttonCompra.Click += new System.EventHandler(this.buttonCompra_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +153,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1247, 555);
+            this.Controls.Add(this.buttonCompra);
             this.Controls.Add(this.buttonFornacedor);
             this.Controls.Add(this.buttonRelatorios);
             this.Controls.Add(this.buttonVenda);
@@ -166,5 +180,6 @@
         private System.Windows.Forms.Button buttonRelatorios;
         private System.Windows.Forms.Button buttonCaixa;
         private System.Windows.Forms.Button buttonFornacedor;
+        private System.Windows.Forms.Button buttonCompra;
     }
 }

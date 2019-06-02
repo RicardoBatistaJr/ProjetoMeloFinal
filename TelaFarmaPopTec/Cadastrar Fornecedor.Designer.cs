@@ -86,6 +86,7 @@
             this.listViewFornecedor.TabIndex = 30;
             this.listViewFornecedor.UseCompatibleStateImageBehavior = false;
             this.listViewFornecedor.View = System.Windows.Forms.View.Details;
+            this.listViewFornecedor.SelectedIndexChanged += new System.EventHandler(this.listViewFornecedor_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -107,10 +108,10 @@
             // textBoxCnpj
             // 
             this.textBoxCnpj.Location = new System.Drawing.Point(97, 91);
-            this.textBoxCnpj.MaxLength = 11;
+            this.textBoxCnpj.MaxLength = 14;
             this.textBoxCnpj.Name = "textBoxCnpj";
             this.textBoxCnpj.Size = new System.Drawing.Size(229, 20);
-            this.textBoxCnpj.TabIndex = 26;
+            this.textBoxCnpj.TabIndex = 26;            
             // 
             // label2
             // 

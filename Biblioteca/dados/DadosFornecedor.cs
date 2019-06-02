@@ -179,7 +179,7 @@ namespace FarmaPopTec_1._0.Dados
                 string sql = "SELECT cnpj FROM fornecedor";
                 sql += " WHERE cnpj = @cnpj ";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@numCompra", fornecedor.Cnpj);
+                cmd.Parameters.AddWithValue("@cnpjCompra", fornecedor.Cnpj);
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 if (DbReader.Read())
                 {

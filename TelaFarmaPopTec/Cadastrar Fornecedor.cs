@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TelaFarmaPopTec.localhost;
@@ -28,7 +29,7 @@ namespace TelaFarmaPopTec
             try
             {
                 fornecedor.Cnpj = textBoxCnpj.Text;
-                fornecedor.NomeFornecedor = textBoxFornecedor.Text;
+                fornecedor.NomeFornecedor = textBoxFornecedor.Text;                
                 sv.CadastrarFornecedor(fornecedor);
                 MessageBox.Show("Fornecedor cadastrado!");
             }
@@ -54,36 +55,36 @@ namespace TelaFarmaPopTec
         //Função para pesquisar fornecedor
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
 
-            //    if (textBoxCnpj.Text != null || textBoxFornecedor.Text != null)
-            //    {
-            //        fornecedor.Cnpj = textBoxCnpj.Text;
-            //        fornecedor.NomeFornecedor = textBoxFornecedor.Text;
+                if (textBoxCnpj.Text != null || textBoxFornecedor.Text != null)
+                {
+                    fornecedor.Cnpj = textBoxCnpj.Text;
+                    fornecedor.NomeFornecedor = textBoxFornecedor.Text;
 
-            //        this.fornecedor.Clear();
-            //        this.fornecedor = sv.ConsultarFornecedor(fornecedor).ToList();
+                    this.fornecedores.Clear();
+                    this.fornecedores = sv.ConsultarFornecedor(fornecedor).ToList();
 
-            //        listViewFornecedor.Items.Clear();
+                    listViewFornecedor.Items.Clear();
 
-            //        foreach (var item in fornecedor)
-            //        {
-            //            ListViewItem lvi = listViewFornecedor.Items.Add(item.Cnpj);
-            //            lvi.SubItems.Add(item.Fornecedor);                        
-            //        }
-            //        textBoxCnpj.Text = "";
-            //        textBoxFornecedor.Text = "";                   
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Informar um nome ou CPF!");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                    foreach (var item in fornecedores)
+                    {
+                        ListViewItem lvi = listViewFornecedor.Items.Add(item.Cnpj);
+                        lvi.SubItems.Add(item.NomeFornecedor);
+                    }
+                    textBoxCnpj.Text = "";
+                    textBoxFornecedor.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Informar um nome de fornecedor ou cnpj!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         //Função para alterar fornecedor
         private void buttonAlterar_Click(object sender, EventArgs e)
@@ -127,6 +128,31 @@ namespace TelaFarmaPopTec
             {
                 MessageBox.Show(ex.Message);
             }
-        }          
+        }
+
+       
+        private void listViewFornecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewFornecedor.FocusedItem != null)
+                {
+                    int index = listViewFornecedor.FocusedItem.Index;
+                    Fornecedor fornecedor = this.fornecedor.ElementAt(index);
+                    textBoxCnpj.Text = fornecedor.Cnpj;
+                    textBoxFornecedor.Text = fornecedor.NomeFornecedor;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+        public Fornecedor NewMethod(int index)
+        {            
+            return this.fornecedor.ElementAt(index);
+        }
     }
 }
+    

@@ -72,28 +72,35 @@ namespace Biblioteca.Negocio
             {
                 throw new Exception("Informar o nome do fornecedor.");
             }
-            
+
             new DadosFornecedor().CadastrarFornecedor(fornecedor);
         }
 
         public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
         {
-            throw new NotImplementedException();
-        }        
+            if (string.IsNullOrEmpty(filtro.Cnpj) & string.IsNullOrEmpty(filtro.NomeFornecedor) == true)
+            {            
+                throw new Exception("Digite um CNPJ ou Nome de Fornecedor para consulta.");
+            }
+            else
+            {
+                return new DadosFornecedor().ConsultarFornecedor(filtro);
+            }
+        }
 
         public List<Fornecedor> ListarFornecedor()
         {
-            throw new NotImplementedException();
+            return new DadosFornecedor().ListarFornecedor();
         }
 
         public bool ValidarCnpj(string cnpj)
         {
-            throw new NotImplementedException();
+            return new DadosFornecedor().ValidarCnpj(cnpj);
         }
-      
+
         public bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            return new DadosFornecedor().VerificarDuplicidadeFornecedor(fornecedor);
         }
     }
 }
