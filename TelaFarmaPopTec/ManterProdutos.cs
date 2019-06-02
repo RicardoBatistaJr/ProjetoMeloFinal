@@ -44,7 +44,7 @@ namespace TelaFarmaPopTec
                 produto.SaldoProduto = Convert.ToInt32(textBoxSaldoProduto.Text);
                 produto.DataFabricacao = Convert.ToDateTime(textBoxDataFabricacao.Text);
                 produto.NomeProduto = textBoxNomeProduto.Text;
-                produto.PrecoProduto = Convert.ToInt32(textBoxPrecoProduto.Text);
+                produto.PrecoProduto = float.Parse(textBoxPrecoProduto.Text);
                 produto.StatusProduto = "1";
 
                 sv.CadastrarProduto(produto);

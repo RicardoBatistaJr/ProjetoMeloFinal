@@ -11,9 +11,7 @@ using TelaFarmaPopTec.localhost;
 namespace TelaFarmaPopTec
 {
     public partial class Caixa : Form
-    {
-        double recebido = 0.0;
-        VendaProduto venda = new VendaProduto();
+    {   
         public Caixa()
         {
             InitializeComponent();
@@ -21,55 +19,69 @@ namespace TelaFarmaPopTec
             richTextBoxCpf.SelectionAlignment = HorizontalAlignment.Right;
             richTextBoxCodVenda.SelectionAlignment = HorizontalAlignment.Right;
             richTextBoxTotalVenda.SelectionAlignment = HorizontalAlignment.Right;
-            richTextBoxValorRecebido.SelectionAlignment = HorizontalAlignment.Right;
-            richTextBoxTroco.SelectionAlignment = HorizontalAlignment.Right;
         }
         Service1 sv = new Service1();
-
+        
         private void buttonPesquisarVenda_Click(object sender, EventArgs e)
         {
+            VendaProduto venda = new VendaProduto();
             List<VendaProduto> vendas = new List<VendaProduto>();
             Venda ven = new Venda();
-            
-            if (richTextBoxCpf.Text != null || richTextBoxCodVenda.Text != null)
+
+            try
             {
-                venda.Venda.Cliente.CpfCliente = richTextBoxCpf.Text;
-                venda.Venda.NumVenda = Int32.Parse(richTextBoxCodVenda.Text);               
-
-                vendas.Clear();
-                vendas = sv.ListarVenda(ven).ToList();
-
-                listViewVenda.Items.Clear();
-
-                foreach (var item in vendas)
+                if (!string.IsNullOrEmpty(richTextBoxCodVenda.Text))
                 {
-                    ListViewItem lv = listViewVenda.Items.Add(item.Qtd.ToString());
-                    lv.SubItems.Add(item.Produto.NomeProduto);
-                    lv.SubItems.Add(item.Produto.PrecoProduto.ToString());
-                    lv.SubItems.Add(item.Venda.Funcionario.NomeFuncionario);
+                    int numVenda = Int32.Parse(richTextBoxCodVenda.Text);
 
-                    richTextBoxCpf.Text = item.Venda.Cliente.CpfCliente;
-                    richTextBoxCodVenda.Text = item.Venda.NumVenda.ToString();
-                    richTextBoxTotalVenda.Text = item.Preco.ToString();
-                    richTextBoxValorRecebido.Text = recebido.ToString();
+                    vendas.Clear();
+                    vendas = sv.ListarVenda(numVenda).ToList();
+                    if (vendas != null)
+                    {
+
+
+                        listViewVenda.Items.Clear();
+
+                        foreach (var item in vendas)
+                        {
+                            ListViewItem lv = listViewVenda.Items.Add(item.Qtd.ToString());
+                            lv.SubItems.Add(item.Produto.NomeProduto);
+                            lv.SubItems.Add(item.Produto.PrecoProduto.ToString());
+                            lv.SubItems.Add(item.Venda.Funcionario.NomeFuncionario);
+
+                            richTextBoxCpf.Text = item.Venda.Cliente.CpfCliente;
+                            richTextBoxCodVenda.Text = item.Venda.NumVenda.ToString();
+                            richTextBoxTotalVenda.Text = item.Preco.ToString();
+
+                            richTextBoxCpf.Enabled = true;
+                            richTextBoxTotalVenda.Enabled = true;
+                            buttonCancelarVenda.Enabled = true;
+                            buttonReceber.Enabled = true;
+                        } 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Venda não encontarda");
+                    }
+
                 }
-                
+                else
+                {
+                    MessageBox.Show("Digite um código de venda");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void listViewVenda_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<VendaProduto> vendas = new List<VendaProduto>();
             try
             {
-
-                if (listViewVenda.FocusedItem != null)
-                {
-                    int index = listViewVenda.FocusedItem.Index;
-                    VendaProduto vp = vendas.ElementAt(index);
-                    richTextBoxCpf.Text = vp.Venda.Cliente.CpfCliente;
-                    richTextBoxCodVenda.Text = vp.Venda.NumVenda.ToString();
-                }
+                buttonExcluir.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -79,6 +91,7 @@ namespace TelaFarmaPopTec
 
         private void buttonSair_Click(object sender, EventArgs e)
         {
+
             this.Dispose(true);
         }
 
@@ -87,15 +100,57 @@ namespace TelaFarmaPopTec
             richTextBoxCpf.Text = "";
             richTextBoxCodVenda.Text = "";
             richTextBoxTotalVenda.Text = "";
-            richTextBoxValorRecebido.Text = "";
-            richTextBoxTroco.Text = "";
-            listViewVenda.Clear();
+            listViewVenda.Items.Clear();
         }
 
         private void buttonAdicionarProduto_Click(object sender, EventArgs e)
         {
             EfetuarVenda efetuarVenda = new EfetuarVenda();
             efetuarVenda.ShowDialog();
+        }
+
+        private void buttonCancelarVenda_Click(object sender, EventArgs e)
+        {
+            int numVenda ;
+            numVenda = Int32.Parse( richTextBoxCodVenda.Text);
+            sv.DeletarVenda(numVenda);
+            richTextBoxCpf.Text = "";
+            richTextBoxCodVenda.Text = "";
+            richTextBoxTotalVenda.Text = "";
+            listViewVenda.Items.Clear();
+            MessageBox.Show("Venda cancelada!");
+        }
+
+        private void buttonReceber_Click(object sender, EventArgs e)
+        {                     
+            List<VendaProduto> vendas = new List<VendaProduto>();
+
+            int numVenda = Int32.Parse(richTextBoxCodVenda.Text);
+            
+            vendas = sv.ListarVenda(numVenda).ToList();
+            
+            foreach (var vend in vendas)
+            {  
+                sv.AlterarSaldoProduto(vend.Produto.CodProduto, vend.Qtd);
+            }
+            MessageBox.Show("Pagamento recebido");
+            richTextBoxCpf.Text = "";
+            richTextBoxCodVenda.Text = "";
+            richTextBoxTotalVenda.Text = "";
+            listViewVenda.Items.Clear();
+        }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            //List<VendaProduto> vendas = new List<VendaProduto>();
+            //if (listViewVenda.FocusedItem != null)
+            //{ 
+            //    int index = listViewVenda.FocusedItem.Index;
+            //    VendaProduto vp = vendas.ElementAt(index);
+            //    richTextBoxCpf.Text = vp.Venda.Cliente.CpfCliente;
+            //    richTextBoxCodVenda.Text = vp.Venda.NumVenda.ToString();
+            //}
+
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Biblioteca.dados
 	{
         void CadastrarVenda(Venda venda);
         void AlterarVenda(Venda venda);
-        void DeletarVenda(Venda venda);
+        void DeletarVenda(int numVenda);
         List<VendaProduto> ListarVendas();
-        List<VendaProduto> ListarVenda(Venda venda);
+        List<VendaProduto> ListarVenda(int numVenda);
         List<Venda> ListarVendaAtendente(Venda venda);
         bool VerificarDuplicidadeVenda(Venda venda);
     }

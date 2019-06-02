@@ -14,6 +14,12 @@ namespace Biblioteca.classesBasicas
         // talvez deva receber uma LiST de produtos
         private Venda venda;
 
+        public VendaProduto()
+        {
+            venda = new Venda();
+            produto = new Produto();
+        }
+
         public int Qtd { get => qtd; set => qtd = value; }
         public float Preco { get => preco; set => preco = value; }
         public Produto Produto { get => produto; set => produto = value; }

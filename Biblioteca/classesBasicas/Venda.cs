@@ -13,6 +13,12 @@ namespace Biblioteca.classesBasicas
         private Funcionario funcionario;
         private Cliente cliente;
 
+        public Venda()
+        {
+            cliente = new Cliente();
+            funcionario = new Funcionario();
+        }
+
         public int NumVenda { get => numVenda; set => numVenda = value; }
         public DateTime DataVenda { get => dataVenda; set => dataVenda = value; }
         public Funcionario Funcionario { get => funcionario; set => funcionario = value; }

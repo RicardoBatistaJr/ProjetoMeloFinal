@@ -100,6 +100,8 @@ namespace WcfFarmaPopTec
         List<Produto> ListarProdutos();
         [OperationContract]
         bool VerificarDuplicidadeProduto(Produto produto);
+        [OperationContract]
+        void AlterarSaldoProduto(int codProdruto, int qtd);
 
         // VENDA
         [OperationContract]
@@ -107,11 +109,11 @@ namespace WcfFarmaPopTec
         [OperationContract]
         void AlterarVenda(Venda venda);
         [OperationContract]
-        void DeletarVenda(Venda venda);
+        void DeletarVenda(int numVenda);
         [OperationContract]
         List<VendaProduto> ListarVendas();
         [OperationContract]
-        List<VendaProduto> ListarVenda(Venda venda);
+        List<VendaProduto> ListarVenda(int numVenda);
         [OperationContract]
         List<Venda> ListarVendaAtendente(Venda venda);
         [OperationContract]

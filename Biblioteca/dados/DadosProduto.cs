@@ -305,5 +305,34 @@ namespace Biblioteca.dados
             }
         }
 
+        public void AlterarSaldoProduto(int codProdruto, int qtd)
+        {
+            try
+            {
+                //abrir a conexão
+                this.AbrirConexao();
+                
+                    string sql = "update produto set saldoProduto = saldoProduto - @saldoProduto where codProduto = @codProduto";
+                    //instrucao a ser executada
+                    SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                    cmd.Parameters.Add("@saldoProduto", SqlDbType.Float);
+                    cmd.Parameters["@saldoProduto"].Value = qtd;
+
+                    cmd.Parameters.Add("@codProduto", SqlDbType.Int);
+                    cmd.Parameters["@codProduto"].Value = codProdruto;
+
+                    //executando a instrucao 
+                    cmd.ExecuteNonQuery();
+                    //liberando a memoria 
+                    cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Alterar e inserir " + ex.Message);
+            }
+        }
     }
 }

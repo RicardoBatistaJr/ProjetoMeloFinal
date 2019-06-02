@@ -110,7 +110,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
+                throw new Exception("Erro ao deletar: " + ex.Message);
             }
         }
         //Método select cliente
@@ -172,7 +172,7 @@ namespace Biblioteca.dados
 
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao consultar: " + ex.Message);
             }
             return retorno;
         }
@@ -209,7 +209,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao listar: " + ex.Message);
             }
         }
         //Método listar vendas de um determinado cliente
@@ -280,7 +280,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao verificar duplicidade: " + ex.Message);
             }
         }
         //Método para velidar se o cpf foi digitado corretamente

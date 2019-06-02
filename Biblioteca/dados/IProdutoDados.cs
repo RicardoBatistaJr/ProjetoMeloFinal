@@ -14,6 +14,6 @@ namespace Biblioteca.dados
         void TrocarProduto();
         List<Produto> ListarProdutos();
         bool VerificarDuplicidadeProduto(Produto produto);
-
+        void AlterarSaldoProduto(int codProdruto, int qtd);
     }
 }

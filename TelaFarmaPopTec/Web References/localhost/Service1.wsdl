@@ -229,6 +229,12 @@
   <wsdl:message name="IService1_VerificarDuplicidadeProduto_OutputMessage">
     <wsdl:part name="parameters" element="tns:VerificarDuplicidadeProdutoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AlterarSaldoProduto_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarSaldoProduto" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AlterarSaldoProduto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarSaldoProdutoResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CadastrarVenda_InputMessage">
     <wsdl:part name="parameters" element="tns:CadastrarVenda" />
   </wsdl:message>
@@ -419,6 +425,10 @@
     <wsdl:operation name="VerificarDuplicidadeProduto">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeProduto" message="tns:IService1_VerificarDuplicidadeProduto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/VerificarDuplicidadeProdutoResponse" message="tns:IService1_VerificarDuplicidadeProduto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSaldoProduto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AlterarSaldoProduto" message="tns:IService1_AlterarSaldoProduto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AlterarSaldoProdutoResponse" message="tns:IService1_AlterarSaldoProduto_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CadastrarVenda">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarVenda" message="tns:IService1_CadastrarVenda_InputMessage" />
@@ -777,6 +787,15 @@
     </wsdl:operation>
     <wsdl:operation name="VerificarDuplicidadeProduto">
       <soap:operation soapAction="http://tempuri.org/IService1/VerificarDuplicidadeProduto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSaldoProduto">
+      <soap:operation soapAction="http://tempuri.org/IService1/AlterarSaldoProduto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

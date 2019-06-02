@@ -186,7 +186,11 @@ namespace WcfFarmaPopTec
         }
         public bool VerificarDuplicidadeProduto(Produto produto)
         {
-           return  new ProdutoNegocio().VerificarDuplicidadeProduto(produto);
+           return new ProdutoNegocio().VerificarDuplicidadeProduto(produto);
+        }
+        public void AlterarSaldoProduto(int codProdruto, int qtd)
+        {
+            new ProdutoNegocio().AlterarSaldoProduto(codProdruto, qtd);
         }
 
         // VENDA
@@ -204,17 +208,17 @@ namespace WcfFarmaPopTec
         {
             new VendaNegocio().AlterarVenda(venda);
         }
-        public void DeletarVenda(Venda venda)
+        public void DeletarVenda(int numVenda)
         {
-            new VendaNegocio().DeletarVenda(venda);
+            new VendaNegocio().DeletarVenda(numVenda);
         }
         public List<VendaProduto> ListarVendas()
         {
             return new VendaNegocio().ListarVendas();
         }
-        public List<VendaProduto> ListarVenda(Venda venda)
+        public List<VendaProduto> ListarVenda(int numVenda)
         {
-            return new VendaNegocio().ListarVenda(venda);
+            return new VendaNegocio().ListarVenda(numVenda);
         }
 
         public List<Venda> ListarVendaAtendente(Venda venda)
