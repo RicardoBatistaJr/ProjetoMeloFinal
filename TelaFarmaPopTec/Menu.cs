@@ -116,6 +116,21 @@ namespace TelaFarmaPopTec
         {
             Cadastrar_Compra cadastrar_Compra = new Cadastrar_Compra();
             cadastrar_Compra.ShowDialog();
+            ManterProdutos manterProdutos = new ManterProdutos();
+            manterProdutos.ShowDialog();
+            //  OpcoesProduto opcoesProduto = new OpcoesProduto();
+            // opcoesProduto.ShowDialog();
+        }
+
+        private void ButtonVenda_Click(object sender, EventArgs e)
+        {
+            EfetuarVenda vend = new EfetuarVenda();
+            vend.ShowDialog();
+        }
+        private void buttonCaixa_Click_1(object sender, EventArgs e)
+        {
+            Caixa caixa = new Caixa();
+            caixa.ShowDialog();
         }
     }
 }

@@ -36,8 +36,8 @@
       <xs:element minOccurs="0" name="DataFabricacao" type="xs:dateTime" />
       <xs:element minOccurs="0" name="NomeProduto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PrecoProduto" type="xs:float" />
-      <xs:element minOccurs="0" name="SaldoProduto" type="xs:float" />
-      <xs:element minOccurs="0" name="StatusProduto" type="xs:int" />
+      <xs:element minOccurs="0" name="SaldoProduto" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusProduto" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Produto" nillable="true" type="tns:Produto" />
@@ -111,4 +111,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfFornecedor" nillable="true" type="tns:ArrayOfFornecedor" />
+  <xs:complexType name="ArrayOfProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Produto" nillable="true" type="tns:Produto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduto" nillable="true" type="tns:ArrayOfProduto" />
+  <xs:complexType name="ArrayOfVenda">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Venda" nillable="true" type="tns:Venda" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVenda" nillable="true" type="tns:ArrayOfVenda" />
 </xs:schema>

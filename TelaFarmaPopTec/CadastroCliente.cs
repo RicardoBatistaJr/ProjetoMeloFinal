@@ -249,7 +249,30 @@ namespace TelaFarmaPopTec
 
         private void buttonListarCompras_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Cliente cliente = new Cliente();
+                cliente.CpfCliente = textBoxCpf.Text;
+                List<VendaProduto> vendaProduto = new List<VendaProduto>();
 
+                vendaProduto = sv.ListarVendaCliente(cliente).ToList();
+
+                listViewCompras.Items.Clear();
+
+                foreach (var item in vendaProduto)
+                {
+                    ListViewItem lvi = listViewCompras.Items.Add(item.Venda.Cliente.CpfCliente);
+                    lvi.SubItems.Add(item.Venda.NumVenda.ToString());
+                    lvi.SubItems.Add(item.Venda.DataVenda.ToString());
+                    lvi.SubItems.Add(item.Produto.NomeProduto);
+                    lvi.SubItems.Add(item.Qtd.ToString());
+                    lvi.SubItems.Add(item.Preco.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

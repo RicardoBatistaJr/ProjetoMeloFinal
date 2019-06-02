@@ -95,7 +95,7 @@ namespace WcfFarmaPopTec
             return new FuncionarioNegocio().Logar(funcionario);
         }
       
-        //service Fornecedor
+        //FORNECEDOR
         public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)
         {
             return new FornecedorNegocio().ConsultarFornecedor(filtro);
@@ -120,8 +120,11 @@ namespace WcfFarmaPopTec
         {
             return new FornecedorNegocio().ValidarCnpj(cnpj);
         }
-       
-        //service Compra/
+        public List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro)
+        {
+            return new FornecedorNegocio().ListarComprasComFornecedor(filtro);
+        }
+        //COMPRA
         public List<Compra> ListarCompras(Compra filtro)
         {
             throw new NotImplementedException();
@@ -150,5 +153,87 @@ namespace WcfFarmaPopTec
         {
             return new CompraNegocio().ListarProdutosCompras(filtro);
         }
+        }
+
+        // PRODUTO
+
+        public void CadastrarProduto(Produto produto)
+        {
+            new ProdutoNegocio().CadastrarProduto(produto);
+        }
+        public void AlterarProduto(Produto produto)
+        {
+            new ProdutoNegocio().AlterarProduto(produto);
+        }
+        public void DeletarProduto(Produto produto)
+        {
+            new ProdutoNegocio().DeletarProduto(produto);
+        }
+        public void DesativarProduto(Produto produto)
+        {
+            new ProdutoNegocio().DeletarProduto(produto);
+        }
+        public void AtivarProduto(Produto produto)
+        {
+            new ProdutoNegocio().AtivarProduto(produto);
+        }
+        public List<Produto> ConsultarProduto(Produto filtro)
+        {
+            return new ProdutoNegocio().ConsultarProduto(filtro);
+        }
+        public void TrocarProduto()
+        {
+            new ProdutoNegocio().TrocarProduto();
+        }
+        public List<Produto> ListarProdutos()
+        {
+            return new ProdutoNegocio().ListarProdutos();
+        }
+        public bool VerificarDuplicidadeProduto(Produto produto)
+        {
+           return new ProdutoNegocio().VerificarDuplicidadeProduto(produto);
+        }
+        public void AlterarSaldoProduto(int codProdruto, int qtd)
+        {
+            new ProdutoNegocio().AlterarSaldoProduto(codProdruto, qtd);
+        }
+
+        // VENDA
+
+        public bool VerificarDuplicidadeVenda(Venda venda)
+        {
+           return new VendaNegocio().VerificarDuplicidadeVenda(venda);
+        }
+
+        public void CadastrarVenda(Venda venda)
+        {
+            new VendaNegocio().CadastrarVenda(venda);
+        }
+        public void AlterarVenda(Venda venda)
+        {
+            new VendaNegocio().AlterarVenda(venda);
+        }
+        public void DeletarVenda(int numVenda)
+        {
+            new VendaNegocio().DeletarVenda(numVenda);
+        }
+        public List<VendaProduto> ListarVendas()
+        {
+            return new VendaNegocio().ListarVendas();
+        }
+        public List<VendaProduto> ListarVenda(int numVenda)
+        {
+            return new VendaNegocio().ListarVenda(numVenda);
+        }
+
+        public List<Venda> ListarVendaAtendente(Venda venda)
+        {
+           return new VendaNegocio().ListarVendaAtendente(venda);
+        }
+        public void DeletarItemVenda(int numVenda, int codProduto)
+        {
+            new VendaNegocio().DeletarItemVenda(numVenda, codProduto);
+        }
+
     }
 }

@@ -46,27 +46,27 @@ namespace Biblioteca.negocio
             new DadosVenda().CadastrarVenda(venda);
         }
 
-        public void DeletarVenda(Venda venda)
+        public void DeletarVenda(int numVenda)
         {
-            DadosVenda dadosvenda = new DadosVenda();
-            if (dadosvenda.VerificarDuplicidadeVenda(venda))
-            {
-                dadosvenda.DeletarVenda(venda);
-            }
-            else
-            {
-                throw new Exception("Venda não existe!");
-            }
+            new DadosVenda().DeletarVenda(numVenda);
         }
 
-        public List<Venda> ListarVendas()
+        public List<VendaProduto> ListarVendas()
         {
             return new DadosVenda().ListarVendas();
+        }
+        public List<VendaProduto> ListarVenda(int numVenda)
+        {
+            return new DadosVenda().ListarVenda(numVenda);
         }
 
         public List<Venda> ListarVendaAtendente(Venda venda)
         {
             return new DadosVenda().ListarVendaAtendente(venda);
+        }
+        public void DeletarItemVenda(int numVenda, int codProduto)
+        {
+            new DadosVenda().DeletarItemVenda(numVenda, codProduto);
         }
     }
 }

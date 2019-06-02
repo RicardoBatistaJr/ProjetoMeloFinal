@@ -98,6 +98,7 @@
             this.buttonVenda.TabIndex = 5;
             this.buttonVenda.Text = "VENDA";
             this.buttonVenda.UseVisualStyleBackColor = false;
+            this.buttonVenda.Click += new System.EventHandler(this.ButtonVenda_Click);
             // 
             // buttonRelatorios
             // 
@@ -120,6 +121,7 @@
             this.buttonCaixa.TabIndex = 4;
             this.buttonCaixa.Text = "CAIXA";
             this.buttonCaixa.UseVisualStyleBackColor = false;
+            this.buttonCaixa.Click += new System.EventHandler(this.buttonCaixa_Click_1);
             // 
             // buttonFornacedor
             // 

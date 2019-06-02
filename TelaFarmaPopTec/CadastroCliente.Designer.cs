@@ -61,108 +61,124 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(42, 34);
+            this.buttonSalvar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalvar.Location = new System.Drawing.Point(419, 60);
             this.buttonSalvar.Name = "buttonSalvar";
-            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalvar.Size = new System.Drawing.Size(85, 36);
             this.buttonSalvar.TabIndex = 0;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonExcluir
             // 
-            this.buttonExcluir.Location = new System.Drawing.Point(133, 33);
+            this.buttonExcluir.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluir.Location = new System.Drawing.Point(419, 112);
             this.buttonExcluir.Name = "buttonExcluir";
-            this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcluir.Size = new System.Drawing.Size(85, 35);
             this.buttonExcluir.TabIndex = 1;
             this.buttonExcluir.Text = "Excluir";
-            this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.UseVisualStyleBackColor = false;
             this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // buttonlimpar
             // 
-            this.buttonlimpar.Location = new System.Drawing.Point(227, 32);
+            this.buttonlimpar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonlimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonlimpar.Location = new System.Drawing.Point(573, 112);
             this.buttonlimpar.Name = "buttonlimpar";
-            this.buttonlimpar.Size = new System.Drawing.Size(75, 23);
+            this.buttonlimpar.Size = new System.Drawing.Size(106, 35);
             this.buttonlimpar.TabIndex = 2;
             this.buttonlimpar.Text = "Limpar";
-            this.buttonlimpar.UseVisualStyleBackColor = true;
+            this.buttonlimpar.UseVisualStyleBackColor = false;
             this.buttonlimpar.Click += new System.EventHandler(this.buttonlimpar_Click);
             // 
             // buttonPesquisar
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(321, 32);
+            this.buttonPesquisar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPesquisar.Location = new System.Drawing.Point(573, 58);
             this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.buttonPesquisar.Size = new System.Drawing.Size(106, 36);
             this.buttonPesquisar.TabIndex = 3;
             this.buttonPesquisar.Text = "Pesquisar";
-            this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.UseVisualStyleBackColor = false;
             this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 94);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(60, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "CPF:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 124);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(48, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Nome:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 159);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(44, 145);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "E-mail:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 194);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(65, 188);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.Size = new System.Drawing.Size(43, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Tel.:";
             // 
             // textBoxCpf
             // 
-            this.textBoxCpf.Location = new System.Drawing.Point(108, 91);
+            this.textBoxCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCpf.Location = new System.Drawing.Point(108, 52);
             this.textBoxCpf.MaxLength = 11;
             this.textBoxCpf.Name = "textBoxCpf";
-            this.textBoxCpf.Size = new System.Drawing.Size(229, 20);
+            this.textBoxCpf.Size = new System.Drawing.Size(229, 26);
             this.textBoxCpf.TabIndex = 8;
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(108, 124);
+            this.textBoxNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNome.Location = new System.Drawing.Point(108, 94);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(229, 20);
+            this.textBoxNome.Size = new System.Drawing.Size(229, 26);
             this.textBoxNome.TabIndex = 9;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(108, 159);
+            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmail.Location = new System.Drawing.Point(108, 139);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(229, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(229, 26);
             this.textBoxEmail.TabIndex = 10;
             // 
             // textBoxTel
             // 
-            this.textBoxTel.Location = new System.Drawing.Point(108, 191);
+            this.textBoxTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTel.Location = new System.Drawing.Point(108, 182);
             this.textBoxTel.MaxLength = 14;
             this.textBoxTel.Name = "textBoxTel";
-            this.textBoxTel.Size = new System.Drawing.Size(229, 20);
+            this.textBoxTel.Size = new System.Drawing.Size(229, 26);
             this.textBoxTel.TabIndex = 11;
             // 
             // listViewCliente
@@ -172,8 +188,9 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.listViewCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewCliente.FullRowSelect = true;
-            this.listViewCliente.Location = new System.Drawing.Point(42, 269);
+            this.listViewCliente.Location = new System.Drawing.Point(30, 284);
             this.listViewCliente.Name = "listViewCliente";
             this.listViewCliente.Size = new System.Drawing.Size(698, 97);
             this.listViewCliente.TabIndex = 12;
@@ -203,32 +220,38 @@
             // 
             // btnListarClientes
             // 
-            this.btnListarClientes.Location = new System.Drawing.Point(45, 236);
+            this.btnListarClientes.BackColor = System.Drawing.SystemColors.GrayText;
+            this.btnListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarClientes.Location = new System.Drawing.Point(30, 237);
             this.btnListarClientes.Name = "btnListarClientes";
-            this.btnListarClientes.Size = new System.Drawing.Size(152, 23);
+            this.btnListarClientes.Size = new System.Drawing.Size(218, 41);
             this.btnListarClientes.TabIndex = 13;
             this.btnListarClientes.Text = "Listar todos os Clientes";
-            this.btnListarClientes.UseVisualStyleBackColor = true;
+            this.btnListarClientes.UseVisualStyleBackColor = false;
             this.btnListarClientes.Click += new System.EventHandler(this.buttonClientes_Click);
             // 
             // buttonAlterar
             // 
-            this.buttonAlterar.Location = new System.Drawing.Point(416, 34);
+            this.buttonAlterar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAlterar.Location = new System.Drawing.Point(419, 163);
             this.buttonAlterar.Name = "buttonAlterar";
-            this.buttonAlterar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAlterar.Size = new System.Drawing.Size(85, 36);
             this.buttonAlterar.TabIndex = 14;
             this.buttonAlterar.Text = "Alterar";
-            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.UseVisualStyleBackColor = false;
             this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
             // 
             // buttonListarCompras
             // 
-            this.buttonListarCompras.Location = new System.Drawing.Point(42, 383);
+            this.buttonListarCompras.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonListarCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonListarCompras.Location = new System.Drawing.Point(26, 387);
             this.buttonListarCompras.Name = "buttonListarCompras";
-            this.buttonListarCompras.Size = new System.Drawing.Size(155, 23);
+            this.buttonListarCompras.Size = new System.Drawing.Size(237, 40);
             this.buttonListarCompras.TabIndex = 15;
             this.buttonListarCompras.Text = "Listar Compras do Cliente";
-            this.buttonListarCompras.UseVisualStyleBackColor = true;
+            this.buttonListarCompras.UseVisualStyleBackColor = false;
             this.buttonListarCompras.Click += new System.EventHandler(this.buttonListarCompras_Click);
             // 
             // listViewCompras
@@ -240,9 +263,10 @@
             this.columnHeader9,
             this.columnHeader10,
             this.columnHeader6});
-            this.listViewCompras.Location = new System.Drawing.Point(42, 413);
+            this.listViewCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewCompras.Location = new System.Drawing.Point(26, 433);
             this.listViewCompras.Name = "listViewCompras";
-            this.listViewCompras.Size = new System.Drawing.Size(918, 97);
+            this.listViewCompras.Size = new System.Drawing.Size(769, 97);
             this.listViewCompras.TabIndex = 16;
             this.listViewCompras.UseCompatibleStateImageBehavior = false;
             this.listViewCompras.View = System.Windows.Forms.View.Details;
@@ -251,7 +275,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "CPF";
-            this.columnHeader5.Width = 166;
+            this.columnHeader5.Width = 147;
             // 
             // columnHeader7
             // 
@@ -261,12 +285,12 @@
             // columnHeader8
             // 
             this.columnHeader8.Text = "Data da Venda";
-            this.columnHeader8.Width = 181;
+            this.columnHeader8.Width = 132;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Nome do Produto";
-            this.columnHeader9.Width = 299;
+            this.columnHeader9.Width = 205;
             // 
             // columnHeader10
             // 
@@ -280,19 +304,21 @@
             // 
             // buttonVoltar
             // 
-            this.buttonVoltar.Location = new System.Drawing.Point(498, 34);
+            this.buttonVoltar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVoltar.Location = new System.Drawing.Point(573, 163);
             this.buttonVoltar.Name = "buttonVoltar";
-            this.buttonVoltar.Size = new System.Drawing.Size(75, 23);
+            this.buttonVoltar.Size = new System.Drawing.Size(106, 36);
             this.buttonVoltar.TabIndex = 17;
             this.buttonVoltar.Text = "Voltar";
-            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.UseVisualStyleBackColor = false;
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             // 
             // CadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 524);
+            this.ClientSize = new System.Drawing.Size(823, 543);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.listViewCompras);
             this.Controls.Add(this.buttonListarCompras);

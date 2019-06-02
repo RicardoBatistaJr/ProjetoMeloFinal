@@ -77,6 +77,51 @@ namespace WcfFarmaPopTec
         bool VerificarDuplicidadeFornecedor(Fornecedor fornecedor);
         [OperationContract]
         bool ValidarCnpj(String cnpj);      
+        bool ValidarCnpj(String cnpj);
+        [OperationContract]
+        List<Fornecedor> ListarComprasComFornecedor(Fornecedor filtro);
+        // TODO: Adicione suas operações de serviço aqui
+
+
+        // PRODUTOS
+        [OperationContract]
+        void CadastrarProduto(Produto produto);
+        [OperationContract]
+        void AlterarProduto(Produto produto);
+        [OperationContract]
+        void DeletarProduto(Produto produto);
+        [OperationContract]
+        void DesativarProduto(Produto produto);
+        [OperationContract]
+        void AtivarProduto(Produto produto);
+        [OperationContract]
+        List<Produto> ConsultarProduto(Produto filtro);
+        [OperationContract]
+        void TrocarProduto();
+        [OperationContract]
+        List<Produto> ListarProdutos();
+        [OperationContract]
+        bool VerificarDuplicidadeProduto(Produto produto);
+        [OperationContract]
+        void AlterarSaldoProduto(int codProdruto, int qtd);
+
+        // VENDA
+        [OperationContract]
+        void CadastrarVenda(Venda venda);
+        [OperationContract]
+        void AlterarVenda(Venda venda);
+        [OperationContract]
+        void DeletarVenda(int numVenda);
+        [OperationContract]
+        List<VendaProduto> ListarVendas();
+        [OperationContract]
+        List<VendaProduto> ListarVenda(int numVenda);
+        [OperationContract]
+        List<Venda> ListarVendaAtendente(Venda venda);
+        [OperationContract]
+        bool VerificarDuplicidadeVenda(Venda venda);
+        [OperationContract]
+        void DeletarItemVenda(int numVenda, int codProduto);
     }
 
 

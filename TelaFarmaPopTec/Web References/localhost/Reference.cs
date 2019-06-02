@@ -85,6 +85,46 @@ namespace TelaFarmaPopTec.localhost {
         
         private System.Threading.SendOrPostCallback ValidarCnpjOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ValidarCnpjOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarComprasComFornecedorOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CadastrarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeletarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DesativarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AtivarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ConsultarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TrocarProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarProdutosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback VerificarDuplicidadeProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarSaldoProdutoOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CadastrarVendaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AlterarVendaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeletarVendaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarVendasOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarVendaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ListarVendaAtendenteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback VerificarDuplicidadeVendaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeletarItemVendaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -206,6 +246,66 @@ namespace TelaFarmaPopTec.localhost {
         
         /// <remarks/>
         public event ValidarCnpjCompletedEventHandler ValidarCnpjCompleted;
+        
+        /// <remarks/>
+        public event ValidarCnpjCompletedEventHandler ValidarCnpjCompleted;
+        
+        /// <remarks/>
+        public event ListarComprasComFornecedorCompletedEventHandler ListarComprasComFornecedorCompleted;
+        
+        /// <remarks/>
+        public event CadastrarProdutoCompletedEventHandler CadastrarProdutoCompleted;
+        
+        /// <remarks/>
+        public event AlterarProdutoCompletedEventHandler AlterarProdutoCompleted;
+        
+        /// <remarks/>
+        public event DeletarProdutoCompletedEventHandler DeletarProdutoCompleted;
+        
+        /// <remarks/>
+        public event DesativarProdutoCompletedEventHandler DesativarProdutoCompleted;
+        
+        /// <remarks/>
+        public event AtivarProdutoCompletedEventHandler AtivarProdutoCompleted;
+        
+        /// <remarks/>
+        public event ConsultarProdutoCompletedEventHandler ConsultarProdutoCompleted;
+        
+        /// <remarks/>
+        public event TrocarProdutoCompletedEventHandler TrocarProdutoCompleted;
+        
+        /// <remarks/>
+        public event ListarProdutosCompletedEventHandler ListarProdutosCompleted;
+        
+        /// <remarks/>
+        public event VerificarDuplicidadeProdutoCompletedEventHandler VerificarDuplicidadeProdutoCompleted;
+        
+        /// <remarks/>
+        public event AlterarSaldoProdutoCompletedEventHandler AlterarSaldoProdutoCompleted;
+        
+        /// <remarks/>
+        public event CadastrarVendaCompletedEventHandler CadastrarVendaCompleted;
+        
+        /// <remarks/>
+        public event AlterarVendaCompletedEventHandler AlterarVendaCompleted;
+        
+        /// <remarks/>
+        public event DeletarVendaCompletedEventHandler DeletarVendaCompleted;
+        
+        /// <remarks/>
+        public event ListarVendasCompletedEventHandler ListarVendasCompleted;
+        
+        /// <remarks/>
+        public event ListarVendaCompletedEventHandler ListarVendaCompleted;
+        
+        /// <remarks/>
+        public event ListarVendaAtendenteCompletedEventHandler ListarVendaAtendenteCompleted;
+        
+        /// <remarks/>
+        public event VerificarDuplicidadeVendaCompletedEventHandler VerificarDuplicidadeVendaCompleted;
+        
+        /// <remarks/>
+        public event DeletarItemVendaCompletedEventHandler DeletarItemVendaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -994,6 +1094,595 @@ namespace TelaFarmaPopTec.localhost {
             if ((this.VerificarDuplicidadeFornecedorCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.VerificarDuplicidadeFornecedorCompleted(this, new VerificarDuplicidadeFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.VerificarDuplicidadeFornecedorCompleted(this, new VerificarDuplicidadeFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ValidarCnpj", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ValidarCnpj([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string cnpj, out bool ValidarCnpjResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool ValidarCnpjResultSpecified) {
+            object[] results = this.Invoke("ValidarCnpj", new object[] {
+                        cnpj});
+            ValidarCnpjResult = ((bool)(results[0]));
+            ValidarCnpjResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void ValidarCnpjAsync(string cnpj) {
+            this.ValidarCnpjAsync(cnpj, null);
+        }
+        
+        /// <remarks/>
+        public void ValidarCnpjAsync(string cnpj, object userState) {
+            if ((this.ValidarCnpjOperationCompleted == null)) {
+                this.ValidarCnpjOperationCompleted = new System.Threading.SendOrPostCallback(this.OnValidarCnpjOperationCompleted);
+            }
+            this.InvokeAsync("ValidarCnpj", new object[] {
+                        cnpj}, this.ValidarCnpjOperationCompleted, userState);
+        }
+        
+        private void OnValidarCnpjOperationCompleted(object arg) {
+            if ((this.ValidarCnpjCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ValidarCnpjCompleted(this, new ValidarCnpjCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarComprasComFornecedor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Fornecedor[] ListarComprasComFornecedor([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Fornecedor filtro) {
+            object[] results = this.Invoke("ListarComprasComFornecedor", new object[] {
+                        filtro});
+            return ((Fornecedor[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarComprasComFornecedorAsync(Fornecedor filtro) {
+            this.ListarComprasComFornecedorAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void ListarComprasComFornecedorAsync(Fornecedor filtro, object userState) {
+            if ((this.ListarComprasComFornecedorOperationCompleted == null)) {
+                this.ListarComprasComFornecedorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarComprasComFornecedorOperationCompleted);
+            }
+            this.InvokeAsync("ListarComprasComFornecedor", new object[] {
+                        filtro}, this.ListarComprasComFornecedorOperationCompleted, userState);
+        }
+        
+        private void OnListarComprasComFornecedorOperationCompleted(object arg) {
+            if ((this.ListarComprasComFornecedorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarComprasComFornecedorCompleted(this, new ListarComprasComFornecedorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CadastrarProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("CadastrarProduto", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void CadastrarProdutoAsync(Produto produto) {
+            this.CadastrarProdutoAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void CadastrarProdutoAsync(Produto produto, object userState) {
+            if ((this.CadastrarProdutoOperationCompleted == null)) {
+                this.CadastrarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCadastrarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("CadastrarProduto", new object[] {
+                        produto}, this.CadastrarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnCadastrarProdutoOperationCompleted(object arg) {
+            if ((this.CadastrarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CadastrarProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("AlterarProduto", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void AlterarProdutoAsync(Produto produto) {
+            this.AlterarProdutoAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarProdutoAsync(Produto produto, object userState) {
+            if ((this.AlterarProdutoOperationCompleted == null)) {
+                this.AlterarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("AlterarProduto", new object[] {
+                        produto}, this.AlterarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnAlterarProdutoOperationCompleted(object arg) {
+            if ((this.AlterarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeletarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeletarProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("DeletarProduto", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void DeletarProdutoAsync(Produto produto) {
+            this.DeletarProdutoAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void DeletarProdutoAsync(Produto produto, object userState) {
+            if ((this.DeletarProdutoOperationCompleted == null)) {
+                this.DeletarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeletarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("DeletarProduto", new object[] {
+                        produto}, this.DeletarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnDeletarProdutoOperationCompleted(object arg) {
+            if ((this.DeletarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeletarProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DesativarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DesativarProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("DesativarProduto", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void DesativarProdutoAsync(Produto produto) {
+            this.DesativarProdutoAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void DesativarProdutoAsync(Produto produto, object userState) {
+            if ((this.DesativarProdutoOperationCompleted == null)) {
+                this.DesativarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDesativarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("DesativarProduto", new object[] {
+                        produto}, this.DesativarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnDesativarProdutoOperationCompleted(object arg) {
+            if ((this.DesativarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DesativarProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AtivarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AtivarProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("AtivarProduto", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void AtivarProdutoAsync(Produto produto) {
+            this.AtivarProdutoAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void AtivarProdutoAsync(Produto produto, object userState) {
+            if ((this.AtivarProdutoOperationCompleted == null)) {
+                this.AtivarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAtivarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("AtivarProduto", new object[] {
+                        produto}, this.AtivarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnAtivarProdutoOperationCompleted(object arg) {
+            if ((this.AtivarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AtivarProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ConsultarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Produto[] ConsultarProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto filtro) {
+            object[] results = this.Invoke("ConsultarProduto", new object[] {
+                        filtro});
+            return ((Produto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ConsultarProdutoAsync(Produto filtro) {
+            this.ConsultarProdutoAsync(filtro, null);
+        }
+        
+        /// <remarks/>
+        public void ConsultarProdutoAsync(Produto filtro, object userState) {
+            if ((this.ConsultarProdutoOperationCompleted == null)) {
+                this.ConsultarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnConsultarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("ConsultarProduto", new object[] {
+                        filtro}, this.ConsultarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnConsultarProdutoOperationCompleted(object arg) {
+            if ((this.ConsultarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ConsultarProdutoCompleted(this, new ConsultarProdutoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TrocarProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TrocarProduto() {
+            this.Invoke("TrocarProduto", new object[0]);
+        }
+        
+        /// <remarks/>
+        public void TrocarProdutoAsync() {
+            this.TrocarProdutoAsync(null);
+        }
+        
+        /// <remarks/>
+        public void TrocarProdutoAsync(object userState) {
+            if ((this.TrocarProdutoOperationCompleted == null)) {
+                this.TrocarProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTrocarProdutoOperationCompleted);
+            }
+            this.InvokeAsync("TrocarProduto", new object[0], this.TrocarProdutoOperationCompleted, userState);
+        }
+        
+        private void OnTrocarProdutoOperationCompleted(object arg) {
+            if ((this.TrocarProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TrocarProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarProdutos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Produto[] ListarProdutos() {
+            object[] results = this.Invoke("ListarProdutos", new object[0]);
+            return ((Produto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarProdutosAsync() {
+            this.ListarProdutosAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ListarProdutosAsync(object userState) {
+            if ((this.ListarProdutosOperationCompleted == null)) {
+                this.ListarProdutosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarProdutosOperationCompleted);
+            }
+            this.InvokeAsync("ListarProdutos", new object[0], this.ListarProdutosOperationCompleted, userState);
+        }
+        
+        private void OnListarProdutosOperationCompleted(object arg) {
+            if ((this.ListarProdutosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarProdutosCompleted(this, new ListarProdutosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/VerificarDuplicidadeProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void VerificarDuplicidadeProduto([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto, out bool VerificarDuplicidadeProdutoResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool VerificarDuplicidadeProdutoResultSpecified) {
+            object[] results = this.Invoke("VerificarDuplicidadeProduto", new object[] {
+                        produto});
+            VerificarDuplicidadeProdutoResult = ((bool)(results[0]));
+            VerificarDuplicidadeProdutoResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void VerificarDuplicidadeProdutoAsync(Produto produto) {
+            this.VerificarDuplicidadeProdutoAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void VerificarDuplicidadeProdutoAsync(Produto produto, object userState) {
+            if ((this.VerificarDuplicidadeProdutoOperationCompleted == null)) {
+                this.VerificarDuplicidadeProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVerificarDuplicidadeProdutoOperationCompleted);
+            }
+            this.InvokeAsync("VerificarDuplicidadeProduto", new object[] {
+                        produto}, this.VerificarDuplicidadeProdutoOperationCompleted, userState);
+        }
+        
+        private void OnVerificarDuplicidadeProdutoOperationCompleted(object arg) {
+            if ((this.VerificarDuplicidadeProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.VerificarDuplicidadeProdutoCompleted(this, new VerificarDuplicidadeProdutoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarSaldoProduto", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarSaldoProduto(int codProdruto, int qtd) {
+            this.Invoke("AlterarSaldoProduto", new object[] {
+                        codProdruto,
+                        qtd});
+        }
+        
+        /// <remarks/>
+        public void AlterarSaldoProdutoAsync(int codProdruto, bool codProdrutoSpecified, int qtd, bool qtdSpecified) {
+            this.AlterarSaldoProdutoAsync(codProdruto, codProdrutoSpecified, qtd, qtdSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarSaldoProdutoAsync(int codProdruto, bool codProdrutoSpecified, int qtd, bool qtdSpecified, object userState) {
+            if ((this.AlterarSaldoProdutoOperationCompleted == null)) {
+                this.AlterarSaldoProdutoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarSaldoProdutoOperationCompleted);
+            }
+            this.InvokeAsync("AlterarSaldoProduto", new object[] {
+                        codProdruto,
+                        codProdrutoSpecified,
+                        qtd,
+                        qtdSpecified}, this.AlterarSaldoProdutoOperationCompleted, userState);
+        }
+        
+        private void OnAlterarSaldoProdutoOperationCompleted(object arg) {
+            if ((this.AlterarSaldoProdutoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarSaldoProdutoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/CadastrarVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void CadastrarVenda([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Venda venda) {
+            this.Invoke("CadastrarVenda", new object[] {
+                        venda});
+        }
+        
+        /// <remarks/>
+        public void CadastrarVendaAsync(Venda venda) {
+            this.CadastrarVendaAsync(venda, null);
+        }
+        
+        /// <remarks/>
+        public void CadastrarVendaAsync(Venda venda, object userState) {
+            if ((this.CadastrarVendaOperationCompleted == null)) {
+                this.CadastrarVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCadastrarVendaOperationCompleted);
+            }
+            this.InvokeAsync("CadastrarVenda", new object[] {
+                        venda}, this.CadastrarVendaOperationCompleted, userState);
+        }
+        
+        private void OnCadastrarVendaOperationCompleted(object arg) {
+            if ((this.CadastrarVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CadastrarVendaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/AlterarVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AlterarVenda([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Venda venda) {
+            this.Invoke("AlterarVenda", new object[] {
+                        venda});
+        }
+        
+        /// <remarks/>
+        public void AlterarVendaAsync(Venda venda) {
+            this.AlterarVendaAsync(venda, null);
+        }
+        
+        /// <remarks/>
+        public void AlterarVendaAsync(Venda venda, object userState) {
+            if ((this.AlterarVendaOperationCompleted == null)) {
+                this.AlterarVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAlterarVendaOperationCompleted);
+            }
+            this.InvokeAsync("AlterarVenda", new object[] {
+                        venda}, this.AlterarVendaOperationCompleted, userState);
+        }
+        
+        private void OnAlterarVendaOperationCompleted(object arg) {
+            if ((this.AlterarVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AlterarVendaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeletarVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeletarVenda(int numVenda) {
+            this.Invoke("DeletarVenda", new object[] {
+                        numVenda});
+        }
+        
+        /// <remarks/>
+        public void DeletarVendaAsync(int numVenda, bool numVendaSpecified) {
+            this.DeletarVendaAsync(numVenda, numVendaSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void DeletarVendaAsync(int numVenda, bool numVendaSpecified, object userState) {
+            if ((this.DeletarVendaOperationCompleted == null)) {
+                this.DeletarVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeletarVendaOperationCompleted);
+            }
+            this.InvokeAsync("DeletarVenda", new object[] {
+                        numVenda,
+                        numVendaSpecified}, this.DeletarVendaOperationCompleted, userState);
+        }
+        
+        private void OnDeletarVendaOperationCompleted(object arg) {
+            if ((this.DeletarVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeletarVendaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarVendas", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public VendaProduto[] ListarVendas() {
+            object[] results = this.Invoke("ListarVendas", new object[0]);
+            return ((VendaProduto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarVendasAsync() {
+            this.ListarVendasAsync(null);
+        }
+        
+        /// <remarks/>
+        public void ListarVendasAsync(object userState) {
+            if ((this.ListarVendasOperationCompleted == null)) {
+                this.ListarVendasOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarVendasOperationCompleted);
+            }
+            this.InvokeAsync("ListarVendas", new object[0], this.ListarVendasOperationCompleted, userState);
+        }
+        
+        private void OnListarVendasOperationCompleted(object arg) {
+            if ((this.ListarVendasCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarVendasCompleted(this, new ListarVendasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public VendaProduto[] ListarVenda(int numVenda) {
+            object[] results = this.Invoke("ListarVenda", new object[] {
+                        numVenda});
+            return ((VendaProduto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarVendaAsync(int numVenda, bool numVendaSpecified) {
+            this.ListarVendaAsync(numVenda, numVendaSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void ListarVendaAsync(int numVenda, bool numVendaSpecified, object userState) {
+            if ((this.ListarVendaOperationCompleted == null)) {
+                this.ListarVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarVendaOperationCompleted);
+            }
+            this.InvokeAsync("ListarVenda", new object[] {
+                        numVenda,
+                        numVendaSpecified}, this.ListarVendaOperationCompleted, userState);
+        }
+        
+        private void OnListarVendaOperationCompleted(object arg) {
+            if ((this.ListarVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarVendaCompleted(this, new ListarVendaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ListarVendaAtendente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Biblioteca.classesBasicas")]
+        public Venda[] ListarVendaAtendente([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Venda venda) {
+            object[] results = this.Invoke("ListarVendaAtendente", new object[] {
+                        venda});
+            return ((Venda[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ListarVendaAtendenteAsync(Venda venda) {
+            this.ListarVendaAtendenteAsync(venda, null);
+        }
+        
+        /// <remarks/>
+        public void ListarVendaAtendenteAsync(Venda venda, object userState) {
+            if ((this.ListarVendaAtendenteOperationCompleted == null)) {
+                this.ListarVendaAtendenteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnListarVendaAtendenteOperationCompleted);
+            }
+            this.InvokeAsync("ListarVendaAtendente", new object[] {
+                        venda}, this.ListarVendaAtendenteOperationCompleted, userState);
+        }
+        
+        private void OnListarVendaAtendenteOperationCompleted(object arg) {
+            if ((this.ListarVendaAtendenteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ListarVendaAtendenteCompleted(this, new ListarVendaAtendenteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/VerificarDuplicidadeVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void VerificarDuplicidadeVenda([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Venda venda, out bool VerificarDuplicidadeVendaResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool VerificarDuplicidadeVendaResultSpecified) {
+            object[] results = this.Invoke("VerificarDuplicidadeVenda", new object[] {
+                        venda});
+            VerificarDuplicidadeVendaResult = ((bool)(results[0]));
+            VerificarDuplicidadeVendaResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void VerificarDuplicidadeVendaAsync(Venda venda) {
+            this.VerificarDuplicidadeVendaAsync(venda, null);
+        }
+        
+        /// <remarks/>
+        public void VerificarDuplicidadeVendaAsync(Venda venda, object userState) {
+            if ((this.VerificarDuplicidadeVendaOperationCompleted == null)) {
+                this.VerificarDuplicidadeVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVerificarDuplicidadeVendaOperationCompleted);
+            }
+            this.InvokeAsync("VerificarDuplicidadeVenda", new object[] {
+                        venda}, this.VerificarDuplicidadeVendaOperationCompleted, userState);
+        }
+        
+        private void OnVerificarDuplicidadeVendaOperationCompleted(object arg) {
+            if ((this.VerificarDuplicidadeVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.VerificarDuplicidadeVendaCompleted(this, new VerificarDuplicidadeVendaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/DeletarItemVenda", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void DeletarItemVenda(int numVenda, int codProduto) {
+            this.Invoke("DeletarItemVenda", new object[] {
+                        numVenda,
+                        codProduto});
+        }
+        
+        /// <remarks/>
+        public void DeletarItemVendaAsync(int numVenda, bool numVendaSpecified, int codProduto, bool codProdutoSpecified) {
+            this.DeletarItemVendaAsync(numVenda, numVendaSpecified, codProduto, codProdutoSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void DeletarItemVendaAsync(int numVenda, bool numVendaSpecified, int codProduto, bool codProdutoSpecified, object userState) {
+            if ((this.DeletarItemVendaOperationCompleted == null)) {
+                this.DeletarItemVendaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeletarItemVendaOperationCompleted);
+            }
+            this.InvokeAsync("DeletarItemVenda", new object[] {
+                        numVenda,
+                        numVendaSpecified,
+                        codProduto,
+                        codProdutoSpecified}, this.DeletarItemVendaOperationCompleted, userState);
+        }
+        
+        private void OnDeletarItemVendaOperationCompleted(object arg) {
+            if ((this.DeletarItemVendaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeletarItemVendaCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1463,13 +2152,15 @@ namespace TelaFarmaPopTec.localhost {
         
         private bool precoProdutoFieldSpecified;
         
-        private float saldoProdutoField;
+        private int saldoProdutoField;
         
         private bool saldoProdutoFieldSpecified;
         
         private int statusProdutoField;
         
         private bool statusProdutoFieldSpecified;
+        
+        private string statusProdutoField;
         
         /// <remarks/>
         public int CodProduto {
@@ -1546,7 +2237,7 @@ namespace TelaFarmaPopTec.localhost {
         }
         
         /// <remarks/>
-        public float SaldoProduto {
+        public int SaldoProduto {
             get {
                 return this.saldoProdutoField;
             }
@@ -1590,6 +2281,21 @@ namespace TelaFarmaPopTec.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StatusProduto {
+            get {
+                return this.statusProdutoField;
+            }
+            set {
+                this.statusProdutoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2199,11 +2905,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void ConsultarFornecedorCompletedEventHandler(object sender, ConsultarFornecedorCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ConsultarFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2225,11 +2931,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void VerificarDuplicidadeFornecedorCompletedEventHandler(object sender, VerificarDuplicidadeFornecedorCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class VerificarDuplicidadeFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2259,11 +2965,11 @@ namespace TelaFarmaPopTec.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void ValidarCnpjCompletedEventHandler(object sender, ValidarCnpjCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3190.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ValidarCnpjCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2291,6 +2997,274 @@ namespace TelaFarmaPopTec.localhost {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarComprasComFornecedorCompletedEventHandler(object sender, ListarComprasComFornecedorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarComprasComFornecedorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarComprasComFornecedorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Fornecedor[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Fornecedor[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void CadastrarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void AlterarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void DeletarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void DesativarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void AtivarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ConsultarProdutoCompletedEventHandler(object sender, ConsultarProdutoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ConsultarProdutoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ConsultarProdutoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Produto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Produto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void TrocarProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarProdutosCompletedEventHandler(object sender, ListarProdutosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarProdutosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarProdutosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Produto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Produto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void VerificarDuplicidadeProdutoCompletedEventHandler(object sender, VerificarDuplicidadeProdutoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class VerificarDuplicidadeProdutoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal VerificarDuplicidadeProdutoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool VerificarDuplicidadeProdutoResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool VerificarDuplicidadeProdutoResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void AlterarSaldoProdutoCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void CadastrarVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void AlterarVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void DeletarVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarVendasCompletedEventHandler(object sender, ListarVendasCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarVendasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarVendasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public VendaProduto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((VendaProduto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarVendaCompletedEventHandler(object sender, ListarVendaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarVendaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarVendaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public VendaProduto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((VendaProduto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void ListarVendaAtendenteCompletedEventHandler(object sender, ListarVendaAtendenteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ListarVendaAtendenteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ListarVendaAtendenteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Venda[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Venda[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void VerificarDuplicidadeVendaCompletedEventHandler(object sender, VerificarDuplicidadeVendaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class VerificarDuplicidadeVendaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal VerificarDuplicidadeVendaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool VerificarDuplicidadeVendaResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool VerificarDuplicidadeVendaResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
+    public delegate void DeletarItemVendaCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

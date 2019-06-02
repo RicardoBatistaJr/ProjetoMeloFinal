@@ -153,6 +153,11 @@ namespace TelaFarmaPopTec
         {            
             return this.fornecedor.ElementAt(index);
         }
+
+        private void ButtonListarCompras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

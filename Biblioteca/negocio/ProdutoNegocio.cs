@@ -14,17 +14,13 @@ namespace Biblioteca.negocio
         public bool VerificarDuplicidadeProduto(Produto produto)
         {
             return new DadosProduto().VerificarDuplicidadeProduto(produto);
-
         }
+
         public void CadastrarProduto(Produto produto)
         {
             if (produto == null)
             {
                 throw new Exception("Informar os dados do produto.");
-            }
-            if (produto.CodProduto == 0)
-            {
-                throw new Exception("Informar o numero do produto.");
             }
             if (produto.CodProduto != 0)
             {
@@ -35,7 +31,7 @@ namespace Biblioteca.negocio
             }
         }
 
-            public void AlterarProduto(Produto produto)
+        public void AlterarProduto(Produto produto)
         {
             new DadosProduto().AlterarProduto(produto);
         }
@@ -44,12 +40,26 @@ namespace Biblioteca.negocio
         {
             new DadosProduto().DesativarProduto(produto);
         }
+
         public void DeletarProduto(Produto produto)
         {
             DadosProduto dadosproduto = new DadosProduto();
             if (dadosproduto.VerificarDuplicidadeProduto(produto))
             {
                 dadosproduto.DeletarProduto(produto);
+            }
+            else
+            {
+                throw new Exception("Produto não existe!");
+            }
+        }
+
+        public void AtivarProduto(Produto produto)
+        {
+            DadosProduto dadosproduto = new DadosProduto();
+            if (dadosproduto.VerificarDuplicidadeProduto(produto))
+            {
+                dadosproduto.AtivarProduto(produto);
             }
             else
             {
@@ -73,12 +83,22 @@ namespace Biblioteca.negocio
                 return new DadosProduto().ConsultarProduto(filtro);
             }
         }
-
-
+        
         public void TrocarProduto()
         {
             throw new Exception("fALTANDO IMPLEMENTAÇÃO");
         }
 
+        public void AlterarSaldoProduto(int codProdruto, int qtd)
+        {
+            try
+            {
+                new DadosProduto().AlterarSaldoProduto(codProdruto, qtd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao alterar Produtos: " + ex.Message);
+            }
+        }
     }
 }

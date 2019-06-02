@@ -9,10 +9,11 @@ namespace Biblioteca.dados
         void AlterarProduto(Produto produto);
         void DeletarProduto(Produto produto);
         void DesativarProduto(Produto produto);
+        void AtivarProduto(Produto produto);
         List<Produto> ConsultarProduto(Produto filtro);
         void TrocarProduto();
         List<Produto> ListarProdutos();
         bool VerificarDuplicidadeProduto(Produto produto);
-
+        void AlterarSaldoProduto(int codProdruto, int qtd);
     }
 }

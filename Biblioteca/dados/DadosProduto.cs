@@ -22,11 +22,11 @@ namespace Biblioteca.dados
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@saldoProduto", SqlDbType.Float);
+                cmd.Parameters.Add("@saldoProduto", SqlDbType.Int);
                 cmd.Parameters["@saldoProduto"].Value = produto.SaldoProduto;
 
-                cmd.Parameters.Add("@dataFabricacao", SqlDbType.Date);
-                cmd.Parameters["@dataFabricacao"].Value = produto.SaldoProduto;
+                cmd.Parameters.Add("@dataFabricacao", SqlDbType.DateTime);
+                cmd.Parameters["@dataFabricacao"].Value = produto.DataFabricacao;
 
                 cmd.Parameters.Add("@nomeProduto", SqlDbType.VarChar);
                 cmd.Parameters["@nomeProduto"].Value = produto.NomeProduto;
@@ -48,7 +48,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao inserir " + ex.Message);
+                throw new Exception("002 Erro ao inserir " + ex.Message);
             }
 
         }
@@ -122,9 +122,33 @@ namespace Biblioteca.dados
         {
             try
             {
-                //abrir a conexão
+                    this.AbrirConexao();
+                    string sql = " update produto set statusProduto = 0 where codProduto = @codProduto ";
+                    SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
+
+                    cmd.Parameters.Add("codProduto", SqlDbType.Int);
+                    cmd.Parameters["@codProduto"].Value = produto.CodProduto;
+
+                    //executando a instrucao 
+                    cmd.ExecuteNonQuery();
+                    //liberando a memoria 
+                    cmd.Dispose();
+                    //fechando a conexao
+                    this.FecharConexao();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("004 Erro ao Desativar Produto " + ex.Message);
+            }
+        }
+
+        public void AtivarProduto(Produto produto)
+        {
+            try
+            {
                 this.AbrirConexao();
-                string sql = " update produto set statusProduto = 0 where codProduto = @codProduto ";
+                string sql = " update produto set statusProduto = 1 where codProduto = @codProduto ";
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
                 cmd.Parameters.Add("codProduto", SqlDbType.Int);
@@ -136,10 +160,11 @@ namespace Biblioteca.dados
                 cmd.Dispose();
                 //fechando a conexao
                 this.FecharConexao();
+
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
+                throw new Exception("005 Erro ao Ativar Produto " + ex.Message);
             }
         }
 
@@ -186,11 +211,11 @@ namespace Biblioteca.dados
                     Produto produto = new Produto();
                     //acessando os valores das colunas do resultado
                     produto.CodProduto = DbReader.GetInt32(DbReader.GetOrdinal("codProduto"));
-                    produto.SaldoProduto = DbReader.GetFloat(DbReader.GetOrdinal("saldoProduto"));
+                    produto.SaldoProduto = DbReader.GetInt32(DbReader.GetOrdinal("saldoProduto"));
                     produto.DataFabricacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataFabricacao"));
                     produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
                     produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoProduto"));
-                    produto.StatusProduto = DbReader.GetInt32(DbReader.GetOrdinal("statusProduto"));
+                    produto.StatusProduto = DbReader.GetString(DbReader.GetOrdinal("statusProduto"));
                     retorno.Add(produto);
                 }
                 //fechando o leitor de resultados
@@ -232,11 +257,10 @@ namespace Biblioteca.dados
                     //acessando os valores das colunas do resultado
                     //insert into Produto(saldoProduto, dataFabricacao, nomeProduto, preçoProduto, statusProduto)
                     produto.CodProduto = DbReader.GetInt32(DbReader.GetOrdinal("codProduto"));
-                    produto.SaldoProduto = DbReader.GetFloat(DbReader.GetOrdinal("saldoProduto"));
-                    produto.DataFabricacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataFabricacao"));
+                    produto.SaldoProduto = DbReader.GetInt32(DbReader.GetOrdinal("saldoProduto"));
+                    //produto.DataFabricacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataFabricacao"));
                     produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
                     produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoProduto"));
-                    produto.StatusProduto = DbReader.GetInt32(DbReader.GetOrdinal("statusProduto"));
                     produtos.Add(produto);
                 }
                 //fechando o leitor de resultados
@@ -249,7 +273,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("001 Erro ao conecar e selecionar " + ex.Message);
             }
         }
 
@@ -281,6 +305,34 @@ namespace Biblioteca.dados
             }
         }
 
+        public void AlterarSaldoProduto(int codProdruto, int qtd)
+        {
+            try
+            {
+                //abrir a conexão
+                this.AbrirConexao();
+                
+                    string sql = "update produto set saldoProduto = saldoProduto - @saldoProduto where codProduto = @codProduto";
+                    //instrucao a ser executada
+                    SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
+                    cmd.Parameters.Add("@saldoProduto", SqlDbType.Float);
+                    cmd.Parameters["@saldoProduto"].Value = qtd;
+
+                    cmd.Parameters.Add("@codProduto", SqlDbType.Int);
+                    cmd.Parameters["@codProduto"].Value = codProdruto;
+
+                    //executando a instrucao 
+                    cmd.ExecuteNonQuery();
+                    //liberando a memoria 
+                    cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao Alterar e inserir " + ex.Message);
+            }
+        }
     }
 }

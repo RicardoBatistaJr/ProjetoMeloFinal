@@ -110,7 +110,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e inserir " + ex.Message);
+                throw new Exception("Erro ao deletar: " + ex.Message);
             }
         }
         //Método select cliente
@@ -172,7 +172,7 @@ namespace Biblioteca.dados
 
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao consultar: " + ex.Message);
             }
             return retorno;
         }
@@ -209,7 +209,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao listar: " + ex.Message);
             }
         }
         //Método listar vendas de um determinado cliente
@@ -220,15 +220,15 @@ namespace Biblioteca.dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "select cliente.cpfCliente, venda_produto.numVenda, venda.dataVenda, produto.nomeProduto, venda_produto.qtd, venda_produto.preco";
-                sql += "from cliente";
-                sql += "inner join venda on cliente.cpfCliente = venda.cpfCliente";
-                sql += "inner join venda_produto on venda.numVenda = venda_produto.numVenda";
-                sql += "inner join produto on venda_produto.codProduto = produto.codProduto";
+                string sql = "select cliente.cpfCliente, venda_produto.numVenda, venda.dataVenda, produto.nomeProduto, venda_produto.qtd, venda_produto.preco from cliente inner join venda on cliente.cpfCliente = venda.cpfCliente inner join venda_produto on venda.numVenda = venda_produto.numVenda inner join produto on venda_produto.codProduto = produto.codProduto";
+
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@cpfCliente", cliente.CpfCliente);
-                //executando a instrucao e colocando o resultado em um leitor
+
+                cmd.Parameters.Add("@cpfCliente", SqlDbType.VarChar);
+                cmd.Parameters["@cpfCliente"].Value = cliente.CpfCliente;
+
                 SqlDataReader DbReader = cmd.ExecuteReader();
+
                 //lendo o resultado da consulta
                 while (DbReader.Read())
                 {
@@ -239,7 +239,9 @@ namespace Biblioteca.dados
                     vendaP.Venda.DataVenda = DbReader.GetDateTime(DbReader.GetOrdinal("dataVenda"));
                     vendaP.Produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
                     vendaP.Qtd = DbReader.GetInt32(DbReader.GetOrdinal("qtd"));
-                    vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                   // vendaP.Preco = DbReader.GetFloat(DbReader.GetOrdinal("preco"));
+                    object o = DbReader.GetValue(DbReader.GetOrdinal("preco"));
+                    vendaP.Preco = float.Parse(o.ToString());
                     vendas.Add(vendaP);
                 }
                 //fechando o leitor de resultados
@@ -280,7 +282,7 @@ namespace Biblioteca.dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                throw new Exception("Erro ao verificar duplicidade: " + ex.Message);
             }
         }
         //Método para velidar se o cpf foi digitado corretamente
@@ -295,6 +297,20 @@ namespace Biblioteca.dados
 
             cpf = cpf.Trim();
             cpf = cpf.Replace(".", "").Replace("-", "");
+
+            if (cpf.Equals("00000000000") ||
+                cpf.Equals("11111111111") ||
+                cpf.Equals("22222222222") ||
+                cpf.Equals("33333333333") ||
+                cpf.Equals("44444444444") ||
+                cpf.Equals("55555555555") ||
+                cpf.Equals("66666666666") ||
+                cpf.Equals("77777777777") ||
+                cpf.Equals("88888888888") ||
+                cpf.Equals("99999999999"))
+            {
+                return false;
+            }
 
             if (cpf.Length != 11)
             {
