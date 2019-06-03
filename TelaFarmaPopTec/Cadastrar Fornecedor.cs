@@ -28,10 +28,11 @@ namespace TelaFarmaPopTec
         {
             try
             {
+                Fornecedor fornecedor = new Fornecedor();
                 fornecedor.Cnpj = textBoxCnpj.Text;
-                fornecedor.NomeFornecedor = textBoxFornecedor.Text;                
+                fornecedor.NomeFornecedor = textBoxFornecedor.Text;
                 sv.CadastrarFornecedor(fornecedor);
-                MessageBox.Show("Fornecedor cadastrado!");
+                MessageBox.Show("Fornecedor Cadastrado com sucesso");
             }
             catch (Exception ex)
             {
@@ -90,7 +91,7 @@ namespace TelaFarmaPopTec
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 fornecedor.Cnpj = textBoxCnpj.Text;
                 fornecedor.NomeFornecedor = textBoxFornecedor.Text;
                 sv.AlterarFornecedor(fornecedor);
@@ -100,7 +101,6 @@ namespace TelaFarmaPopTec
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
         //Função para voltar a tela inicial
@@ -114,7 +114,7 @@ namespace TelaFarmaPopTec
             try
             {
                 this.fornecedores.Clear();
-                this.fornecedores = sv.ListarFornecedor().ToList();                
+                this.fornecedores = sv.ListarFornecedor().ToList();
 
                 listViewFornecedor.Items.Clear();
 
@@ -129,35 +129,23 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
-
-       
+        //Função para enviar dados da ListView para a textBox
         private void listViewFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 if (listViewFornecedor.FocusedItem != null)
                 {
-                    //int index = listViewFornecedor.FocusedItem.Index;
-                    //Fornecedor fornecedor = this.fornecedor.ElementAt(index);
-                    //textBoxCnpj.Text = fornecedor.Cnpj;
-                    //textBoxFornecedor.Text = fornecedor.NomeFornecedor;
+                    int index = listViewFornecedor.FocusedItem.Index;
+                    Fornecedor fornecedor = this.fornecedores.ElementAt(index);
+                    textBoxCnpj.Text = fornecedor.Cnpj;
+                    textBoxFornecedor.Text = fornecedor.NomeFornecedor;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        
-        //public Fornecedor NewMethod(int index)
-        //{            
-        //    //return this.fornecedor.ElementAt(index);
-        //}
-
-        private void ButtonListarCompras_Click(object sender, EventArgs e)
-        {
-
-        }
+        }              
     }
 }
-    

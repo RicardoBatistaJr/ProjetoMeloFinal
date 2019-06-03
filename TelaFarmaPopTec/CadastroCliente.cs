@@ -12,7 +12,6 @@ using TelaFarmaPopTec.localhost;
 
 namespace TelaFarmaPopTec
 {
-
     public partial class CadastroCliente : Form
     {
         Service1 sv = new Service1();
@@ -62,6 +61,7 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             try
@@ -81,6 +81,7 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonlimpar_Click(object sender, EventArgs e)
         {
             try
@@ -96,6 +97,7 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             try
@@ -134,6 +136,7 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonClientes_Click(object sender, EventArgs e)
         {
             try
@@ -217,7 +220,6 @@ namespace TelaFarmaPopTec
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
 

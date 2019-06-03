@@ -1757,6 +1757,11 @@ namespace TelaFarmaPopTec.localhost {
                 this.nomeFornecedorField = value;
             }
         }
+
+        internal Fornecedor ElementAt(int index)
+        {
+            throw new NotImplementedException();
+        }
     }
     
     /// <remarks/>

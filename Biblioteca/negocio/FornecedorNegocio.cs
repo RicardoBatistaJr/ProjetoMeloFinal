@@ -20,18 +20,14 @@ namespace Biblioteca.Negocio
             if (fornecedor == null)
             {
                 throw new Exception("Informar os dados do fornecedor.");
-            }
-            if (fornecedor.Cnpj == null)
-            {
-                throw new Exception("Informar o CNPJ do fornecedor.");
-            }
+            }            
             if (fornecedor.Cnpj != null)
             {
                 if (!new DadosFornecedor().ValidarCnpj(fornecedor.Cnpj))
                 {
                     throw new Exception("CNPJ invalido!");
                 }
-                if (new DadosFornecedor().VerificarDuplicidadeFornecedor(fornecedor) == true)
+                if (new DadosFornecedor().VerificarDuplicidadeFornecedor(fornecedor))
                 {
                     throw new Exception("CNPJ já cadastrado!");
                 }
@@ -45,7 +41,7 @@ namespace Biblioteca.Negocio
                 throw new Exception("Informar o nome do fornecedor.");
             }
 
-            new DadosFornecedor().CadastrarFornecedor(fornecedor);
+            new DadosFornecedor().CadastrarFornecedor(fornecedor);            
         }
 
         public List<Fornecedor> ConsultarFornecedor(Fornecedor filtro)

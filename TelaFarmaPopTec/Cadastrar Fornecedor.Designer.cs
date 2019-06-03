@@ -46,7 +46,7 @@
             // 
             // buttonVoltar
             // 
-            this.buttonVoltar.Location = new System.Drawing.Point(396, 22);
+            this.buttonVoltar.Location = new System.Drawing.Point(591, 20);
             this.buttonVoltar.Name = "buttonVoltar";
             this.buttonVoltar.Size = new System.Drawing.Size(75, 23);
             this.buttonVoltar.TabIndex = 35;
@@ -56,7 +56,7 @@
             // 
             // buttonAlterar
             // 
-            this.buttonAlterar.Location = new System.Drawing.Point(314, 22);
+            this.buttonAlterar.Location = new System.Drawing.Point(328, 20);
             this.buttonAlterar.Name = "buttonAlterar";
             this.buttonAlterar.Size = new System.Drawing.Size(75, 23);
             this.buttonAlterar.TabIndex = 32;
@@ -111,7 +111,7 @@
             this.textBoxCnpj.MaxLength = 14;
             this.textBoxCnpj.Name = "textBoxCnpj";
             this.textBoxCnpj.Size = new System.Drawing.Size(229, 20);
-            this.textBoxCnpj.TabIndex = 26;            
+            this.textBoxCnpj.TabIndex = 26;
             // 
             // label2
             // 
@@ -133,7 +133,7 @@
             // 
             // buttonPesquisar
             // 
-            this.buttonPesquisar.Location = new System.Drawing.Point(219, 20);
+            this.buttonPesquisar.Location = new System.Drawing.Point(227, 20);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(75, 23);
             this.buttonPesquisar.TabIndex = 21;
@@ -143,7 +143,7 @@
             // 
             // buttonlimpar
             // 
-            this.buttonlimpar.Location = new System.Drawing.Point(125, 20);
+            this.buttonlimpar.Location = new System.Drawing.Point(132, 20);
             this.buttonlimpar.Name = "buttonlimpar";
             this.buttonlimpar.Size = new System.Drawing.Size(75, 23);
             this.buttonlimpar.TabIndex = 20;

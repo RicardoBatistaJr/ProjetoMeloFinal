@@ -19,17 +19,15 @@ namespace FarmaPopTec_1._0.Dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = " update Fornecedor set ";
-                sql += " nomeFornecedor = @nomeFornecedor ";
-                sql += " where cnpj = @cnpj ";
+                string sql = " update Fornecedor set cnpj = @cnpj, nomeFornecedor = @nomeFornecedor where cnpj = @cnpj";                
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add(" @cnpj", SqlDbType.VarChar);
-                cmd.Parameters[" @cnpj"].Value = fornecedor.Cnpj;
+                cmd.Parameters.Add("@cnpj", SqlDbType.VarChar);
+                cmd.Parameters["@cnpj"].Value = fornecedor.Cnpj;
 
-                cmd.Parameters.Add(" @nomeFornecedor", SqlDbType.VarChar);
-                cmd.Parameters[" @nomeFornecedor"].Value = fornecedor.NomeFornecedor;
+                cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
+                cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -49,16 +47,16 @@ namespace FarmaPopTec_1._0.Dados
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into Fornecedor (cnpj,nomeFornecedor)";
-                sql += " values (@cnpj,@nomeFornecedor)";
+                string sql = "insert into Fornecedor ( cnpj, nomeFornecedor)";
+                sql += " values ( @cnpj, @nomeFornecedor)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add(" @cnpj", SqlDbType.VarChar);
-                cmd.Parameters[" @cnpj"].Value = fornecedor.Cnpj;
+                cmd.Parameters.Add("@cnpj", SqlDbType.VarChar);
+                cmd.Parameters["@cnpj"].Value = fornecedor.Cnpj;
 
-                cmd.Parameters.Add(" @nomeFornecedor", SqlDbType.VarChar);
-                cmd.Parameters[" @nomeFornecedor"].Value = fornecedor.NomeFornecedor;
+                cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
+                cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -172,10 +170,10 @@ namespace FarmaPopTec_1._0.Dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT cnpj FROM fornecedor ";
-                sql += " WHERE cnpj = @cnpj ";
+                string sql = "SELECT * FROM fornecedor";
+                sql += " WHERE cnpj = @cnpj";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue(" @cnpj", fornecedor.Cnpj);
+                cmd.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 if (DbReader.Read())
                 {
@@ -189,7 +187,7 @@ namespace FarmaPopTec_1._0.Dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao verificar duplicidade" + ex.Message);
+                throw new Exception("Erro ao verificar duplicidade: " + ex.Message);
             }
         }
         //Método para validar cnpj

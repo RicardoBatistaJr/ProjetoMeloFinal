@@ -76,6 +76,7 @@ namespace Biblioteca.negocio
             return new DadosFuncionario().ExisteFuncionario(funcionario);
 
         }
+
         public List<Funcionario> ListarFuncionarios()
         {
             return new DadosFuncionario().ListarFuncionarios();
@@ -85,6 +86,7 @@ namespace Biblioteca.negocio
         {
             return new DadosFuncionario().ValidarCpfFuncionario(cpf);
         }
+
         public Funcionario Logar(Funcionario funcionario)
         {
             Funcionario fun = new Funcionario();
