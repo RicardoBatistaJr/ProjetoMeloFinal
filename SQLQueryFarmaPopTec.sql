@@ -272,9 +272,9 @@
 --ALTER DATABASE [FarmaPopTec] SET  READ_WRITE 
 --GO
 ----use farmapoptec
---select * from Funcionario
+--select * from funcionario
 
-INSERT INTO Funcionario
-      (cpfFuncionario,senhaUsuario,funcaoFuncionario,nomeFuncionario)
+INSERT INTO Fornecedor
+      (cnpj,nomeFornecedor)
 values
-      ('70478642458','123456','Gerente','Matheus Soeldner')
+      ('12345678900000','GenetcAdvanced')

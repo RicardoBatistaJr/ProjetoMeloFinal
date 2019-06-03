@@ -114,7 +114,7 @@ namespace Biblioteca.dados
             }
         }
         //Método select cliente
-        public List<Cliente> ConsultarCliente (Cliente filtro)
+        public List<Cliente> ConsultarCliente (Cliente filtro)  
         {
             List<Cliente> retorno = new List<Cliente>();
             try
@@ -146,8 +146,7 @@ namespace Biblioteca.dados
                 if (filtro.NomeCliente != null && filtro.NomeCliente.Trim().Equals("") == false)
                 {
                     cmd.Parameters.Add("@nomeCliente", SqlDbType.VarChar);
-                    cmd.Parameters["@nomeCliente"].Value = "%" + filtro.NomeCliente + "%";
-
+                    cmd.Parameters["@nomeCliente"].Value = "%" + filtro.NomeCliente + "%";  
                 }
                 //executando a instrucao e colocando o resultado em um leitor
                 SqlDataReader DbReader = cmd.ExecuteReader();

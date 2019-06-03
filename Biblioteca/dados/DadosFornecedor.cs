@@ -25,11 +25,11 @@ namespace FarmaPopTec_1._0.Dados
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@cnpj", SqlDbType.VarChar);
-                cmd.Parameters["@cnpj"].Value = fornecedor.Cnpj;
+                cmd.Parameters.Add(" @cnpj", SqlDbType.VarChar);
+                cmd.Parameters[" @cnpj"].Value = fornecedor.Cnpj;
 
-                cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
-                cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
+                cmd.Parameters.Add(" @nomeFornecedor", SqlDbType.VarChar);
+                cmd.Parameters[" @nomeFornecedor"].Value = fornecedor.NomeFornecedor;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -50,17 +50,15 @@ namespace FarmaPopTec_1._0.Dados
             {
                 this.AbrirConexao();
                 string sql = "insert into Fornecedor (cnpj,nomeFornecedor)";
-                sql += "values(@cnpj,@nomeFornecedor)";
+                sql += " values (@cnpj,@nomeFornecedor)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
-                cmd.Parameters.Add("@cnpj", SqlDbType.VarChar);
-                cmd.Parameters["@cnpj"].Value = fornecedor.Cnpj;
+                cmd.Parameters.Add(" @cnpj", SqlDbType.VarChar);
+                cmd.Parameters[" @cnpj"].Value = fornecedor.Cnpj;
 
-                cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
-                cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
-
-                string oi = sql;
+                cmd.Parameters.Add(" @nomeFornecedor", SqlDbType.VarChar);
+                cmd.Parameters[" @nomeFornecedor"].Value = fornecedor.NomeFornecedor;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -116,18 +114,17 @@ namespace FarmaPopTec_1._0.Dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT cnpj,nomefornecedor";
-                sql += " FROM fornecedor ";
-                sql += " WHERE cnpj = cnpj";
+                string sql = " SELECT * FROM fornecedor ";
+                sql += " WHERE cnpj = @cnpj ";
                 //se for passado um cnpj válido, este cnpj entrará como critério de filtro
                 if (filtro.Cnpj != null)
                 {
-                    sql += " and cnpj = @cnpj";
+                    sql += " and cnpj = @cnpj ";
                 }
                 //se foi passada um nome de fornecedor válido, este nome entrará como critério de filtro
                 if (filtro.NomeFornecedor != null && filtro.NomeFornecedor.Trim().Equals("") == false)
                 {
-                    sql += " and nomeFornecedor like @nomeFornecedor";
+                    sql += " and nomeFornecedor like @nomeFornecedor ";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -161,10 +158,9 @@ namespace FarmaPopTec_1._0.Dados
                 //fechando a conexao
                 this.FecharConexao();
             }
-
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                    throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
             return retorno;
         }
@@ -176,10 +172,10 @@ namespace FarmaPopTec_1._0.Dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT cnpj FROM fornecedor";
+                string sql = "SELECT cnpj FROM fornecedor ";
                 sql += " WHERE cnpj = @cnpj ";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@cnpjCompra", fornecedor.Cnpj);
+                cmd.Parameters.AddWithValue(" @cnpj", fornecedor.Cnpj);
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 if (DbReader.Read())
                 {
