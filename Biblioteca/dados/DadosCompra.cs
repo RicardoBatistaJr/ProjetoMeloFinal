@@ -82,9 +82,8 @@ namespace FarmaPopTec_1._0.Dados
                 foreach (Compra_Produto compra_Produto in compra.Colecao)
                 {
                     //insert na tabela Compra_Produto
-                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade)";
-                    sqlCompraProduto += "values(@qtdCompra,@valorTotal,@codProduto,@nrCompra,@validade)";
-
+                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade) values(@qtdCompra,@valorTotal,@codProduto,@nrCompra,@validade";
+                    
                     //instrucao a ser executada
                     SqlCommand cmdCompraProduto = new SqlCommand(sqlCompraProduto, this.sqlConn);
 

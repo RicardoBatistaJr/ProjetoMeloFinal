@@ -148,5 +148,45 @@ namespace TelaFarmaPopTec
         {
             this.Dispose();
         }
+        //Função para enviar dados da ListView para a textBox
+        private void listViewCompra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewCompra.FocusedItem != null)
+                {
+                    int index = listViewCompra.FocusedItem.Index;
+                    Compra compra = this.compras.ElementAt(index);
+                    textBoxFornecedor.Text = compra.Fornecedor.Cnpj;
+                    textBoxFuncionario.Text = Convert.ToString(compra.Funcionario.CodFuncionario);
+                    textBoxNum.Text = Convert.ToString(compra.NumCompra);
+                    textBoxData.Text = Convert.ToString(compra.DataCompra);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        //Função para enviar dados da ListView para a textBox
+        private void listViewProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewProdutos.FocusedItem != null)
+                {
+                    int index = listViewProdutos.FocusedItem.Index;                    
+                    Compra_Produto compraProduto = this.itensCompra.ElementAt(index);
+                    textBoxProduto.Text = Convert.ToString(compraProduto.Produto.CodProduto);
+                    textBoxQTD.Text = Convert.ToString(compraProduto.QtdCompra);
+                    textBoxPreco.Text = Convert.ToString(compraProduto.ValorTotal);
+                    textBoxValidade.Text = Convert.ToString(compraProduto.Validade);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }        
     }
 }

@@ -98,6 +98,7 @@
             this.listViewCompra.TabIndex = 30;
             this.listViewCompra.UseCompatibleStateImageBehavior = false;
             this.listViewCompra.View = System.Windows.Forms.View.Details;
+            this.listViewCompra.SelectedIndexChanged += new System.EventHandler(this.listViewCompra_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -121,29 +122,30 @@
             // 
             // textBoxFuncionario
             // 
-            this.textBoxFuncionario.Location = new System.Drawing.Point(123, 199);
-            this.textBoxFuncionario.MaxLength = 14;
+            this.textBoxFuncionario.Location = new System.Drawing.Point(144, 199);
+            this.textBoxFuncionario.MaxLength = 12;
             this.textBoxFuncionario.Name = "textBoxFuncionario";
             this.textBoxFuncionario.Size = new System.Drawing.Size(229, 20);
             this.textBoxFuncionario.TabIndex = 29;
             // 
             // textBoxFornecedor
             // 
-            this.textBoxFornecedor.Location = new System.Drawing.Point(123, 167);
+            this.textBoxFornecedor.Location = new System.Drawing.Point(144, 167);
+            this.textBoxFornecedor.MaxLength = 14;
             this.textBoxFornecedor.Name = "textBoxFornecedor";
             this.textBoxFornecedor.Size = new System.Drawing.Size(229, 20);
             this.textBoxFornecedor.TabIndex = 28;
             // 
             // textBoxData
             // 
-            this.textBoxData.Location = new System.Drawing.Point(123, 132);
+            this.textBoxData.Location = new System.Drawing.Point(144, 132);
             this.textBoxData.Name = "textBoxData";
             this.textBoxData.Size = new System.Drawing.Size(229, 20);
             this.textBoxData.TabIndex = 27;
             // 
             // textBoxNum
             // 
-            this.textBoxNum.Location = new System.Drawing.Point(123, 99);
+            this.textBoxNum.Location = new System.Drawing.Point(144, 102);
             this.textBoxNum.MaxLength = 11;
             this.textBoxNum.Name = "textBoxNum";
             this.textBoxNum.Size = new System.Drawing.Size(229, 20);
@@ -154,18 +156,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(28, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.Size = new System.Drawing.Size(110, 13);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Funcionário";
+            this.label4.Text = "Código do funcionário";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(28, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Fornecedor";
+            this.label3.Text = "Fornecedor CNPJ";
             // 
             // label2
             // 
@@ -217,8 +219,8 @@
             // 
             // textBoxQTD
             // 
-            this.textBoxQTD.Location = new System.Drawing.Point(532, 132);
-            this.textBoxQTD.MaxLength = 11;
+            this.textBoxQTD.Location = new System.Drawing.Point(532, 99);
+            this.textBoxQTD.MaxLength = 5;
             this.textBoxQTD.Name = "textBoxQTD";
             this.textBoxQTD.Size = new System.Drawing.Size(229, 20);
             this.textBoxQTD.TabIndex = 37;
@@ -226,7 +228,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(411, 135);
+            this.label5.Location = new System.Drawing.Point(411, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 13);
             this.label5.TabIndex = 36;
@@ -234,8 +236,8 @@
             // 
             // textBoxProduto
             // 
-            this.textBoxProduto.Location = new System.Drawing.Point(532, 99);
-            this.textBoxProduto.MaxLength = 11;
+            this.textBoxProduto.Location = new System.Drawing.Point(532, 132);
+            this.textBoxProduto.MaxLength = 4;
             this.textBoxProduto.Name = "textBoxProduto";
             this.textBoxProduto.Size = new System.Drawing.Size(229, 20);
             this.textBoxProduto.TabIndex = 39;
@@ -243,7 +245,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(411, 102);
+            this.label6.Location = new System.Drawing.Point(411, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 13);
             this.label6.TabIndex = 38;
@@ -269,7 +271,7 @@
             // textBoxValidade
             // 
             this.textBoxValidade.Location = new System.Drawing.Point(532, 202);
-            this.textBoxValidade.MaxLength = 11;
+            this.textBoxValidade.MaxLength = 10;
             this.textBoxValidade.Name = "textBoxValidade";
             this.textBoxValidade.Size = new System.Drawing.Size(229, 20);
             this.textBoxValidade.TabIndex = 43;
@@ -297,6 +299,7 @@
             this.listViewProdutos.TabIndex = 44;
             this.listViewProdutos.UseCompatibleStateImageBehavior = false;
             this.listViewProdutos.View = System.Windows.Forms.View.Details;
+            this.listViewProdutos.SelectedIndexChanged += new System.EventHandler(this.listViewProdutos_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
