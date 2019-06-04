@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TelaFarmaPopTec.localhost;
@@ -27,10 +28,11 @@ namespace TelaFarmaPopTec
         {
             try
             {
+                Fornecedor fornecedor = new Fornecedor();
                 fornecedor.Cnpj = textBoxCnpj.Text;
                 fornecedor.NomeFornecedor = textBoxFornecedor.Text;
                 sv.CadastrarFornecedor(fornecedor);
-                MessageBox.Show("Fornecedor cadastrado!");
+                MessageBox.Show("Fornecedor Cadastrado com sucesso");
             }
             catch (Exception ex)
             {
@@ -54,42 +56,42 @@ namespace TelaFarmaPopTec
         //Função para pesquisar fornecedor
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
 
-            //    if (textBoxCnpj.Text != null || textBoxFornecedor.Text != null)
-            //    {
-            //        fornecedor.Cnpj = textBoxCnpj.Text;
-            //        fornecedor.NomeFornecedor = textBoxFornecedor.Text;
+                if (textBoxCnpj.Text != null || textBoxFornecedor.Text != null)
+                {
+                    fornecedor.Cnpj = textBoxCnpj.Text;
+                    fornecedor.NomeFornecedor = textBoxFornecedor.Text;
 
-            //        this.fornecedor.Clear();
-            //        this.fornecedor = sv.ConsultarFornecedor(fornecedor).ToList();
+                    this.fornecedores.Clear();
+                    this.fornecedores = sv.ConsultarFornecedor(fornecedor).ToList();
 
-            //        listViewFornecedor.Items.Clear();
+                    listViewFornecedor.Items.Clear();
 
-            //        foreach (var item in fornecedor)
-            //        {
-            //            ListViewItem lvi = listViewFornecedor.Items.Add(item.Cnpj);
-            //            lvi.SubItems.Add(item.Fornecedor);                        
-            //        }
-            //        textBoxCnpj.Text = "";
-            //        textBoxFornecedor.Text = "";                   
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Informar um nome ou CPF!");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                    foreach (var item in fornecedores)
+                    {
+                        ListViewItem lvi = listViewFornecedor.Items.Add(item.Cnpj);
+                        lvi.SubItems.Add(item.NomeFornecedor);
+                    }
+                    textBoxCnpj.Text = "";
+                    textBoxFornecedor.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Informar um nome de fornecedor ou cnpj!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         //Função para alterar fornecedor
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 fornecedor.Cnpj = textBoxCnpj.Text;
                 fornecedor.NomeFornecedor = textBoxFornecedor.Text;
                 sv.AlterarFornecedor(fornecedor);
@@ -99,7 +101,6 @@ namespace TelaFarmaPopTec
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
         //Função para voltar a tela inicial
@@ -108,42 +109,43 @@ namespace TelaFarmaPopTec
             this.Dispose();
         }
         //Função para listar fornecedores
-        private void btnListarClientes_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    this.fornecedor.Clear();
-            //    this.fornecedor = sv.ListarFornecedor().ToList();
-
-            //    listViewFornecedor.Items.Clear();
-
-            //    foreach (var item in this.fornecedor)
-            //    {
-            //        ListViewItem lvi = listViewFornecedor.Items.Add(item.CpfCliente);
-            //        lvi.SubItems.Add(item.Fornecedor);                    
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-        //Função para listar compras com o fornecedor
-        private void buttonListarCompras_Click(object sender, EventArgs e)
+        private void btnListarFornecedores_Click(object sender, EventArgs e)
         {
             try
             {
+                this.fornecedores.Clear();
+                this.fornecedores = sv.ListarFornecedor().ToList();
 
+                listViewFornecedor.Items.Clear();
+
+                foreach (var item in this.fornecedores)
+                {
+                    ListViewItem lvi = listViewFornecedor.Items.Add(item.Cnpj);
+                    lvi.SubItems.Add(item.NomeFornecedor);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);                
+                MessageBox.Show(ex.Message);
             }
         }
-
-        private void ButtonListarCompras_Click(object sender, EventArgs e)
+        //Função para enviar dados da ListView para a textBox
+        private void listViewFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
+            try
+            {
+                if (listViewFornecedor.FocusedItem != null)
+                {
+                    int index = listViewFornecedor.FocusedItem.Index;
+                    Fornecedor fornecedor = this.fornecedores.ElementAt(index);
+                    textBoxCnpj.Text = fornecedor.Cnpj;
+                    textBoxFornecedor.Text = fornecedor.NomeFornecedor;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }              
     }
 }

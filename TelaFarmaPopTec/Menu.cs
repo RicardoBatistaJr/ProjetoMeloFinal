@@ -29,6 +29,8 @@ namespace TelaFarmaPopTec
                 buttonVenda.Enabled = true;
                 buttonRelatorios.Enabled = false;
                 buttonSair.Enabled = true;
+                buttonCompra.Enabled = false;
+                buttonCompra.BackColor = Color.Gainsboro;
                 buttonFornacedor.BackColor = Color.Gainsboro;
                 buttonFuncionario.BackColor = Color.Gainsboro;
                 buttonCaixa.BackColor = Color.Gainsboro;
@@ -44,6 +46,7 @@ namespace TelaFarmaPopTec
                 buttonVenda.Enabled = true;
                 buttonRelatorios.Enabled = true;
                 buttonSair.Enabled = true;
+                buttonCompra.Enabled = true;
             }
             else if (funcao.Equals("Caixa"))
             {
@@ -55,6 +58,8 @@ namespace TelaFarmaPopTec
                 buttonVenda.Enabled = true;
                 buttonRelatorios.Enabled = false;
                 buttonSair.Enabled = true;
+                buttonCompra.Enabled = false;
+                buttonCompra.BackColor = Color.Gainsboro;
                 buttonFornacedor.BackColor = Color.Gainsboro;
                 buttonFuncionario.BackColor = Color.Gainsboro;
                 buttonCaixa.BackColor = Color.Gainsboro;
@@ -70,6 +75,8 @@ namespace TelaFarmaPopTec
                 buttonVenda.Enabled = true;
                 buttonRelatorios.Enabled = false;
                 buttonSair.Enabled = true;
+                buttonCompra.Enabled = false;
+                buttonCompra.BackColor = Color.Gainsboro;
                 buttonFornacedor.BackColor = Color.Gainsboro;
                 buttonFuncionario.BackColor = Color.Gainsboro;
                 buttonCaixa.BackColor = Color.Gainsboro;
@@ -102,6 +109,14 @@ namespace TelaFarmaPopTec
 
         private void buttonProdutos_Click(object sender, EventArgs e)
         {
+            ManterProdutos manterProdutos = new ManterProdutos();
+            manterProdutos.ShowDialog();
+        }
+
+        private void buttonCompra_Click(object sender, EventArgs e)
+        {
+            Cadastrar_Compra cadastrar_Compra = new Cadastrar_Compra();
+            cadastrar_Compra.ShowDialog();
             ManterProdutos manterProdutos = new ManterProdutos();
             manterProdutos.ShowDialog();
             //  OpcoesProduto opcoesProduto = new OpcoesProduto();

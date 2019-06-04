@@ -19,9 +19,7 @@ namespace FarmaPopTec_1._0.Dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = " update Fornecedor set ";
-                sql += " nomeFornecedor = @nomeFornecedor ";
-                sql += " where cnpj = @cnpj ";
+                string sql = " update Fornecedor set cnpj = @cnpj, nomeFornecedor = @nomeFornecedor where cnpj = @cnpj";                
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -49,8 +47,8 @@ namespace FarmaPopTec_1._0.Dados
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into Fornecedor (cnpj,nomeFornecedor)";
-                sql += "values(@cnpj,@nomeFornecedor)";
+                string sql = "insert into Fornecedor ( cnpj, nomeFornecedor)";
+                sql += " values ( @cnpj, @nomeFornecedor)";
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -59,8 +57,6 @@ namespace FarmaPopTec_1._0.Dados
 
                 cmd.Parameters.Add("@nomeFornecedor", SqlDbType.VarChar);
                 cmd.Parameters["@nomeFornecedor"].Value = fornecedor.NomeFornecedor;
-
-                string oi = sql;
 
                 //executando a instrucao 
                 cmd.ExecuteNonQuery();
@@ -116,18 +112,17 @@ namespace FarmaPopTec_1._0.Dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT cnpj,nomefornecedor";
-                sql += " FROM fornecedor ";
-                sql += " WHERE cnpj = cnpj";
+                string sql = " SELECT * FROM fornecedor ";
+                sql += " WHERE cnpj = @cnpj ";
                 //se for passado um cnpj válido, este cnpj entrará como critério de filtro
                 if (filtro.Cnpj != null)
                 {
-                    sql += " and cnpj = @cnpj";
+                    sql += " and cnpj = @cnpj ";
                 }
                 //se foi passada um nome de fornecedor válido, este nome entrará como critério de filtro
                 if (filtro.NomeFornecedor != null && filtro.NomeFornecedor.Trim().Equals("") == false)
                 {
-                    sql += " and nomeFornecedor like @nomeFornecedor";
+                    sql += " and nomeFornecedor like @nomeFornecedor ";
                 }
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
 
@@ -151,7 +146,7 @@ namespace FarmaPopTec_1._0.Dados
                     Fornecedor fornecedor = new Fornecedor();
                     //acessando os valores das colunas do resultado
                     fornecedor.Cnpj = DbReader.GetString(DbReader.GetOrdinal("cnpj"));
-                    fornecedor.NomeFornecedor = DbReader.GetString(DbReader.GetOrdinal("nomeFornecedor"));                    
+                    fornecedor.NomeFornecedor = DbReader.GetString(DbReader.GetOrdinal("nomeFornecedor"));
                     retorno.Add(fornecedor);
                 }
                 //fechando o leitor de resultados
@@ -161,10 +156,9 @@ namespace FarmaPopTec_1._0.Dados
                 //fechando a conexao
                 this.FecharConexao();
             }
-
             catch (Exception ex)
             {
-                throw new Exception("Erro ao conecar e selecionar " + ex.Message);
+                    throw new Exception("Erro ao conecar e selecionar " + ex.Message);
             }
             return retorno;
         }
@@ -176,10 +170,10 @@ namespace FarmaPopTec_1._0.Dados
             {
                 this.AbrirConexao();
                 //instrucao a ser executada
-                string sql = "SELECT cnpj FROM fornecedor";
-                sql += " WHERE cnpj = @cnpj ";
+                string sql = "SELECT * FROM fornecedor";
+                sql += " WHERE cnpj = @cnpj";
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
-                cmd.Parameters.AddWithValue("@numCompra", fornecedor.Cnpj);
+                cmd.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 SqlDataReader DbReader = cmd.ExecuteReader();
                 if (DbReader.Read())
                 {
@@ -193,7 +187,7 @@ namespace FarmaPopTec_1._0.Dados
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao verificar duplicidade" + ex.Message);
+                throw new Exception("Erro ao verificar duplicidade: " + ex.Message);
             }
         }
         //Método para validar cnpj

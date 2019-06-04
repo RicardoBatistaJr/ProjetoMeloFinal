@@ -78,13 +78,12 @@ namespace FarmaPopTec_1._0.Dados
                 cmd.ExecuteNonQuery();
                 //liberando a memoria 
                 cmd.Dispose();
-
+                //Método complementar para inserir dados na coleção
                 foreach (Compra_Produto compra_Produto in compra.Colecao)
                 {
                     //insert na tabela Compra_Produto
-                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade)";
-                    sqlCompraProduto += "values(@qtdCompra,@valorTotal,@codProduto,@nrCompra,@validade)";
-
+                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade) values(@qtdCompra,@valorTotal,@codProduto,@nrCompra,@validade";
+                    
                     //instrucao a ser executada
                     SqlCommand cmdCompraProduto = new SqlCommand(sqlCompraProduto, this.sqlConn);
 
@@ -230,6 +229,44 @@ namespace FarmaPopTec_1._0.Dados
                     compra.Funcionario.CodFuncionario = DbReader.GetInt16(DbReader.GetOrdinal("codFuncionario"));
                     compra.Fornecedor.Cnpj = DbReader.GetString(DbReader.GetOrdinal("cnpj"));
                     listarcompras.Add(compra);
+                }
+                //fechando o leitor de resultados
+                DbReader.Close();
+                //liberando a memoria 
+                cmd.Dispose();
+                //fechando a conexao
+                this.FecharConexao();
+                return listarcompras;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao listar compra " + ex.Message);
+            }
+        }
+        //Método para Listar os produtos da Compra
+        public List<Compra_Produto> ListarProdutosCompras(Compra compra)
+        {
+            List<Compra_Produto> listarcompras = new List<Compra_Produto>();
+            try
+            {
+                this.AbrirConexao();
+                //instrucao a ser executada
+                string sql = "SELECT * from Compra_produto where numcompra = @numcompra ";
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                //executando a instrucao e colocando o resultado em um leitor
+                SqlDataReader DbReader = cmd.ExecuteReader();
+                //lendo o resultado da consulta 
+                while (DbReader.Read())
+                {
+                    Compra_Produto compraProd = new Compra_Produto();
+                    //acessando os valores das colunas do resultado 
+                    compraProd.Compra.NumCompra = DbReader.GetInt16(DbReader.GetOrdinal("numCompra"));
+                    compraProd.QtdCompra = DbReader.GetInt16(DbReader.GetOrdinal("QtdCompra"));
+                    compraProd.Produto.CodProduto = DbReader.GetInt16(DbReader.GetOrdinal("codProduto"));
+                    compraProd.Produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("PrecoProduto"));
+                    compraProd.Validade = DbReader.GetDateTime(DbReader.GetOrdinal("validade"));
+                    compraProd.ValorTotal = DbReader.GetFloat(DbReader.GetOrdinal("ValorTotal"));
+                    listarcompras.Add(compraProd);
                 }
                 //fechando o leitor de resultados
                 DbReader.Close();

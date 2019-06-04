@@ -61,7 +61,6 @@ namespace TelaFarmaPopTec
                         {
                             Menu menu = new Menu("Atendente");
                             menu.ShowDialog();
-
                             this.Close();
                         }
                         else if (fun.FuncaoFuncionario == "Caixa")

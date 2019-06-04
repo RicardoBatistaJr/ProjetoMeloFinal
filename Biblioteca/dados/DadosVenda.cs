@@ -18,7 +18,7 @@ namespace Biblioteca.dados
 
     public class DadosVenda : Conexao
     {
-        //Método insert cliente
+        //Método insert Venda
         public void CadastrarVenda(Venda venda)
 
         {
@@ -56,6 +56,7 @@ namespace Biblioteca.dados
                 throw new Exception("Erro ao inserir " + ex.Message);
             }
         }
+        //Método alter Venda
         public void AlterarVenda(Venda venda)
         {
             try

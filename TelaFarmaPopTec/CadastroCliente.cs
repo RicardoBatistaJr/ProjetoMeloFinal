@@ -12,15 +12,14 @@ using TelaFarmaPopTec.localhost;
 
 namespace TelaFarmaPopTec
 {
-
     public partial class CadastroCliente : Form
     {
         Service1 sv = new Service1();
-        Cliente cliente = new Cliente();        
+        Cliente cliente = new Cliente();
         List<Cliente> clientes = new List<Cliente>();
         public CadastroCliente()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
@@ -52,7 +51,7 @@ namespace TelaFarmaPopTec
                 }
                 else
                 {
-                    
+
                     MessageBox.Show("Email Inválido!");
                 }
 
@@ -82,6 +81,7 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonlimpar_Click(object sender, EventArgs e)
         {
             try
@@ -97,11 +97,12 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 if (textBoxCpf.Text != null || textBoxNome.Text != null)
                 {
                     cliente.CpfCliente = textBoxCpf.Text;
@@ -135,6 +136,7 @@ namespace TelaFarmaPopTec
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void buttonClientes_Click(object sender, EventArgs e)
         {
             try
@@ -203,7 +205,7 @@ namespace TelaFarmaPopTec
                         cliente.TelCliente = textBoxTel.Text;
                         sv.AlterarCliente(cliente);
                         MessageBox.Show("cliente alterado com sucesso!");
-                        listViewCliente.Items.Clear(); 
+                        listViewCliente.Items.Clear();
                     }
                     else
                     {
@@ -218,7 +220,6 @@ namespace TelaFarmaPopTec
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
 

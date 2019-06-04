@@ -133,6 +133,12 @@
   <wsdl:message name="IService1_ListarCompras_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarComprasResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ListarProdutosCompras_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProdutosCompras" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ListarProdutosCompras_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarProdutosComprasResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_CadastrarFornecedor_InputMessage">
     <wsdl:part name="parameters" element="tns:CadastrarFornecedor" />
   </wsdl:message>
@@ -168,12 +174,6 @@
   </wsdl:message>
   <wsdl:message name="IService1_ValidarCnpj_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarCnpjResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListarComprasComFornecedor_InputMessage">
-    <wsdl:part name="parameters" element="tns:ListarComprasComFornecedor" />
-  </wsdl:message>
-  <wsdl:message name="IService1_ListarComprasComFornecedor_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ListarComprasComFornecedorResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_CadastrarProduto_InputMessage">
     <wsdl:part name="parameters" element="tns:CadastrarProduto" />
@@ -368,6 +368,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarCompras" message="tns:IService1_ListarCompras_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarComprasResponse" message="tns:IService1_ListarCompras_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ListarProdutosCompras">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarProdutosCompras" message="tns:IService1_ListarProdutosCompras_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarProdutosComprasResponse" message="tns:IService1_ListarProdutosCompras_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CadastrarFornecedor">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarFornecedor" message="tns:IService1_CadastrarFornecedor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/CadastrarFornecedorResponse" message="tns:IService1_CadastrarFornecedor_OutputMessage" />
@@ -391,10 +395,6 @@
     <wsdl:operation name="ValidarCnpj">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ValidarCnpj" message="tns:IService1_ValidarCnpj_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ValidarCnpjResponse" message="tns:IService1_ValidarCnpj_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ListarComprasComFornecedor">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ListarComprasComFornecedor" message="tns:IService1_ListarComprasComFornecedor_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ListarComprasComFornecedorResponse" message="tns:IService1_ListarComprasComFornecedor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CadastrarProduto">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CadastrarProduto" message="tns:IService1_CadastrarProduto_InputMessage" />
@@ -660,6 +660,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ListarProdutosCompras">
+      <soap:operation soapAction="http://tempuri.org/IService1/ListarProdutosCompras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CadastrarFornecedor">
       <soap:operation soapAction="http://tempuri.org/IService1/CadastrarFornecedor" style="document" />
       <wsdl:input>
@@ -707,15 +716,6 @@
     </wsdl:operation>
     <wsdl:operation name="ValidarCnpj">
       <soap:operation soapAction="http://tempuri.org/IService1/ValidarCnpj" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ListarComprasComFornecedor">
-      <soap:operation soapAction="http://tempuri.org/IService1/ListarComprasComFornecedor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
