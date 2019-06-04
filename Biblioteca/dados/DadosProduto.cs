@@ -260,7 +260,8 @@ namespace Biblioteca.dados
                     produto.SaldoProduto = DbReader.GetInt32(DbReader.GetOrdinal("saldoProduto"));
                     //produto.DataFabricacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataFabricacao"));
                     produto.NomeProduto = DbReader.GetString(DbReader.GetOrdinal("nomeProduto"));
-                    produto.PrecoProduto = DbReader.GetFloat(DbReader.GetOrdinal("precoProduto"));
+                    object o2 = DbReader.GetValue(DbReader.GetOrdinal("precoProduto"));
+                    produto.PrecoProduto = float.Parse(o2.ToString());
                     produtos.Add(produto);
                 }
                 //fechando o leitor de resultados
