@@ -19,11 +19,8 @@ namespace FarmaPopTec_1._0.Dados
             {
                 //abrir a conexão
                 this.AbrirConexao();
-                string sql = " update Compra set ";                
-                sql += " dataCompra = @dataCompra ";
-                sql += " codFuncionario = @codFuncionario";
-                sql += " cnpj = @cnpj ";
-                sql += " where numCompra = @numCompra ";
+                string sql = " update Compra set dataCompra = @dataCompra, codFuncionario = @codFuncionario, cnpj = @cnpj, where numCompra = @numCompra";                
+                
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -57,8 +54,8 @@ namespace FarmaPopTec_1._0.Dados
             try
             {
                 this.AbrirConexao();
-                string sql = "insert into Compra (numCompra,dataCompra,codFuncionario,cnpj) ";
-                sql += "values(@numCompra,@dataCompra,@codFuncionario,@cnpj)";
+                string sql = "insert into Compra (numCompra,dataCompra,codFuncionario,cnpj) values(@numCompra,@dataCompra,@codFuncionario,@cnpj)";
+         
                 //instrucao a ser executada
                 SqlCommand cmd = new SqlCommand(sql, this.sqlConn);
 
@@ -81,8 +78,10 @@ namespace FarmaPopTec_1._0.Dados
                 //Método complementar para inserir dados na coleção
                 foreach (Compra_Produto compra_Produto in compra.Colecao)
                 {
+                    //Região que implementa Compra_Produto
+                    #region Compra_Produto
                     //insert na tabela Compra_Produto
-                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade) values(@qtdCompra,@valorTotal,@codProduto,@nrCompra,@validade";
+                    string sqlCompraProduto = "insert into compra_Produto (qtdCompra,valorTotal,codProduto,nrCompra,validade) values(@qtdCompra,@valorTotal,@nrCompra,@validade)";
                     
                     //instrucao a ser executada
                     SqlCommand cmdCompraProduto = new SqlCommand(sqlCompraProduto, this.sqlConn);
@@ -92,21 +91,43 @@ namespace FarmaPopTec_1._0.Dados
                     cmdCompraProduto.Parameters["@qtdCompra"].Value = compra_Produto.QtdCompra;
 
                     cmdCompraProduto.Parameters.Add("@valorTotal", SqlDbType.Float);
-                    cmdCompraProduto.Parameters["@valorTotal"].Value = compra_Produto.ValorTotal;
-
-                    cmdCompraProduto.Parameters.Add("@codProduto", SqlDbType.Int);
-                    cmdCompraProduto.Parameters["@codProduto"].Value = compra_Produto.Produto.CodProduto;
+                    cmdCompraProduto.Parameters["@valorTotal"].Value = compra_Produto.ValorTotal;                    
 
                     cmdCompraProduto.Parameters.Add("@nrCompra", SqlDbType.Int);
                     cmdCompraProduto.Parameters["@nrCompra"].Value = compra_Produto.Compra.NumCompra;
 
                     cmdCompraProduto.Parameters.Add("@validade", SqlDbType.Date);
                     cmdCompraProduto.Parameters["@validade"].Value = compra_Produto.Validade;
-
+                    
                     //executando a instrucao 
                     cmdCompraProduto.ExecuteNonQuery();
                     //liberando a memoria 
                     cmdCompraProduto.Dispose();
+                    #endregion
+
+                    //Região que implementa Produto
+                    #region Produto
+                    //string sqlProduto = "insert into Produto ( saldoProduto, dataFabricacao, nomeProduto, precoProduto) values(@saldo,@dataFabricacao,@nomeProduto,@precoProduto)";
+
+                    //SqlCommand cmdProduto = new SqlCommand(sqlProduto, this.sqlConn);
+
+                    //cmdProduto.Parameters.Add("@saldo", SqlDbType.Int);
+                    //cmdProduto.Parameters["@saldo"].Value = compra_Produto.Produto.SaldoProduto;
+
+                    //cmdProduto.Parameters.Add("@dataFabricacao", SqlDbType.Date);
+                    //cmdProduto.Parameters["@dataFabricacao"].Value = compra_Produto.Produto.DataFabricacao;
+
+                    //cmdProduto.Parameters.Add("@nomeProduto", SqlDbType.Date);
+                    //cmdProduto.Parameters["@nomeProduto"].Value = compra_Produto.Produto.NomeProduto;
+
+                    //cmdProduto.Parameters.Add("@precoProduto", SqlDbType.Float);
+                    //cmdProduto.Parameters["@precoProduto"].Value = compra_Produto.Produto.PrecoProduto;
+
+                    ////executando a instrucao
+                    //cmdProduto.ExecuteNonQuery();
+                    ////Liberando a memoria
+                    //cmdProduto.Dispose();
+                    #endregion
                 }
 
                 //fechando a conexao

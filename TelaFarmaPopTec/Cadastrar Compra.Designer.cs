@@ -62,6 +62,7 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label9 = new System.Windows.Forms.Label();
             this.buttonInserir = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonVoltar
@@ -92,9 +93,9 @@
             this.columnHeader5,
             this.columnHeader6});
             this.listViewCompra.FullRowSelect = true;
-            this.listViewCompra.Location = new System.Drawing.Point(28, 297);
+            this.listViewCompra.Location = new System.Drawing.Point(393, 71);
             this.listViewCompra.Name = "listViewCompra";
-            this.listViewCompra.Size = new System.Drawing.Size(784, 189);
+            this.listViewCompra.Size = new System.Drawing.Size(723, 189);
             this.listViewCompra.TabIndex = 30;
             this.listViewCompra.UseCompatibleStateImageBehavior = false;
             this.listViewCompra.View = System.Windows.Forms.View.Details;
@@ -103,12 +104,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Número da compra";
-            this.columnHeader1.Width = 187;
+            this.columnHeader1.Width = 137;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Data da compra";
-            this.columnHeader2.Width = 184;
+            this.columnHeader2.Width = 170;
             // 
             // columnHeader5
             // 
@@ -219,7 +220,7 @@
             // 
             // textBoxQTD
             // 
-            this.textBoxQTD.Location = new System.Drawing.Point(532, 99);
+            this.textBoxQTD.Location = new System.Drawing.Point(144, 259);
             this.textBoxQTD.MaxLength = 5;
             this.textBoxQTD.Name = "textBoxQTD";
             this.textBoxQTD.Size = new System.Drawing.Size(229, 20);
@@ -228,7 +229,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(411, 102);
+            this.label5.Location = new System.Drawing.Point(23, 262);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 13);
             this.label5.TabIndex = 36;
@@ -236,7 +237,7 @@
             // 
             // textBoxProduto
             // 
-            this.textBoxProduto.Location = new System.Drawing.Point(532, 132);
+            this.textBoxProduto.Location = new System.Drawing.Point(144, 292);
             this.textBoxProduto.MaxLength = 4;
             this.textBoxProduto.Name = "textBoxProduto";
             this.textBoxProduto.Size = new System.Drawing.Size(229, 20);
@@ -245,7 +246,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(411, 135);
+            this.label6.Location = new System.Drawing.Point(23, 295);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 13);
             this.label6.TabIndex = 38;
@@ -253,7 +254,7 @@
             // 
             // textBoxPreco
             // 
-            this.textBoxPreco.Location = new System.Drawing.Point(532, 167);
+            this.textBoxPreco.Location = new System.Drawing.Point(144, 327);
             this.textBoxPreco.MaxLength = 11;
             this.textBoxPreco.Name = "textBoxPreco";
             this.textBoxPreco.Size = new System.Drawing.Size(229, 20);
@@ -262,7 +263,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(411, 170);
+            this.label7.Location = new System.Drawing.Point(23, 330);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 40;
@@ -270,7 +271,7 @@
             // 
             // textBoxValidade
             // 
-            this.textBoxValidade.Location = new System.Drawing.Point(532, 202);
+            this.textBoxValidade.Location = new System.Drawing.Point(144, 362);
             this.textBoxValidade.MaxLength = 10;
             this.textBoxValidade.Name = "textBoxValidade";
             this.textBoxValidade.Size = new System.Drawing.Size(229, 20);
@@ -279,7 +280,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(411, 205);
+            this.label8.Location = new System.Drawing.Point(23, 365);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(102, 13);
             this.label8.TabIndex = 42;
@@ -293,9 +294,9 @@
             this.columnHeader8,
             this.columnHeader9});
             this.listViewProdutos.FullRowSelect = true;
-            this.listViewProdutos.Location = new System.Drawing.Point(783, 99);
+            this.listViewProdutos.Location = new System.Drawing.Point(393, 279);
             this.listViewProdutos.Name = "listViewProdutos";
-            this.listViewProdutos.Size = new System.Drawing.Size(333, 181);
+            this.listViewProdutos.Size = new System.Drawing.Size(723, 181);
             this.listViewProdutos.TabIndex = 44;
             this.listViewProdutos.UseCompatibleStateImageBehavior = false;
             this.listViewProdutos.View = System.Windows.Forms.View.Details;
@@ -324,7 +325,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(904, 74);
+            this.label9.Location = new System.Drawing.Point(696, 263);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 45;
@@ -332,7 +333,7 @@
             // 
             // buttonInserir
             // 
-            this.buttonInserir.Location = new System.Drawing.Point(607, 239);
+            this.buttonInserir.Location = new System.Drawing.Point(159, 463);
             this.buttonInserir.Name = "buttonInserir";
             this.buttonInserir.Size = new System.Drawing.Size(75, 23);
             this.buttonInserir.TabIndex = 46;
@@ -340,11 +341,21 @@
             this.buttonInserir.UseVisualStyleBackColor = true;
             this.buttonInserir.Click += new System.EventHandler(this.buttonInserir_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(696, 51);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(99, 13);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "Tabela de Compras";
+            // 
             // Cadastrar_Compra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 498);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.buttonInserir);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.listViewProdutos);
@@ -413,5 +424,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonInserir;
+        private System.Windows.Forms.Label label10;
     }
 }

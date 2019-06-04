@@ -23,7 +23,7 @@ namespace TelaFarmaPopTec
             InitializeComponent();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void btDeletarProduto_Click(object sender, EventArgs e)
         {
             try
             {
@@ -91,6 +91,11 @@ namespace TelaFarmaPopTec
 
                 throw;
             }
+        }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
     

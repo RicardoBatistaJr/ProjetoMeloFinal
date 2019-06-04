@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btAlterarStatus = new System.Windows.Forms.Button();
             this.btDesativarProduto = new System.Windows.Forms.Button();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxNomeProduto
@@ -134,7 +135,7 @@
             this.btDeletarProduto.TabIndex = 11;
             this.btDeletarProduto.Text = "Deletar Produto";
             this.btDeletarProduto.UseVisualStyleBackColor = true;
-            this.btDeletarProduto.Click += new System.EventHandler(this.Button2_Click);
+            this.btDeletarProduto.Click += new System.EventHandler(this.btDeletarProduto_Click);
             // 
             // label4
             // 
@@ -165,11 +166,22 @@
             this.btDesativarProduto.UseVisualStyleBackColor = true;
             this.btDesativarProduto.Click += new System.EventHandler(this.BtDesativarProduto_Click);
             // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.Location = new System.Drawing.Point(300, 12);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(76, 23);
+            this.buttonVoltar.TabIndex = 15;
+            this.buttonVoltar.Text = "Voltar";
+            this.buttonVoltar.UseVisualStyleBackColor = true;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
+            // 
             // ManterProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 295);
+            this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.btDesativarProduto);
             this.Controls.Add(this.btAlterarStatus);
             this.Controls.Add(this.label4);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btAlterarStatus;
         private System.Windows.Forms.Button btDesativarProduto;
+        private System.Windows.Forms.Button buttonVoltar;
     }
 }
